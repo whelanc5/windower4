@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<settings>
+    <!--
+	This file controls the settings for the Timers plugin.
+	Settings in the <global> section apply to all characters
+
+	The available settings are:
+	-->
+    <global>
+        <EnableRecast>true</EnableRecast>
+        <EnableBuffs>true</EnableBuffs>
+        <GraphicalMode>true</GraphicalMode>
+        <SlimMode>false</SlimMode>
+        <ShowTenths>false</ShowTenths>
+        <Show1HourName>true</Show1HourName>
+        <HighRed>255</HighRed>
+        <HighGreen>0</HighGreen>
+        <HighBlue>0</HighBlue>
+        <MedRed>255</MedRed>
+        <MedGreen>160</MedGreen>
+        <MedBlue>0</MedBlue>
+        <LowRed>0</LowRed>
+        <LowGreen>255</LowGreen>
+        <LowBlue>0</LowBlue>
+        <TextA>255</TextA>
+        <TextR>255</TextR>
+        <TextG>255</TextG>
+        <TextB>255</TextB>
+        <FlashR>255</FlashR>
+        <FlashG>255</FlashG>
+        <FlashB>0</FlashB>
+        <FontName>Arial</FontName>
+        <FontSize>8</FontSize>
+        <FontBold>false</FontBold>
+        <RecastX>20</RecastX>
+        <RecastY>350</RecastY>
+        <BuffsX>200</BuffsX>
+        <BuffsY>350</BuffsY>
+        <CustomX>380</CustomX>
+        <CustomY>350</CustomY>
+        <BarSpacing>0</BarSpacing>
+        <RecastTimerLimit>10</RecastTimerLimit>
+        <BuffsTimerLimit>10</BuffsTimerLimit>
+        <CustomTimerLimit>10</CustomTimerLimit>
+        <ExtendText>true</ExtendText>
+        <TextColoring>false</TextColoring>
+        <!--One of: Alphabetical, Creation, Duration-->
+        <SortType>Creation</SortType>
+        <MedPercent>0.5</MedPercent>
+        <LowPercent>0.25</LowPercent>
+        <RecastLowToHigh>true</RecastLowToHigh>
+        <BuffsLowToHigh>false</BuffsLowToHigh>
+        <CustomLowToHigh>false</CustomLowToHigh>
+        <BGA>128</BGA>
+        <BGR>0</BGR>
+        <BGG>0</BGG>
+        <BGB>0</BGB>
+        <RecastFlashDuration>2</RecastFlashDuration>
+        <BuffsFlashDuration>2</BuffsFlashDuration>
+        <CustomFlashDuration>2</CustomFlashDuration>
+        <!--If true, only items on the recast/buff lists will be displayed-->
+        <WhitelistMode>false</WhitelistMode>
+        <!--List of ability names to display recasts for if in whitelistMode and to exclude otherwise-->
+        <AbilityRecastFilter />
+        <!--List of spell names to display recasts for if in whitelistMode and to exclude otherwise-->
+        <SpellRecastFilter />
+        <!--List of ability names to display buffs for if in whitelistMode and to exclude otherwise-->
+        <AbilityBuffFilter />
+        <!--List of spell names to display buffs for if in whitelistMode and to exclude otherwise-->
+        <SpellBuffFilter />
+        <!--If true will show a font outline-->
+        <Stroke>false</Stroke>
+    </global>
+    <!--
+	You may also override specific settings on a per-character basis here.
+	-->
+</settings>

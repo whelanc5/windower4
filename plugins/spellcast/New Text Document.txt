@@ -1,0 +1,3 @@
+<if buffactive="Boost">
+				<action type="command" when="precast">wait 1;input /ja berserk</action>
+				</if>

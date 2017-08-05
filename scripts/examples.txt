@@ -1,0 +1,38 @@
+(define (num_pos L)
+	; returns the number of positive number in list L
+	(cond ((null? 	L) 	0)
+		((> (car L) 0) 	(+1 (num_pos (cdr L))))
+		(else 			(num_pos (cdr L))) ))
+		
+
+(define (list_pos? L)
+	;returns a list of the positive numbers in list L
+	(cond 	(null? 	L)		'()')
+	((> 	(car L) 0)		(conds (car L) (list_pos (cdr L))))
+	(else 					(list_pos (cdr L))))
+	
+	
+(define (all_pos? L)
+	;returns #T if all numbers in the list are positive, otherwise #F
+	(cond 	(null? 	L)		#T
+	((<= 	(car L)	0)		#F)	
+	(else					(all_pos? (cdr L)))))
+
+(define (has_pos? L)
+	;returns #T if a number in the list are positive, otherwise #F
+	(cond 	(null? 	L)		#F)
+	((> 	(car L)	0)		#T)	
+	(else					(has_pos? (cdr L))))
+	
+(state.capital '((nj, trenton) (de, dover) ' nj)
+	trenton 
+	
+match at head cause its the first capital
+
+(define (state_capital L State)
+		; return the capital of state in list L
+		; (describe data structure)
+		(cond	((null? L)		'error)
+				((eq?	(caar L) State)	; matches 1st tate in L
+						(cadar L)
+
