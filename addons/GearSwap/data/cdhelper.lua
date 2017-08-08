@@ -10,6 +10,10 @@
 	-- makes it so manuevers will be used as they wear off
 	---- //gs c cap
 	-- equips capacity back, you have to set the back in the self_command function under cap
+	-- //gs c magicburst
+	-- sets elemental set to magicburst set
+	--//gs c petWS
+	-- equips petWS set, will be switched out of after a cast
 	
 	--------------EquipSets---------------------------------------
 	--these will equip the current mode of a set
@@ -412,7 +416,7 @@ function self_command(command)
 			add_to_chat(122,idleMode .. "idle")
 			
 	elseif command == "Pet/Nuke" then ---- for changing Pet mode or Nuke mode
-		if player.main_job == "PUP" then
+		if player.main_job == "PUP" or player.main_job == "SMN" or player.main_job == "BST" then
 			equip(sets.Pet[petMode])
 			add_to_chat(122, petMode .. "pet")
 		else 
@@ -541,6 +545,9 @@ function self_command(command)
 	elseif command == "customDT"  then
 		sets.DT.Custom =   customSet()	
 		add_to_chat(122, "Custom DT Set")
+	elseif command == "customNuke"  then
+		sets.Nuke.Custom =   customSet()	
+		add_to_chat(122, "Custom Nuke Set")
 	end
 end
 
