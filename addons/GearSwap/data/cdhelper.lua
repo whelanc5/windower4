@@ -164,8 +164,16 @@
 
 
 
-
-
+------------------------------------------------------------------------Precast Function---------------------------------------------------------------------------------------------------------------
+-- if a sets.precast["spell name"] exists it will equip that.
+-- if magic it will equip sets.precast.magic
+-- if healing it will equip sets.precast.Magic.Healing if it exists
+-- if a job ability, it will equip sets.precast.JA["spell name"] if it exists
+-- if weapon skill it will equip sets.precast.WS
+-- if sets.WS["WS name"] exists it will equip that
+-- if sets.WS["WS name"]."Ws mode" exists it will equip that
+-- if sets.precast.maneuver is set it will equip that set when any maneuver is used
+-- if sets.precast.Waltz is set, it will equip that set when any maneuver is used
 function precast(spell)
 	
 	if sets.precast[spell.english] then
@@ -195,8 +203,10 @@ function precast(spell)
     end
 	
    end
-	
-
+-----------------------------------------------------------------------------Buff Change function--------------------------------------
+-- looks for buff changes
+-- automaneuver is set to true, it will put maneuvers back up when they wear
+-- if runes it set to true, it will put up any runes that of within the runes set as they wear off
 function buff_change(name, gain)
 	if not gain and automaneuver and string.find(name,'Maneuver') then --maneuver auto put back up if automaneuver is true
 			add_to_chat(122,name)
@@ -208,7 +218,10 @@ function buff_change(name, gain)
 		send_command(name)
 	end
 end
-
+------------------------------------------------------------------------Pet mid cast-----------------------------------------------------------
+-- doesn't work for Ws
+-- will equip pet magic sets if they exists
+-- sets.midcast.Pet['Elemental Magic']
 function pet_midcast(spell)
 	if petWeaponskills:contains(spell.english) then   --petWeaponskills equip 
 	-- equip(sets.midcast.Pet.WeaponSkill) 
@@ -217,7 +230,9 @@ function pet_midcast(spell)
 	end
   
 end
-
+---------------------------------------------------------------------Pet aftercast-----------------------------------------------------------------
+--puts current tp/idle set on after a pet cast
+-- if petWS bool is on it turns it off
 function pet_aftercast(spell)   --put tp gear back on after pet
 	if player.status =='Engaged' then
 		
@@ -229,7 +244,8 @@ function pet_aftercast(spell)   --put tp gear back on after pet
   end
 
 
-
+---------------------------------------------------------------------aftercast-----------------------------------------------------------------
+--puts current tp/idle set on after a  cast
 function aftercast(spell)
     if player.status =='Engaged' then
         equip(sets.aftercast.TP)
@@ -295,6 +311,8 @@ function midcast(spell)
 		end	
 	end
 end
+
+
 function status_change(new,old)
     if T{'Idle','Resting'}:contains(new) then
         equip(sets.aftercast.Idle)
