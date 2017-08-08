@@ -1,87 +1,18 @@
-	include('skillup.lua')
 	
-	----------------------------------------------------Commands---------------------------------------------------------------------------------------------------
-	--------------booleans--------------------------------
-	-----------When used these will switch on if they're off, and off if they're on
-	
-	---- //gs c deploy 
-	-- makes it so automaton will automatically deploy when you engage
-	---- //gs c automaneuver 
-	-- makes it so manuevers will be used as they wear off
-	---- //gs c cap
-	-- equips capacity back, you have to set the back in the self_command function under cap
-	
-	--------------EquipSets---------------------------------------
-	--these will equip the current mode of a set
-	--called by calling the name of the set 
-	-- currently defined are: equipTP, equipDT, equipIdle, equipPet, equipPet/Nuke, equip
-	--------------Mode switches-----------------------------------
-	---These will cylce through the modes if they're configured correctly
-	-- already configured are tp, pet, nuke, dt, and idle sets.
-	-- calling the prefix followed by "Mode" will change the current mode, ex //gs c dtMode will cycle through the dtModes
-	-- 
-	----------------------------------------------------Hot Keys----------------------------------------------------------
-	--These hotkeys are only set with my windower init file 
-	
-	--f9 is bound to equip current tpset
-	--Crtl f9 is bound to change tp modes
-	-- alt f9 sets up a custom tp mode, which will be equiped under customTP
-	
-	--f10 is bound to equip current  dtset
-	--Crtl f10 is bound to change tp modes
-	--alt f10 sets WS mode
-	
-	--f11 is bound to equip current Idleset
-	--Crtl f11 is bound to change idle modes
-	
-	
-	--f12 is bound to equip current Pet set when on pup, nuking set when on anything else
-	--Crtl f12 is bound to change pet mode when on pup, and nuking set on anything else
-	----------------------------------------------------------------------------------------------------
-	
-	
-	
-	
-	
-	---------------------------------------------------------Sets for blu spells----------------------------------------------
 	blueMagic = S{} --spells that will equip sets.Blue.Magic[nukeMode]
 	bluePhysical = S{} -- spells that will equip sets.Blue.Physical
 	blueDebuff = S{} -- spells that will equip sets.Blue.Debuff
 	blueBuff = S{} -- spells that will equip sets.Blue.Buff
 	blueCure = S{}-- spells that will equip sets.Blue.Cure
-	-----------------------------------------------------------------------------------------------------------------------------
+	modes = S{"tpMode", "petMode", "dtMode", "wsMode", "nukeMode", "idleMode"} -- list of modes
 	
-	----------------------------------------------------------------Modes--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	
-	--To create a mode you have to do the following:
-	--Put the catagory in the following set. The format should be an identifying prefix, followed by "Mode" as the suffix. Ex: for changing tp "tp" is the prefix, Mode is the suffix, so you'd put tpMode. 
-	-- you will also need to create a num variable which should be set to 1, this should be the prefix followed by Num. ex: tpMode's num variable will be tpNum = 1. 
-	-- next you will need to set the modes set for that catagory. this should be entereed as the prefix followed by "Modes" and be set to the empty set {}. Ex: tpModes = {} 
-	-- finally you'll need to set the modes to a value, this has to match a set in the jobs LUA, and should be redefined there. It is a good idea to create holder value that is set to "Default", incase it isn't made. Ex: tpMode = "Default"
-	
-	
-	----------------------------------------------------------List of catagories-----------------------------------------------------------
-	--prefix + mode
-	--ex "tpMode"
-	modes = S{"tpMode", "petMode", "dtMode", "wsMode", "nukeMode", "idleMode"} 
-	
-	
-	
-	
-	---------------------------------------------------------ModeNum Variables--------------------------------------------------------------
-	---Global Variables to keep trade of set number, should be set to 1
-	-- prefix + Num
-	-- ex tpNum = 1
 	tpNum = 1 --nums to keep track of which of the set to use
 	petNum= 1
 	idleNum=1
 	dtNum =1
 	wsNum = 1
 	nukeNum = 1
-	---------------------------------------------Mode Lists-----------------------------------------------------------------------------------
-	--they are a list of modes which that particular catagory can have
-	--prefix + Modes
-	-- ex tpModes = {}
+	
 	tpModes = {} --sets of modes
 	dtModes = {}
 	petModes = {}
@@ -89,12 +20,8 @@
 	wsModes = {}
 	nukeModes = {}
 	tpMode= {}
-	
-	------------------------------------------------------Mode variables
-	--vars to hold name of the current set
-	-- pre+Mode
-	-- ex idleMode = "Default"
-
+	-- var to hold name of the current set
+	--tpMode = "Default"
 	idleMode= "Default"
 	petMode= "Default"
 	dtMode = "Default"
@@ -102,10 +29,7 @@
 	nukeMode = "Default"
 	tpMode = "Default"
 	
-----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
-	--These are booleans 
-	
-	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "autoWS"} --booleans
+	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "autoWS", "petChange"} --booleans
 	deploy = false
 	automaneuver = false
 	magicburst = false
@@ -113,9 +37,7 @@
 	autoWS = false;
 	cap = false;
 	petWS = false;
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
---these should be overridden in job lua
+	
 	sets.TP = {} 
 	sets.precast = {}
 	sets.precast.Magic = {}
@@ -144,28 +66,19 @@
 	sets.Nuke.Default = {}
 	
 	sets.WS = {}
-----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
+	
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
 	hercLegsCrit = {name="Herculean Trousers", augments={'Accuracy+26','Crit.hit rate+4','AGI+5','Attack+1',}}
 	hercFeetCrit = { name="Herculean Boots", augments={'Accuracy+23','Crit.hit rate+5','INT+6','Attack+9',}}
 	hercFeetTA = { name="Herculean Boots", augments={'Accuracy+30','"Triple Atk."+3','INT+3','Attack+13',}}
+	runes = S{"Tellus", "Flabra"}
 	
-	
-	--------------------------------------------------------Set for pet WS--------------------------------------------------------------------------------
+	--------------------------------------------------------tables for commands--------------------------------------------------------------------------------
     petWeaponskills = S{"Slapstick", "Knockout", 
     "Chimera Ripper", "String Clipper",  "Cannibal Blade", "Bone Crusher", "String Shredder",
     "Arcuballista", "Daze", "Armor Piercer", "Armor Shatterer"}
 	
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-	runes = S{"Tellus", "Flabra"}
-
-
-
-
-
-
-
-
 function precast(spell)
 	
 	if sets.precast[spell.english] then
@@ -314,10 +227,36 @@ function booleanChange(bool) ---------------------------------------------------
 	end
 end
 
+function tpModeChange(command, str) --method for changing different modes--------------------------------------------------------------------------------
+	if modes:contains(command) then				
+		
+		modesVar = _G[command .. "s"]
+		modesNum = _G[str .. "Num"]
+		if  #modesVar == 0 then	
+			if  equip(sets.TP[str]) then	
+				add_to_chat(122, command)
+				equip(sets.TP[str])
+				sets.aftercast.TP = sets.TP[str]
+				add_to_chat(122, command)
+			end
+		else
+			if  modesNum == #modesVar then
+				modesNum = 1 	
+			else 
+				modesNum = modesNum + 1
+			end
+			_G[str .. "Mode"]= modesVar[modesNum]
+			_G[str .. "Num"] = modesNum
+			sets.aftercast.TP = sets.TP[modeVar]
+			equip(sets.aftercast.TP)
+			add_to_chat(122, _G[str .. "Mode"] .. str)
+		end
+	end
+end
 
 function modeChange(command, str) --for changing different modes -- command is the mode's variable name, and str is the suffix of the name ie tpMode, "tp"
-	local modesVar = _G[command .. "s"]
-	local modesNum = _G[str .. "Num"]
+	modesVar = _G[command .. "s"]
+	modesNum = _G[str .. "Num"]
 	if modes:contains(command) and #modesVar ~= 0 then	
 		if modesNum == #modesVar then
 			modesNum = 1 
@@ -329,6 +268,21 @@ function modeChange(command, str) --for changing different modes -- command is t
 			add_to_chat(122, _G[str .. "Mode"] .. str)
 		
 	end
+end
+
+function mode_Change(currModes, number, mode) --for changing different modes -- command is the mode's variable name, and str is the suffix of the name ie tpMode, "tp"
+	
+	--if modes:contains(mode) and #currModes ~= 0 then	
+		if number == #currModes then
+			number = 1 
+		else
+			number = number + 1	
+		end
+			mode= currModes[number]
+			--_G[str .. "Num"] = modesNum			
+			add_to_chat(122, number .. "Mode")
+		
+	
 end
 function customSet()
 	 return {head= player.equipment.head, neck= player.equipment.neck,
@@ -409,7 +363,7 @@ function self_command(command)
 			sets.Idle.DT = sets.DT
 			add_to_chat(122, "DT")
 		else
-			modeChange("dtMode", "dt")
+			mode_Change(dtModes,dtNum, dtMode)
 			sets.TP.DT = sets.DT[dtMode]
 			equip(sets.TP.DT)
 			sets.aftercast.TP = sets.DT[dtMode]
@@ -467,7 +421,15 @@ function self_command(command)
 			sets.aftercast.Idle = sets.Idle[idleMode]
 			equip(sets.Idle[idleMode])
 		end	
-
+	--elseif sets.TP[command] then --for changing tp modes by direct command
+	--	if sets.TP[command][tpmode] then
+	--		equip(sets.TP[command])
+		--	add_to_chat(122,command)
+		--else
+		--	sets.aftercast.TP = sets.TP[command]
+		--	equip(sets.TP[command])
+		--	add_to_chat(122,command .."-default" )
+		--end	
 	---------------------------------------------------------------------------------------------booleans--------------------------------------------------------------------------------------
 	
 	elseif booleans:contains(command) then		--turns booleans off or on, booleans must be in the commands section
@@ -488,32 +450,11 @@ function self_command(command)
 				enable("back")
 				add_to_chat(122, command .. " off")
 			end
-	elseif command == "skillupD" then
-		if skillupD == false then
-			skillupD = true;
-			add_to_chat(122, command .. " on")
-			send_command('wait 10 ;input //gs c skillUpMagic')
-		else 
-			skillupD = false
-			add_to_chat(122, command .. " off")
-		end
-		elseif command == "skillupO" then
-		if skillupO == false then
-			skillupO = true;
-			add_to_chat(122, command .. " on")
-			send_command('wait 10 ;input //gs c skillupOffensive')
-		else 
-			skillupO = false
-			add_to_chat(122, command .. " off")
-		end
-	elseif command == "skillUpMagic" then
-		skillUpMagic()
-	elseif command == "skillupOffensive" then
-		skillupOffensive()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
 	elseif command == "customTP"  then
 		sets.TP.Custom =   customSet()	
-		add_to_chat(122, "Custom TP Set")	
+		add_to_chat(122, "Custom TP Set")
+	
 	elseif command == "customPet"  then
 		sets.Pet.Custom =   customSet()	
 		add_to_chat(122, "Custom Pet Set")
