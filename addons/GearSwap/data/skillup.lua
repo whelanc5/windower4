@@ -61,13 +61,13 @@ function skillupOffensive()
 add_to_chat(122, player.status)
 	if player.mpp < 15  then 
 		add_to_chat(122, player.mpp)
-		send_command('wait 10 ;input /heal on')
+		send_command('input /heal on')
 			
 	elseif player.status == "Resting" then
 		add_to_chat(122, player.mpp)
 		
 		if player.mpp > 90 then
-			send_command('wait 10 ;input /heal off')
+			send_command('input /heal off')
 		end
 	
 	elseif (skillupO == true) and (player.status == "Idle") then
@@ -84,7 +84,7 @@ add_to_chat(122, player.status)
 		
 	end
 	if (skillupO == true) then
-		send_command('wait 10 ;input //gs c skillupOffensive')
+		send_command('wait 5 ;input //gs c skillupOffensive')
 	end
 	
 end
