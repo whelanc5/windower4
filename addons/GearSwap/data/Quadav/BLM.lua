@@ -8,28 +8,41 @@ function get_sets()
 	
 	
 	include('cdhelper.lua')
-    sets.precast = {}
-	sets.precast.JA = {}
-	tpModes = { "Acc", "Haste", "Pet", "Default", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+
+	tpModes = { "Acc", "Haste",  "Default", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	wsModes = {"Default", "Acc"}  --sets.WS.Mode
-	idleModes = {"Default", "Pet", "DT", "Custom"}
+	idleModes = {"Default", "DT", "Custom"}
 	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	sets.base = {} -- Base set. Can use this as a base for other sets
-	nukeModes ={"Default", "mAcc"}
+	nukeModes ={"Default"}
+	
+	
+	
+	--------------magic-------------------------------------------------------------------------------------------------------
+	sets.midcast.Magic = {}	
+	sets.midcast.Elemental = {}	
+	sets.midcast.Healing = nil --set to a set if going to be used
+	sets.precast.Magic.Healing = nil --set to a set if going to be used
+	--Nuke-------------------------------------------------------------------------
+	--changes sets.midcast.Elemental to this set based on mode
+	sets.Nuke.Default = {}
+	sets.Nuke.Custom = {}
+	sets.Nuke.Acc = {}
+	sets.Nuke.Burst = {}
+	sets.midcast.burst = {}
+	-- ex: sets.precast.JA['Tactical Switch']
+	
 	--------------------------------------------------WS-----------------------------------------------------------------------
-	sets.base.WS = set_combine(sets.base,{ })	
-	sets.WS = set_combine(sets.base.WS,{})
-	sets.WS.Default = set_combine(sets.base.WS,{})
-	sets.WS.Acc = set_combine(sets.base.WS,{ })	
-    sets.precast.WS = set_combine(sets.base.WS,{})
+	----sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
+	sets.base.WS = set_combine(sets.base,{})	
+	sets.WS = {}
+	sets.WS.Default = {}
+	sets.WS.Acc = { }
+    sets.precast.WS = {}
 	
-	sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
-	sets.WS['Shijin Spiral'].Acc = set_combine(sets.WS['Shijin Spiral'], {})
-		
 	
-	sets.WS['Victory Smite'] = set_combine(sets.WS[wsMode],{})
-	sets.WS['Victory Smite'].Acc = set_combine(sets.WS['Victory Smite'], {})
+
 	
 
 
@@ -44,8 +57,10 @@ function get_sets()
 	sets.TP.Custom = set_combine(sets.TP,{})
 	
 	--------------------------------------------------------------------JA------------------------------------------------------------------
-    sets.precast.JA['Tactical Switch'] = {feet="Cirque Scarpe +2"}	
-
+	
+    -- put sets.precast.JA['Spell Name'] = {set} to equip before using a ja
+	-- ex: sets.precast.JA['Tactical Switch'] = {feet="Cirque Scarpe +2"}	
+	
 	
 	
 	------------------------------------------DT-----------------------------------------------------------------------------------------------
@@ -79,13 +94,6 @@ function get_sets()
 	sets.Pet.Custom = {}
 	sets.Pet.DD = {}
 	sets.Pet.Hybrid = {}
-		----------------------------------------------Nuke-------------------------------------------------------------------------
-	sets.midcast.Elemental = {}
-	sets.Nuke.Default = {}
-	sets.Nuke.Custom = {}
-	sets.Nuke.Acc = {}
-	sets.Nuke.Burst = {}
-	sets.midcast.burst = {}
+
 	send_command('input /macro book 1;wait .1;input /macro set 9')
 end
-

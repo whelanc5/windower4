@@ -121,45 +121,45 @@
 	petWS = false;
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
---these should be overridden in job lua
+--these can be overridden in job lua
+	-----------------tp------------------------
 	sets.TP = {} 
-	--- precast------------------
+	----Ja-------------------------------------
+	
+	--- precast--------------------------------
 	sets.precast = {}
 	sets.precast.Magic = {}
 	sets.precast.TP ={}			
 	sets.precast.WS = {}
 	sets.precast.JA = {}
 	sets.precast.Magic = {}
-	--------------midcast-----------------------
+
+	--------------midcast----------------------
 	sets.midcast = {}
-	sets.midcast.Magic = {}		
-	-------------------dt---------------------
+	
+	-------------------dt----------------------
 	sets.DT = {}
-    sets.DT.Default = {}  
-	sets.DT.Magic  = {}
-	------------------aftercast--------------
+
+	------------------aftercast----------------
 	sets.aftercast = {}	
-    sets.aftercast.TP = {}    
-    sets.aftercast.Idle = {}
-	-----------------idle--------------------
+
+	-----------------idle----------------------
 	sets.Idle = {}
-	sets.Idle.DT = {}
-	sets.Idle.Default = {}
-	--------------blue-----------------------
+
+	--------------blue-------------------------
 	sets.Blue = {}
 	sets.Blue.Magic = {}
 	sets.Blue.Physical = {}
 	sets.Blue.Debuff = {}
 	sets.Blue.Buff = {}
 	sets.Blue.Cure = {}
-	--------------Nuke------------------------
+	--------------Nuke-------------------------
 	sets.Nuke = {}
-	sets.Nuke.Default = {}
-	------------pet---------------------------
+	
+	------------pet----------------------------
 	sets.Pet = {}
-	sets.Pet.Default = {}
-	
-	
+
+	-------------------------------Ws----------
 	sets.WS = {}
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
@@ -294,7 +294,7 @@ storms = {
     Lightning = "Thunderstorm",
   }
 
-
+-----------------------------------------------midcast----------------------------------------------------------------------------------------------
 function midcast(spell)
 	if sets.midcast[spell.english] then
         equip(sets.midcast[spell.english])	
@@ -329,6 +329,7 @@ function midcast(spell)
 	end
 end
 
+-----------------------------------------------------------status change-------------------------------------------------------------
 
 function status_change(new,old)
     if T{'Idle','Resting'}:contains(new) then
@@ -455,7 +456,7 @@ function self_command(command)
 			add_to_chat(122, "nuke default")
 		else
 			modeChange("nukeMode", "nuke")
-			sets.Midcast.Elemental = sets.Nuke[nukeMode]
+			sets.midcast.Elemental = sets.Nuke[nukeMode]
 		end
 	elseif command == "petMode" then		-- for changing pet modes by hotkey, type gs c petMode
 		if  #petModes == 0 then

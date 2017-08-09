@@ -8,8 +8,8 @@ function get_sets()
 	
 	
 	include('cdhelper.lua')
-    sets.precast = {}
-	sets.precast.JA = {}
+ 
+	
 	tpModes = { "Acc", "Haste", "Pet", "Default", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	wsModes = {"Default", "Acc"}  --sets.WS.Mode
