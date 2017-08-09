@@ -8,8 +8,7 @@ function get_sets()
 	
 	
 	include('cdhelper.lua')
-    sets.precast = {}
-	sets.precast.JA = {}
+
 	tpModes = { "Acc", "Haste", "Pet", "Default", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	wsModes = {"Default", "Acc"}  --sets.WS.Mode
@@ -17,8 +16,19 @@ function get_sets()
 	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	sets.base = {} -- Base set. Can use this as a base for other sets
 	nukeModes ={"Default", "mAcc"}
+	
+	--- precast------------------
+	sets.precast = {}
+	sets.precast.Magic = {}
+	sets.precast.TP ={}			
+	sets.precast.WS = {}
+	sets.precast.JA = {}
+	sets.precast.Magic = {}
+	--------------midcast-----------------------
+	sets.midcast = {}
+	sets.midcast.Magic = {}		
 	--------------------------------------------------WS-----------------------------------------------------------------------
-	sets.base.WS = set_combine(sets.base,{ })	
+	sets.base.WS = set_combine(sets.base,{})	
 	sets.WS = set_combine(sets.base.WS,{})
 	sets.WS.Default = set_combine(sets.base.WS,{})
 	sets.WS.Acc = set_combine(sets.base.WS,{ })	

@@ -14,6 +14,8 @@
 	-- sets elemental set to magicburst set
 	--//gs c petWS
 	-- equips petWS set, will be switched out of after a cast
+	--//gs c skillupO 
+	--//gs c skillupD
 	
 	--------------EquipSets---------------------------------------
 	--these will equip the current mode of a set
@@ -121,31 +123,42 @@
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
 --these should be overridden in job lua
 	sets.TP = {} 
+	--- precast------------------
 	sets.precast = {}
 	sets.precast.Magic = {}
 	sets.precast.TP ={}			
 	sets.precast.WS = {}
-	sets.precast = {}
 	sets.precast.JA = {}
+	sets.precast.Magic = {}
+	--------------midcast-----------------------
 	sets.midcast = {}
 	sets.midcast.Magic = {}		
+	-------------------dt---------------------
 	sets.DT = {}
     sets.DT.Default = {}  
 	sets.DT.Magic  = {}
+	------------------aftercast--------------
 	sets.aftercast = {}	
     sets.aftercast.TP = {}    
     sets.aftercast.Idle = {}
+	-----------------idle--------------------
 	sets.Idle = {}
 	sets.Idle.DT = {}
 	sets.Idle.Default = {}
+	--------------blue-----------------------
 	sets.Blue = {}
 	sets.Blue.Magic = {}
 	sets.Blue.Physical = {}
 	sets.Blue.Debuff = {}
 	sets.Blue.Buff = {}
 	sets.Blue.Cure = {}
+	--------------Nuke------------------------
 	sets.Nuke = {}
 	sets.Nuke.Default = {}
+	------------pet---------------------------
+	sets.Pet = {}
+	sets.Pet.Default = {}
+	
 	
 	sets.WS = {}
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
