@@ -16,7 +16,7 @@ function get_sets()
 	idleModes = {"Default", "Pet", "DT", "Custom"}
 	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	sets.base = {} -- Base set. Can use this as a base for other sets
-	nukeModes ={"Default", "mAcc", "Burst"}
+	nukeModes ={"Default", "mAcc"}
 	--------------------------------------------------WS-----------------------------------------------------------------------
 	sets.base.WS = set_combine(sets.base,{ })	
 	sets.WS = set_combine(sets.base.WS,{})
@@ -74,10 +74,18 @@ function get_sets()
 	sets.base.Pet = {}
 	sets.base.Pet.DD = {}
 	sets.Pet = set_combine(sets.base,{})	
-	sets.Pet.Default = set_combine(sets.base,{})	
-
-	
-	
+	sets.Pet.Default = set_combine(sets.base,{})
+	sets.Pet.Tank = {}
+	sets.Pet.Custom = {}
+	sets.Pet.DD = {}
+	sets.Pet.Hybrid = {}
+		----------------------------------------------Nuke-------------------------------------------------------------------------
+	sets.midcast.Elemental = {}
+	sets.Nuke.Default = {}
+	sets.Nuke.Custom = {}
+	sets.Nuke.Acc = {}
+	sets.Nuke.Burst = {}
+	sets.midcast.burst = {}
 	send_command('input /macro book 1;wait .1;input /macro set 9')
 end
 
