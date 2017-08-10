@@ -134,7 +134,7 @@ function get_sets()
 	sets.midcast.Pet.WeaponSkill = set_combine(sets.TP.DD, {})
 	----------------------------------------------------macro book--------------------------------------------------
 	--set the book and set to your jobs macro set
-	send_command('input /macro book 1;wait .1;input /macro set 9')
+	send_command('input /macro book 2;wait .1;input /macro set 10')
 end
 
 
