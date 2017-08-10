@@ -119,48 +119,7 @@
 	autoWS = false;
 	cap = false;
 	petWS = false;
---------------------------------------------------------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
---these can be overridden in job lua
-	-----------------tp------------------------
-	sets.TP = {} 
-	----Ja-------------------------------------
-	
-	--- precast--------------------------------
-	sets.precast = {}
-	sets.precast.Magic = {}
-	sets.precast.TP ={}			
-	sets.precast.WS = {}
-	sets.precast.JA = {}
-	sets.precast.Magic = {}
 
-	--------------midcast----------------------
-	sets.midcast = {}
-	
-	-------------------dt----------------------
-	sets.DT = {}
-
-	------------------aftercast----------------
-	sets.aftercast = {}	
-
-	-----------------idle----------------------
-	sets.Idle = {}
-
-	--------------blue-------------------------
-	sets.Blue = {}
-	sets.Blue.Magic = {}
-	sets.Blue.Physical = {}
-	sets.Blue.Debuff = {}
-	sets.Blue.Buff = {}
-	sets.Blue.Cure = {}
-	--------------Nuke-------------------------
-	sets.Nuke = {}
-	
-	------------pet----------------------------
-	sets.Pet = {}
-
-	-------------------------------Ws----------
-	sets.WS = {}
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
 	hercLegsCrit = {name="Herculean Trousers", augments={'Accuracy+26','Crit.hit rate+4','AGI+5','Attack+1',}}
@@ -205,7 +164,7 @@ function precast(spell)
         equip(sets.precast.JA[spell.english])
     
     elseif spell.type=="WeaponSkill" then   
-		equip(sets.precast.WS)
+		equip(sets.WS)
 		if sets.WS[spell.english] then
 			equip(sets.WS[spell.english]) 
 			if sets.WS[spell.english][wsMode] ~= nil then
@@ -303,7 +262,7 @@ function midcast(spell)
 			equip(sets.midcast.Healing)				
 		elseif spell.skill == 'Elemental Magic' then
 			if magicburst then
-				equip(sets.midcast.burst)
+				equip(sets.midcast.Burst)
 			else			
 				equip(sets.midcast.Elemental)
 			end
@@ -414,24 +373,24 @@ function self_command(command)
 	--	self_command("tpMode")
 	---------------------------------------------------------------equip sets ---------------------------------------------------------------------------------------------------------------
 	elseif command == "equipTP" then -- equip current tp
-		equip(sets.TP[tpMode])
+		equip(sets.TP.Current)
 		add_to_chat(122,tpMode .. "tp")
 		
 	elseif  command == "equipDT" then -- equip current dt
 		if player.status =='Engaged' then
-			equip(sets.DT[dtMode])
+			equip(sets.TP.DT)
 		else
-			equip(sets.DT[dtMode])
+			equip(sets.Idle.DT) 
 		end
 		add_to_chat(122,dtMode .. "dt")
 		
 	elseif command == "equipIdle" then -- for changing idle mode
-			equip(sets.Idle[idleMode])
+			equip(sets.Idle.Current)
 			add_to_chat(122,idleMode .. "idle")
 			
 	elseif command == "Pet/Nuke" then ---- for changing Pet mode or Nuke mode
 		if player.main_job == "PUP" or player.main_job == "SMN" or player.main_job == "BST" then
-			equip(sets.Pet[petMode])
+			equip(sets.TP.Pet)
 			add_to_chat(122, petMode .. "pet")
 		else 
 			equip(sets.Nuke[nukeMode])
@@ -492,16 +451,18 @@ function self_command(command)
 		end
 	elseif command == "tpMode" then -- for changing tp modes by hotkey, bound to ctrl-f9 in my init file
 		modeChange("tpMode", "tp" )
-		sets.aftercast.TP = sets.TP[tpMode]
-		equip(sets.aftercast.TP)
+		sets.TP.Current = sets.TP[tpMode]
+		sets.aftercast.TP = sets.TP.Current
+		equip(sets.TP.Current)
 	elseif  command == "idleMode" then		--key bind for changing idle modes bound to ctrl-f11
 		if  #idleModes == 0 then
 			equip(sets.aftercast.Idle)
 			add_to_chat(122, "Idle")
 		else
 			modeChange("idleMode", "idle")
-			sets.aftercast.Idle = sets.Idle[idleMode]
-			equip(sets.Idle[idleMode])
+			sets.Idle.Current = sets.Idle[idleMode]
+			sets.aftercast.Idle = sets.Idle.Current
+			equip(sets.Idle.Current)
 		end	
 
 	---------------------------------------------------------------------------------------------booleans--------------------------------------------------------------------------------------

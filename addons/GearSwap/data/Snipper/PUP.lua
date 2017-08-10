@@ -8,13 +8,39 @@ function get_sets()
 	
 	
 	include('cdhelper.lua')
-    sets.precast = {}
-	sets.precast.JA = {}
+	
 	tpModes = { "Acc", "Haste", "Pet", "Default", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	wsModes = {"Default", "Acc"}  --sets.WS.Mode
 	idleModes = {"Default", "Pet", "DT", "Custom"}
 	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
+	--------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
+--these can be overridden in job lua
+
+	
+	-- --- precast--------------------------------
+	sets.precast = {}
+	sets.precast.Magic = {}
+	sets.precast.TP ={}			
+	sets.precast.WS = {}
+	sets.precast.JA = {}
+	sets.precast.Magic = {}
+	--------------midcast----------------------
+	sets.midcast = {}
+	------------------aftercast----------------
+	sets.aftercast = {}	
+	--------------blue-------------------------
+	sets.Blue = {}
+	sets.Blue.Magic = {}
+	sets.Blue.Physical = {}
+	sets.Blue.Debuff = {}
+	sets.Blue.Buff = {}
+	sets.Blue.Cure = {}
+	------------Nuke-------------------------
+	sets.Nuke = {}
+
+
 	sets.base = {head="Hizamaru Somen +1",neck="Lissome Necklace",
         ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Tali'ah Manteel",hands="Herculean Gloves",
         ring1="Rajas Ring",ring2="Epona's Ring", back="Visucius's Mantle",waist="Moonbow Belt",legs= hercLegsTA,
@@ -38,7 +64,8 @@ function get_sets()
 
 
 	-----------------------------------------------Tp---------------------------------------------------------------------------------------
-    sets.TP = set_combine(sets.base,{})	
+    sets.TP = set_combine(sets.base,{})
+	sets.TP.Current = sets.TP
 	sets.TP.Default = set_combine(sets.TP,{})
     sets.TP.Acc = set_combine(sets.TP,{  legs = hercLegsCrit, hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
 	sets.TP.Haste = set_combine(sets.TP,{})	
@@ -66,7 +93,9 @@ function get_sets()
     sets.aftercast.Idle = set_combine(sets.TP.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
 	
 	----------------------------------------------------Idle------------------------------------------------------------------
-	sets.Idle.DT = set_combine(sets.DT,{feet="Hermes' Sandals"})
+	sets.Idle = set_combine(sets.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
+	sets.Idle.Current = sets.Idle
+	sets.Idle.DT = set_combine(sets.DT,{})
 	sets.Idle.Default = set_combine(sets.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
 	sets.Idle.Pet = set_combine(sets.DT,{ring1="Thurandaut Ring"})
 	sets.Idle.Custom = set_combine(sets.DT,{feet="Hermes' Sandals"})

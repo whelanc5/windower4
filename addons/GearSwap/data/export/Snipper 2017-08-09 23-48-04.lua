@@ -1,0 +1,18 @@
+sets.exported={
+    main="Ipetam",
+    sub="Thief's Knife",
+    range="Albin Bane",
+    ammo="Automat. Oil +3",
+    head={ name="Taeon Chapeau", augments={'Accuracy+14 Attack+14','Pet: "Regen"+3',}},
+    body={ name="Rawhide Vest", augments={'HP+49','"Subtle Blow"+6','"Triple Atk."+2',}},
+    hands={ name="Herculean Gloves", augments={'Accuracy+16','"Triple Atk."+3','DEX+1',}},
+    legs={ name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}},
+    feet={ name="Herculean Boots", augments={'Accuracy+30','"Triple Atk."+3','INT+3','Attack+13',}},
+    neck="Lissome Necklace",
+    waist="Anguinus Belt",
+    left_ear="Bladeborn Earring",
+    right_ear="Steelflash Earring",
+    left_ring="Rajas Ring",
+    right_ring="Epona's Ring",
+    back={ name="Canny Cape", augments={'DEX+2','AGI+4','"Dual Wield"+2',}},
+}
