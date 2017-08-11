@@ -1,4 +1,4 @@
-	include('skillup.lua')
+
 	
 	----------------------------------------------------Commands---------------------------------------------------------------------------------------------------
 	--------------booleans--------------------------------
@@ -14,8 +14,10 @@
 	-- sets elemental set to magicburst set
 	--//gs c petWS
 	-- equips petWS set, will be switched out of after a cast
-	--//gs c skillupO 
-	--//gs c skillupD
+	--//gs c autocast
+	-- sets magic to cast automatically accordding to the spells in automagic
+	--//gs c rest
+	-- toggles rest during auto cast off or on, starts on
 	
 	--------------EquipSets---------------------------------------
 	--these will equip the current mode of a set
@@ -120,6 +122,8 @@
 	cap = false
 	petWS = false
 	rest = true
+	autocast = false 
+	firstAuto = true
 
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
@@ -486,28 +490,45 @@ function self_command(command)
 				enable("back")
 				add_to_chat(122, command .. " off")
 			end
-	elseif command == "skillupD" then
-		if skillupD == false then
-			skillupD = true;
+	-- elseif command == "skillupD" then
+		-- if skillupD == false then
+			-- skillupD = true;
+			-- add_to_chat(122, command .. " on")
+			-- send_command('wait 10 ;input //gs c skillUpMagic')
+		-- else 
+			-- skillupD = false
+			-- add_to_chat(122, command .. " off")
+		-- end
+	-- elseif command == "skillupO" then
+		-- if skillupO == false then
+			-- skillupO = true;
+			-- add_to_chat(122, command .. " on")
+			-- send_command('wait 10 ;input //gs c skillupOffensive')
+		-- else 
+			-- skillupO = false
+			-- add_to_chat(122, command .. " off")
+		-- end
+	-- elseif command == "skillUpMagic" then
+		-- skillUpMagic()
+	-- elseif command == "skillupOffensive" then
+		-- skillupOffensive()
+	elseif command == "autocast" then
+		if firstAuto then
+			include('autoMagic.lua')
+		end
+		firstAuto = false
+		if autocast == false then
+			autocast = true;
 			add_to_chat(122, command .. " on")
-			send_command('wait 10 ;input //gs c skillUpMagic')
+			send_command('wait 2 ;input //gs c autoMagicCast')
 		else 
-			skillupD = false
+			autocast = false
 			add_to_chat(122, command .. " off")
 		end
-		elseif command == "skillupO" then
-		if skillupO == false then
-			skillupO = true;
-			add_to_chat(122, command .. " on")
-			send_command('wait 10 ;input //gs c skillupOffensive')
-		else 
-			skillupO = false
-			add_to_chat(122, command .. " off")
-		end
-	elseif command == "skillUpMagic" then
-		skillUpMagic()
-	elseif command == "skillupOffensive" then
-		skillupOffensive()
+
+	elseif command == "autoMagicCast" then
+		autoMagicCast()
+
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
 	elseif command == "customTP"  then
 		sets.TP.Custom =   customSet()	
