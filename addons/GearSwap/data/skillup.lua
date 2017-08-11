@@ -38,21 +38,23 @@ BLMOffensiveSpells = {"Dia", "Fire II", "Stone II", "Aero II" }
 	BLMNum = 1
 BLMDefensiveSpells = {"Barfira", "Barwatera", "Baraera", "Barstonra" }
 	BLMNum = 1
+RDMOffensiveSpells = {"Dia", "Fire", "Bind", "Bio" }
+	RDMNum = 1
 
 function skillUpMagic()
-add_to_chat(122, player.status)
-	if player.mpp < 15  then 
-		add_to_chat(122, player.mpp)
+--add_to_chat(122, player.status)
+	if player.mpp < 15 and rest  then 
+--		add_to_chat(122, player.mpp)
 		send_command('input /heal on')
 			
 	elseif player.status == "Resting" then
-		add_to_chat(122, player.mpp)
+--		add_to_chat(122, player.mpp)
 		
 		if player.mpp > 90 then
 			send_command('input /heal off')
 		end
 	
-	elseif (skillupD == true) and (player.status == "Idle") then
+	elseif (skillupD == true) and (player.status ~= "Resting") then
 		local jobVar = player.main_job 	
 		local spellNum = _G[jobVar .. "Num"]
 		local spellsVar = _G[jobVar .. "DefensiveSpells"]
@@ -72,19 +74,19 @@ end
 
 
 function skillupOffensive()
-add_to_chat(122, player.status)
-	if player.mpp < 15  then 
+--add_to_chat(122, player.status)
+	if player.mpp < 15  and rest then 
 		add_to_chat(122, player.mpp)
 		send_command('input /heal on')
 			
 	elseif player.status == "Resting" then
-		add_to_chat(122, player.mpp)
+--		add_to_chat(122, player.mpp)
 		
 		if player.mpp > 90 then
 			send_command('input /heal off')
 		end
 	
-	elseif (skillupO == true) and (player.status == "Idle") then
+	elseif (skillupO == true) and (player.in_combat) then
 		local jobVar = player.main_job 	
 		local spellNum = _G[jobVar .. "Num"]
 		local spellsVar = _G[jobVar .. "OffensiveSpells"]

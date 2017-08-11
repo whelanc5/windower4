@@ -111,14 +111,15 @@
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
-	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "autoWS"} --booleans
+	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "autoWS", "rest"} --booleans
 	deploy = false
 	automaneuver = false
 	magicburst = false
-	rune = false;
-	autoWS = false;
-	cap = false;
-	petWS = false;
+	rune = false
+	autoWS = false
+	cap = false
+	petWS = false
+	rest = true
 
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}

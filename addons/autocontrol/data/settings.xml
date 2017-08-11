@@ -4,279 +4,25 @@
         <AutoActivate>false</AutoActivate>
         <AutoDeusExAutomata>false</AutoDeusExAutomata>
         <autosets>
-            <123>
-                <frame>valoredge frame</frame>
-                <head>valoredge head</head>
-                <slot01>strobe ii</slot01>
-                <slot02>turbo charger ii</slot02>
-                <slot03>turbo charger</slot03>
-                <slot04>coiler</slot04>
-                <slot05>armor plate iii</slot05>
-                <slot06>stabilizer iv</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>inhibitor ii</slot08>
-                <slot09>armor plate iv</slot09>
-                <slot10>mana jammer iv</slot10>
-                <slot11>optic fiber ii</slot11>
-                <slot12>tension spring iv</slot12>
-            </123>
-            <blm>
-                <frame>stormwaker frame</frame>
-                <head>spiritreaver head</head>
-                <slot01>amplifier</slot01>
-                <slot02>amplifier ii</slot02>
-                <slot03>ice maker</slot03>
-                <slot04>loudspeaker ii</slot04>
-                <slot05>optic fiber</slot05>
-                <slot06>mana tank iv</slot06>
-                <slot07>mana tank iii</slot07>
-                <slot08>stealth screen ii</slot08>
-                <slot09>condenser</slot09>
-                <slot10>mana channeler</slot10>
-                <slot11>heatsink</slot11>
-                <slot12>turbo charger ii</slot12>
-            </blm>
-            <blmdd>
-                <frame>stormwaker frame</frame>
-                <head>spiritreaver head</head>
-                <slot01>amplifier</slot01>
-                <slot02>amplifier ii</slot02>
-                <slot03>ice maker</slot03>
-                <slot04>loudspeaker ii</slot04>
-                <slot05>optic fiber</slot05>
-                <slot06>mana tank iv</slot06>
-                <slot07>mana tank iii</slot07>
-                <slot08>target marker</slot08>
-                <slot09>arcanic cell ii</slot09>
-                <slot10>mana channeler</slot10>
-                <slot11>arcanic cell</slot11>
-                <slot12>turbo charger ii</slot12>
-            </blmdd>
-            <dd>
-                <frame>valoredge frame</frame>
-                <head>valoredge head</head>
-                <slot01>inhibitor ii</slot01>
-                <slot02>auto-repair kit iii</slot02>
-                <slot03>turbo charger</slot03>
-                <slot04>turbo charger ii</slot04>
-                <slot05>armor plate iv</slot05>
-                <slot06>strobe ii</slot06>
-                <slot07>optic fiber</slot07>
-                <slot08>coiler</slot08>
-                <slot09>coiler ii</slot09>
-                <slot10>dynamo</slot10>
-                <slot11>optic fiber ii</slot11>
-                <slot12>tension spring iv</slot12>
-            </dd>
             <default>
 
             </default>
-            <fulldd>
-                <frame>valoredge frame</frame>
-                <head>valoredge head</head>
-                <slot01>tension spring iv</slot01>
-                <slot02>strobe ii</slot02>
-                <slot03>turbo charger</slot03>
-                <slot04>turbo charger ii</slot04>
-                <slot05>armor plate iv</slot05>
-                <slot06>barrier module ii</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>coiler</slot08>
-                <slot09>coiler ii</slot09>
-                <slot10>regulator</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>dynamo</slot12>
-            </fulldd>
-            <healer>
-                <frame>Stormwaker Frame</frame>
-                <head>Soulsoother Head</head>
-                <slot01>Mana Converter</slot01>
-                <slot02>Economizer</slot02>
-                <slot03>Mana Conserver</slot03>
-                <slot04>Vivi-Valve</slot04>
-                <slot05>Mana Booster</slot05>
-                <slot06>Damage Gauge</slot06>
-                <slot07>Eraser</slot07>
-                <slot08>Optic Fiber</slot08>
-                <slot09>Mana Jammer II</slot09>
-                <slot10>Condenser</slot10>
-                <slot11>Turbo Charger II</slot11>
-                <slot12>Stealth Screen</slot12>
-            </healer>
-            <htank>
-                <frame>harlequin frame</frame>
-                <head>soulsoother head</head>
-                <slot01>strobe</slot01>
-                <slot02>strobe ii</slot02>
-                <slot03>mana jammer ii</slot03>
-                <slot04>mana tank iv</slot04>
-                <slot05>armor plate iv</slot05>
-                <slot06>speedloader</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>armor plate</slot08>
-                <slot09>mana jammer iv</slot09>
-                <slot10>flashbulb</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>reactive shield</slot12>
-            </htank>
-            <mrng>
-                <frame>Sharpshot Frame</frame>
-                <head>Valoredge Head</head>
-                <slot01>Tension Spring III</slot01>
-                <slot02>Attuner</slot02>
-                <slot03>Scope III</slot03>
-                <slot04>Scope</slot04>
-                <slot05>Armor Plate IV</slot05>
-                <slot06>Heat Seeker</slot06>
-                <slot07>Auto-Repair Kit III</slot07>
-                <slot08>Target Marker</slot08>
-                <slot09>Stabilizer II</slot09>
-                <slot10>Disruptor</slot10>
-                <slot11>Optic Fiber</slot11>
-                <slot12>Drum Magazine</slot12>
-            </mrng>
-            <overdrive>
-                <frame>valoredge frame</frame>
-                <head>valoredge head</head>
-                <slot01>inhibitor ii</slot01>
-                <slot02>inhibitor</slot02>
-                <slot03>armor plate iv</slot03>
-                <slot04>turbo charger ii</slot04>
-                <slot05>auto-repair kit iii</slot05>
-                <slot06>tension spring iii</slot06>
-                <slot07>optic fiber ii</slot07>
-                <slot08>coiler</slot08>
-                <slot09>coiler ii</slot09>
-                <slot10>attuner</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>target marker</slot12>
-            </overdrive>
-            <overdriverng>
-                <frame>sharpshot frame</frame>
-                <head>valoredge head</head>
-                <slot01>inhibitor ii</slot01>
-                <slot02>attuner</slot02>
-                <slot03>scope iii</slot03>
-                <slot04>repeater</slot04>
-                <slot05>armor plate iv</slot05>
-                <slot06>mana jammer iv</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>target marker</slot08>
-                <slot09>inhibitor</slot09>
-                <slot10>tension spring ii</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>drum magazine</slot12>
-            </overdriverng>
-            <rdm>
-                <frame>stormwaker frame</frame>
-                <head>stormwaker head</head>
-                <slot01>amplifier ii</slot01>
-                <slot02>economizer</slot02>
-                <slot03>mana tank iv</slot03>
-                <slot05>mana booster</slot05>
-                <slot06>damage gauge</slot06>
-                <slot07>eraser</slot07>
-                <slot08>optic fiber</slot08>
-                <slot09>mana jammer ii</slot09>
-                <slot10>condenser</slot10>
-                <slot11>turbo charger ii</slot11>
-                <slot12>tranquilizer iii</slot12>
-            </rdm>
-            <rmd>
-                <frame>stormwaker frame</frame>
-                <head>stormwaker head</head>
-                <slot01>amplifier ii</slot01>
-                <slot02>economizer</slot02>
-                <slot03>mana tank iv</slot03>
-                <slot05>mana booster</slot05>
-                <slot06>damage gauge</slot06>
-                <slot07>eraser</slot07>
-                <slot08>optic fiber</slot08>
-                <slot09>mana jammer ii</slot09>
-                <slot10>condenser</slot10>
-                <slot11>turbo charger ii</slot11>
-                <slot12>tranquilizer iii</slot12>
-            </rmd>
             <rng>
                 <frame>sharpshot frame</frame>
                 <head>valoredge head</head>
-                <slot01>optic fiber ii</slot01>
-                <slot02>inhibitor ii</slot02>
-                <slot03>inhibitor</slot03>
-                <slot04>tension spring iv</slot04>
+                <slot01>tension spring iv</slot01>
+                <slot02>tension spring ii</slot02>
+                <slot03>turbo charger ii</slot03>
+                <slot04>turbo charger</slot04>
                 <slot05>repeater</slot05>
-                <slot06>coiler</slot06>
-                <slot07>turbo charger ii</slot07>
-                <slot08>turbo charger</slot08>
-                <slot09>target marker</slot09>
-                <slot10>coiler ii</slot10>
-                <slot11>optic fiber</slot11>
+                <slot06>armor plate iv</slot06>
+                <slot07>coiler ii</slot07>
+                <slot08>coiler</slot08>
+                <slot09>dynamo ii</slot09>
+                <slot10>optic fiber</slot10>
+                <slot11>optic fiber ii</slot11>
                 <slot12>auto-repair kit iii</slot12>
             </rng>
-            <rngdd>
-                <frame>sharpshot frame</frame>
-                <head>sharpshot head</head>
-                <slot01>speedloader ii</slot01>
-                <slot02>inhibitor ii</slot02>
-                <slot03>inhibitor</slot03>
-                <slot04>tension spring ii</slot04>
-                <slot05>repeater</slot05>
-                <slot06>drum magazine</slot06>
-                <slot07>scope ii</slot07>
-                <slot08>scope iii</slot08>
-                <slot09>target marker</slot09>
-                <slot10>dynamo iii</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>auto-repair kit iv</slot12>
-            </rngdd>
-            <rngtank>
-                <frame>sharpshot frame</frame>
-                <head>valoredge head</head>
-                <slot01>tension spring iv</slot01>
-                <slot02>strobe ii</slot02>
-                <slot03>turbo charger ii</slot03>
-                <slot04>repeater</slot04>
-                <slot05>armor plate iii</slot05>
-                <slot06>scope</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>stabilizer iv</slot08>
-                <slot09>armor plate ii</slot09>
-                <slot10>strobe</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>drum magazine</slot12>
-            </rngtank>
-            <tank>
-                <frame>valoredge frame</frame>
-                <head>valoredge head</head>
-                <slot01>strobe ii</slot01>
-                <slot02>turbo charger ii</slot02>
-                <slot03>strobe</slot03>
-                <slot04>coiler ii</slot04>
-                <slot05>armor plate iii</slot05>
-                <slot06>coiler</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>barrier module ii</slot08>
-                <slot09>armor plate ii</slot09>
-                <slot10>mana jammer iv</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>tension spring iv</slot12>
-            </tank>
-            <whmtank>
-                <frame>valoredge frame</frame>
-                <head>soulsoother head</head>
-                <slot01>strobe</slot01>
-                <slot02>strobe ii</slot02>
-                <slot03>mana jammer ii</slot03>
-                <slot04>turbo charger ii</slot04>
-                <slot05>armor plate iv</slot05>
-                <slot06>barrier module ii</slot06>
-                <slot07>auto-repair kit iv</slot07>
-                <slot08>turbo charger</slot08>
-                <slot09>mana jammer iv</slot09>
-                <slot10>optic fiber ii</slot10>
-                <slot11>optic fiber</slot11>
-                <slot12>tension spring ii</slot12>
-            </whmtank>
         </autosets>
         <bg>
             <alpha>0</alpha>
@@ -292,7 +38,7 @@
             <italic>false</italic>
             <right>false</right>
         </flags>
-        <maneuvertimers>true</maneuvertimers>
+        <maneuvertimers>false</maneuvertimers>
         <padding>0</padding>
         <pos>
             <x>1200</x>
@@ -318,4 +64,15 @@
         </text>
         <visible>false</visible>
     </global>
+    <snipper>
+        <pos>
+            <x>1727</x>
+            <y>553</y>
+        </pos>
+        <text>
+            <fonts>
+
+            </fonts>
+        </text>
+    </snipper>
 </settings>

@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<settings>
+	<!--
+	This file controls the settings for the PetTP plugin.
+	Settings in the <global> section apply to all characters
+	
+	The available settings are:
+	xPos
+	yPos
+	font
+	fontSize
+	textA
+	textR
+	textG
+	textB
+	backgroundA
+	backgroundR
+	backgroundG
+	backgroundB
+	autoColor - If true, will automatically color hp/mp/tp.  Set to false to disable.
+	bold
+	bgVisible
+	-->
+	<global>
+		<xPos>10</xPos>
+		<yPos>500</yPos>
+		<font>Arial</font>
+		<fontSize>10</fontSize>
+		<textA>255</textA>
+		<textR>255</textR>
+		<textG>255</textG>
+		<textB>255</textB>
+		<backgroundA>190</backgroundA>
+		<backgroundR>0</backgroundR>
+		<backgroundG>0</backgroundG>
+		<backgroundB>0</backgroundB>
+		<autoColor>true</autoColor>
+		<bold>false</bold>
+		<bgVisible>true</bgVisible>
+	</global>
+
+	<!--
+	You may also override specific settings on a per-character basis here
+	-->
+</settings>

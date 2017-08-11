@@ -1,0 +1,552 @@
+<?xml version="1.0" ?>
+
+<spellcast>                     
+        <sets>
+                <group name="PUP" >       
+				
+                        <set name = "TP" >
+                            <hands>Thurandaut Gloves</hands>
+							<head>Chocaliztli Mask</head>
+							<waist>Twilight Belt</waist>
+							<lring>Epona's Ring</lring>
+							<rring>Rajas Ring</rring>
+							<feet>Manibozho Boots</feet>
+							<legs>Cirque Pantaloni +2</legs>
+							<back>Vellaunus' Mantle</back>
+							<lear>Ghillie Earring +1</lear>
+							<rear>Brutal Earring</rear>
+							<neck>Cirque Necklace</neck>
+							<body>Cirque Farsetto +2</body>
+                        </set>    
+						
+						<set name = "eva" baseset=TP >
+                            <hands>Thurandaut Gloves</hands>
+							<head>Chocaliztli Mask</head>
+							<back>Boxer's Mantle</back>
+							<lear>Velocity Earring</lear>							
+							<neck>Evasion Torque</neck>
+							<body>Thurandaut Tabard</body>
+							<legs>Thurandaut Tights</legs>
+							<rring>Dark Ring</rring>
+							<lring>Dark Ring</lring>
+						</set>
+						
+						<set name = "def" baseset=TP >
+                           
+							<head>Chocaliztli Mask</head>
+							<lear>Velocity Earring</lear>
+							<body>Thurandaut Tabard</body>
+							<legs>Thurandaut Tights</legs>
+							<rring>Dark Ring</rring>
+							<lring>Dark Ring</lring>
+							<neck>Twilight Torque</neck>
+							<back>Cheviot Cape</back>
+						</set>
+						
+						<set name = "mdef" baseset=tp >
+							<head>Chocaliztli Mask</head>
+							<rring>Dark Ring</rring>
+							<lring>Dark Ring</lring>
+							<neck>Twilight Torque</neck>
+						</set>
+						
+						<set name = "hybrid" baseset=TP >
+                           	<rring>Dark Ring</rring>
+							<lring>Dark Ring</lring>
+							<back>Cheviot Cape</back>
+							<neck>Twilight Torque</neck>
+						</set>
+						
+						<set name = "PUPSTEP" baseset=TP >
+							<neck>Agasaya's Collar</neck>
+							<feet>Cirque Scarpe +2</feet>
+							<waist>Sentry Belt</waist>
+						</set>    
+						
+						<set name = "ACC" baseset=TP >
+                         	<neck>Agasaya's Collar</neck>
+							<waist>Sentry Belt</waist>
+						</set>
+						
+						 <set name = "PUPWS" >
+                            <hands>Thurandaut Gloves</hands>
+							<head>Chocaliztli Mask</head>
+							<waist>Sentry Belt</waist>
+							<lring>Epona's Ring</lring>
+							<rring>Rajas Ring</rring>
+							<feet>Cirque Scarpe +2</feet>
+							<legs>Cirque Pantaloni +2</legs>
+							<back>Vellaunus' Mantle</back>
+							<lear>Ghillie Earring +1</lear>
+							<rear>Brutal Earring</rear>
+							<neck>Agasaya's Collar</neck>
+							<body>Cirque Farsetto +2</body>
+                        </set>      
+    
+						<set name = "Victory Smite" baseset=PUPWS >
+							<waist>Breeze Belt</waist>
+							<neck>Light Gorget</neck>
+							<body>Thurandaut Tabard</body>
+                        </set>     
+						
+						
+
+						  <set name = "Stringing Pummel" baseset=PUPWS >
+							<waist>Soil Belt</waist>
+							<rring>Spiral Ring</rring>
+							<neck>Soil Gorget</neck>
+							<body>Thurandaut Tabard</body>
+							<head>Chocaliztli Mask</head>
+                        </set>      				
+						
+						<set name = "PUPWSspACC" baseset=PUPWS >
+							<waist>Soil Belt</waist>
+							<rring>Spiral Ring</rring>
+							<neck>Soil Gorget</neck>
+                        </set>  
+						
+						  <set name = "PUPWSdex" baseset=PUPWS >
+						    <hands>Thurandaut Gloves</hands>
+							<waist>Sentry Belt</waist>
+							<neck>Light Gorget</neck>
+							<head>Thurandaut Chapeau</head>
+					      </set>  						  
+						
+						<set name = "pupidle" >
+						  <feet>Hermes' Sandals</feet>
+						</set>
+						  
+						 <set name = "haste" baseset=tp >
+						 </set>
+						 
+
+					
+                </group>    
+			   
+                <group name="THF" >       
+                        <set name = "THFWS" baseset=SA >
+							<waist>Soil Belt</waist>
+							<lring>Epona's Ring</lring>
+							<neck>Soil Gorget</neck>
+						</set>    
+						
+						<set name = "SA" >
+							<hands>Raider's Armlets +2</hands>
+							<head>Thurandaut Chapeau</head>
+							<waist>Cuchulain's Belt</waist>
+							<lring>Epona's Ring</lring>
+							<rring>Rajas Ring</rring>
+							<feet>Manibozho Boots</feet>
+							<legs>Raider's Culottes +2</legs>
+							<back>Atheling Mantle</back>
+							<lear>Ghillie Earring +1</lear>
+							<rear>Brutal Earring</rear>
+							<neck>Agasaya's Collar</neck>
+							<body>Loki's Kaftan</body>
+						</set>
+						
+						  <set name = "tp" >
+                            <hands>Raider's Armlets +2</hands>
+							<head>Chocaliztli Mask</head>
+							<waist>Twilight Belt</waist>
+							<lring>Epona's Ring</lring>
+							<rring>Rajas Ring</rring>
+							<feet>Manibozho Boots</feet>
+							<legs>Raider's Culottes +2</legs>
+							<back>Atheling Mantle</back>
+							<lear>Suppanomimi</lear>
+							<rear>Brutal Earring</rear>
+							<neck>Agasaya's Collar</neck>
+							<body>Raider's Vest +2</body>
+                        </set>              
+						 
+                         <set name = "THFWSagi" baseset=SA >
+                            <hands>Thurandaut Gloves</hands>
+							<waist>Soil Belt</waist>
+							<rring>Solemn Ring</rring>
+							<feet>Raider's Poulaines +2</feet>
+							<legs>Thurandaut Tights</legs>
+							<neck>Soil Gorget</neck>
+							<head>Chocaliztli Mask</head>
+							<body>Thurandaut Tabard</body>
+						</set>
+						
+						<set name = "TA" baseset=SA >
+                            <hands>Thurandaut Gloves</hands>
+							<waist>Twilight Belt</waist>
+							<rring>Solemn Ring</rring>
+							<feet>Raider's Poulaines +2</feet>
+							<legs>Thurandaut Tights</legs>
+							<head>Chocaliztli Mask</head>
+							<body>Thurandaut Tabard</body>
+						</set>
+						
+   					    <set name = "haste" baseset=TP >
+							<back>Boxer's Mantle</back>
+							<rear>Velocity Earring</rear>
+							<neck>Torero Torque</neck>	
+						</set>
+							
+						<set name = "ACC" baseset=TP >
+						</set>   
+						
+						<set name = "THFWSDMG" baseset=THFWS >
+						</set> 
+						
+						<set name = "THFWSagiDMG" baseset=THFWSAGI >
+						</set> 
+						
+						<set name = "THFidle" >
+							<feet>Strider Boots</feet>
+						</set>   
+						  
+						<set name = "eva" baseset=TP >
+                            <hands>Assassin's Armlets +2</hands>
+							<head>Chocaliztli Mask</head>
+							<feet>Ballerines</feet>
+							<back>Boxer's Mantle</back>
+							<neck>Torero Torque</neck>
+							<body>Thurandaut Tabard</body>
+						</set>   
+						  
+					    <set name = "THFTH" baseset=TP >
+                            <hands>Assassin's Armlets +2</hands>
+							<feet>Raider's Poulaines +2</feet>
+						</set>   
+						
+						<set name = "mdef" baseset=DEF >
+						</set>
+			   </group>      			   
+				
+			    <group name="MNK" >
+				
+				       
+                        <set name = "MNKWS" >
+							<hands>Melee Gloves +2</hands>
+							<head>Chocaliztli Mask</head>
+							<waist>Pipilaka Belt</waist>
+							<lring>Epona's Ring</lring>
+							<rring>Rajas Ring</rring>
+							<feet>Tantra Gaiters +2</feet>
+							<legs>Tantra Hose +2</legs>
+							<back>Atheling Mantle</back>
+							<lear>Ghillie Earring +1</lear>
+							<rear>Brutal Earring</rear>
+							<neck>Agasaya's Collar</neck>
+							<body>Tantra Cyclas +2</body>
+						</set>
+						
+						 <set name = "MNKWSSMITE" baseset=MNKWS >
+							<waist>Breeze Belt</waist>
+							<neck>Light Gorget</neck>
+							<body>Thuranaut Tabard</body>
+						</set>
+						
+						<set name = "MNKWSDEX" baseset=MNKWS >
+							<waist>Pipilaka Belt</waist>
+							<neck>Light Gorget</neck>
+							<feet>Manibozho Boots</feet>
+							<hands>Thurandaut Gloves</hands>
+							<head>Thurandaut Chapeau</head>
+						</set>
+						
+						<set name = "TP" >
+							<hands>Melee Gloves +2</hands>
+							<head>Chocaliztli Mask</head>
+							<waist>Black Belt</waist>
+							<lring>Epona's Ring</lring>
+							<rring>Rajas Ring</rring>
+							<feet>Manibozho Boots</feet>
+							<legs>Tantra Hose +2</legs>
+							<back>Atheling Mantle</back>
+							<lear>Ghillie Earring +1</lear>
+							<rear>Brutal Earring</rear>
+							<neck>Calcitrant Stole</neck>
+							<body>Tantra Cyclas +2</body>
+						</set>
+						
+						<set name = "ACC" baseset=TP >
+							<neck>Agasaya's Collar</neck>
+							<hands>Melee Gloves +2</hands>
+						</set>   
+						
+						<set name = "Chakra" baseset=TP >
+							<hands>Melee Gloves</hands>
+							<body>Temple Cyclas</body>
+							<feet>Thurandaut Boots</feet>
+						</set>   
+						
+						<set name = "Perfect Counter" baseset=TP >
+							<body>Tantra Crown +2</body>
+                        </set>   
+						
+						<set name = "Impetus" baseset=TP >
+							<body>Tantra Cyclas +2</body>
+                        </set>   
+						
+						<set name = "Eva" baseset=TP >
+						</set>
+						
+						  
+						
+						<set name = "DEF" baseset=TP >
+							<body>Arhat's Gi +1</body>
+							<head>Arhat's Jinpachi</head>
+							<neck>Twilight Torque</neck>
+							<feet>Thurandaut Boots</feet>
+							<back>Boxer's Mantle</back>
+							<lring>Dark Ring</lring>
+							<rring>Dark Ring</rring>
+							<lear>Velocity Earring</lear>
+							<waist>Black Belt</waist>
+							<hands>Darksteel Mittens +1</hands>
+						</set>
+						
+						<set name = "hybrid" baseset=TP >
+							<body>Arhat's Gi +1</body>
+							<head>Arhat's Jinpachi</head>
+							<neck>Twilight Torque</neck>
+							<feet>Thurandaut Boots</feet>
+							<waist>Black Belt</waist>
+							<lring>Dark Ring</lring>
+							<rring>Dark Ring</rring>
+						</set>
+						
+						
+						<set name = "Haste" baseset=TP >
+						</set>
+						
+						<set name = "mdef" baseset=DEF >
+						</set>
+				
+						<set name = "MNKidle" >
+							<feet>Hermes' Sandals</feet>
+						</set>   
+				
+               </group>
+			   
+			   <group name=DRG>
+			   
+				<set name = "ACC">
+				<rring>Rajas Ring</rring>
+			   </set>
+			   
+				<set name = "DEF">
+				<rring>Undecennial Ring</rring>
+			   </set>
+			   
+			   
+			   </group>
+		</sets>
+
+        <variables>  
+        <var name="Delay-JA">.5</var>
+		<var name="TPmode">default|EVA|Haste|ACC|DMG|DEF</var>
+		<var name="WSTYPE">ACC|ABY|CRIT|Default</var>
+		<var name="THMODE">Default|THMODE</var>
+	
+        </variables>
+
+        <rules>  
+		
+			
+			<if spell = "Fire">
+					<var cmd="set TPmode TP"/>
+					<addtochat>$TPmode</addtochat>
+			</if>		
+			
+			<elseif spell = "Blizzard">
+						<var cmd="set TPmode EVA"/>
+						<addtochat>$TPmode</addtochat>
+			</elseif>
+			
+			<if spell ="Stone">
+						<var cmd="set TPmode Haste" />
+						<addtochat>$TPmode</addtochat>
+			</if>
+			
+			<if spell ="Water">
+						<var cmd="set TPmode Def" />
+						<addtochat>$TPmode</addtochat>
+			</if>
+			
+			<if spell ="Shock">
+						<var cmd="set TPmode Hybrid" />
+						<addtochat>$TPmode</addtochat>
+			</if>
+						
+			<elseif spell = "Aero">
+						<var cmd="set TPmode ACC"/>
+						<addtochat>$TPmode</addtochat>
+			</elseif>
+			
+			<elseif spell = "Flare">
+						<var cmd="set TPmode MDEF"/>
+						<addtochat>$TPmode</addtochat>
+			</elseif>
+			
+			
+			
+		
+			
+			
+			
+				
+			
+			
+					
+            <if mainjob="PUP" group = PUP> 
+
+					<equip set="pupidle" when="idle"/>  
+					
+				<if type = Weaponskill>
+				
+					<CastDelay Delay=".03" />
+					<AfterCastDelay Delay=".5" />
+				
+					<equip when="precast" set="PUPWS"/>
+				
+				
+				<equip when="precast" set="%Spell"/>
+					
+				
+				
+								
+							<equip when="aftercast" set="TP"/>
+							<equip when="aftercast" set="$Tpmode"/>
+				</if>                  
+				
+					<elseif spell="Utsusemi:*">
+							<equip when="precast" set="Puphaste"/>
+							<equip when="aftercast" set="TP"/>
+							
+							<equip when="aftercast" set="$Tpmode"/>
+					</elseif>
+					
+				<elseif spell="*Step">
+							
+							<CastDelay Delay=".03" />
+							<AfterCastDelay Delay=".5" />
+							<equip when="precast" set="PUPSTEP"/>
+							<equip when="aftercast" set="TP"/>
+							<equip when="aftercast" set="$Tpmode"/>
+							
+				</elseif>
+					
+				
+			</if>
+			
+			<if mainjob="MNK" group = MNK> 
+			
+				<equip set="mnkidle" when="idle"/>
+					
+								
+				<if type = Weaponskill>
+			
+					<CastDelay Delay=".03" />
+					<AfterCastDelay Delay=".5" />
+					<equip when="precast" set="MNKWS"/>
+				
+					<if spell="Victory Smite">
+						
+						<equip when="precast" set="MNKWSSmite"/>			
+					</if>	
+							
+                    
+                    <elseif spell="Shijin Spiral">
+					
+						<equip when="precast" set="MNKWSDEX"/>
+					</elseif>	
+					
+					<equip when="aftercast" set="TP"/>
+					<equip when="aftercast" set="$Tpmode"/>
+					
+                </if>
+				
+				<if type = Jobability>
+				
+					<CastDelay Delay=".03" />
+					<AfterCastDelay Delay=".5" />
+					
+					<if spell="Chakra">
+						<equip when="precast" set="Chakra"/>
+					</if>
+						
+					<elseif spell="Impetus">
+						<equip when="precast" set="Impetus"/>
+					</elseif>
+					
+						<equip when="aftercast" set="TP"/>
+						<equip when="aftercast" set="$Tpmode"/>
+										
+				</if>	
+				
+				<elseif spell="Utsusemi:*">
+					   <equip when="precast" set="haste"/>
+					   <equip when="aftercast" set="TP"/>
+							<equip when="aftercast" set="$Tpmode"/>
+										
+				</elseif>
+				     
+            </if>
+		
+		
+		<if mainjob="THF" group = THF> 
+			
+					<equip set="THFidle" when="idle"/>  
+					
+											
+					
+					<if spell="Sneak Attack">
+					    <equip when="precast" set="SA"/>
+					</if>
+					
+					<elseif spell="Trick Attack">
+					    <equip when="precast" set="TA"/>
+				    </elseif>
+					
+					
+				<if type = Weaponskill>
+					
+					<CastDelay Delay=".03" />
+					<AfterCastDelay Delay=".5" />
+					<equip when="precast" set="THFWS"/>
+					
+					<if spell="Exenterator">
+					
+						<equip when="precast" set="THFWSAGI"/>
+								
+						 </if>
+					
+					<elseif spell="Evisceration">
+								
+						<equip when="precast" set="THFWS"/>
+						
+					</elseif>
+							
+					
+					<equip when="aftercast" set="TP"/>
+					<equip when="aftercast" set="$Tpmode"/>
+				</if>
+				
+				<elseif spell="Utsusemi:*">
+					   <equip when="precast" set="haste"/>
+					   <equip when="aftercast" set="TP"/>
+							<equip when="aftercast" set="$Tpmode"/>
+				</elseif>
+					
+                    
+					
+            </if>
+                            
+                 
+<if mainjob="DRG" group = DRG>	
+			
+			<if spell="Utsusemi:*">
+					   <equip when="precast" set="$tpmode"/>
+			</if>
+			</if>
+			
+			
+        </rules>
+</spellcast>
