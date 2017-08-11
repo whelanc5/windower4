@@ -11,7 +11,7 @@ autoCast = {"Barfira", "Barwatera", "Baraera", "Barstonra"} -- put spells you wa
 
 --Following is required in cdhelper.lua
 	
-	-- elseif command == "autoMagic" then
+	-- elseif command == "autocast" then
 		-- if autocast == false then
 			-- autocast = true;
 			-- add_to_chat(122, command .. " on")
@@ -30,7 +30,7 @@ spellsNum = 1
 
 
 function findSpells()
-	local MagicSpells = include('spells.lua')
+	local MagicSpells = include('../../../res/spells.lua')
 	add_to_chat(122, "Current Auto Spells")
 	for i = 1,#autoCast do
 		
