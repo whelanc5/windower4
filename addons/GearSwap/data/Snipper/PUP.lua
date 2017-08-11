@@ -9,7 +9,7 @@ function get_sets()
 	
 	include('cdhelper.lua')
 	
-	tpModes = { "Acc", "Haste", "Pet", "Default", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	tpModes = {"Default", "Acc", "Haste", "Pet",  "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	wsModes = {"Default", "Acc"}  --sets.WS.Mode
 	idleModes = {"Default", "Pet", "DT", "Custom"}
