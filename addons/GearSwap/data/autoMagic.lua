@@ -1,14 +1,20 @@
 --//gs c autocast is the command to start
 
-DefensiveSpells = S{"Barfira", "Barwatera", "Baraera", "Barstonra" } -- put spells that you cast on yourself in here
-OffensiveSpells = S{"Dia", "Fire", "Bind", "Bio" }	--put spells that you cast on enemies in here
 
+DefensiveSpells = {} -- put spells that you cast on yourself in here
+OffensiveSpells = {"Dia", "Fire", "Stone", "Blizzard", "Bio" }	--put spells that you cast on enemies in here
 --Spells need to be in autoCast and in either of Defensive or Offensive
-autoCast = {"Barfira", "Barwatera", "Baraera", "Barstonra"} -- put spells you want to cast in here. They have to match the spell name in game. ex cure 3 must be spelled as "Cure III"
+
+
 
 ------------------------don't change anything below here
 
-
+function contains(t, e)
+  for i = 1,#t do
+    if t[i] == e then return true end
+  end
+  return false
+end
 --Following is required in cdhelper.lua
 	
 	-- elseif command == "autocast" then
@@ -27,11 +33,21 @@ autoCast = {"Barfira", "Barwatera", "Baraera", "Barstonra"} -- put spells you wa
 
 autoSpells= {} 
 spellsNum = 1 
-
-
+autoCast = {} -- list for holding both types of spells
 function findSpells()
 	local MagicSpells = include('../../../res/spells.lua')
 	add_to_chat(122, "Current Auto Spells")
+
+	
+	for i = 1, #OffensiveSpells do 
+	--add_to_chat(122, DefensiveSpells[i])
+		table.insert(autoCast,OffensiveSpells[i])
+	end
+	
+	for i = 1 , #DefensiveSpells do 
+		table.insert(autoCast,DefensiveSpells[i])
+	end
+	
 	for i = 1,#autoCast do
 		
 		for j = 1, #MagicSpells do
@@ -61,11 +77,11 @@ function autoMagicCast()
 			send_command('input /heal off')
 		end
 	elseif autocast == true then
-		if OffensiveSpells:contains(autoSpells[spellsNum].en) and player.in_combat then 
+		if contains(OffensiveSpells, autoSpells[spellsNum].en) and player.in_combat then 
 			send_command('input /ma "'.. autoSpells[spellsNum].en ..'" <t>')
 			--add_to_chat(122,  autoSpells[spellsNum].en)
 		wait = autoSpells[spellsNum].cast_time + 4
-		elseif DefensiveSpells:contains(autoSpells[spellsNum].en) and (player.status ~= "Resting") then
+		elseif contains(DefensiveSpells,autoSpells[spellsNum].en) and (player.status ~= "Resting") then
 			send_command('input /ma "'.. autoSpells[spellsNum].en ..'" <me>')
 		--	add_to_chat(122,  autoSpells[spellsNum].en)
 			wait = autoSpells[spellsNum].cast_time + 4

@@ -513,9 +513,9 @@ function self_command(command)
 	-- elseif command == "skillupOffensive" then
 		-- skillupOffensive()
 	elseif command == "autocast" then
-		if firstAuto then
+	--	if firstAuto then
 			include('autoMagic.lua')
-		end
+	--	end
 		firstAuto = false
 		if autocast == false then
 			autocast = true;
