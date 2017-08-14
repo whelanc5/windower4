@@ -429,7 +429,7 @@ function self_command(command)
 			modeChange("petMode", "pet")
 			sets.TP.Pet = sets.Pet[petMode]
 			equip(sets.TP.Pet)
-			sets.aftercast.TP = sets.TP.Pet	
+			sets.aftercast.TP = sets.Pet[petMode]
 			if sets.Pet.Idle[petMode] ~= nil then
 				sets.Idle.Pet = sets.Pet.Idle[petMode]
 			else
