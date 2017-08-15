@@ -127,9 +127,10 @@
 
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
-	hercLegsCrit = {name="Herculean Trousers", augments={'Accuracy+26','Crit.hit rate+4','AGI+5','Attack+1',}}
+	hercLegsCrit = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
 	hercFeetCrit = { name="Herculean Boots", augments={'Accuracy+23','Crit.hit rate+5','INT+6','Attack+9',}}
 	hercFeetTA = { name="Herculean Boots", augments={'Accuracy+30','"Triple Atk."+3','INT+3','Attack+13',}}
+	hercLegsSTR = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
 	
 	
 	--------------------------------------------------------Set for pet WS--------------------------------------------------------------------------------

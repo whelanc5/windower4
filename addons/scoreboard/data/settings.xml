@@ -66,12 +66,25 @@
     </global>
     <kwame>
         <display>
+            <pos>
+                <x>1555</x>
+                <y>208</y>
+            </pos>
             <text>
                 <stroke>
                     <alpha>2.9528555333672e+026</alpha>
                 </stroke>
             </text>
         </display>
+        <numplayers>8</numplayers>
         <visible>false</visible>
     </kwame>
+    <snipper>
+        <display>
+            <pos>
+                <x>1555</x>
+                <y>208</y>
+            </pos>
+        </display>
+    </snipper>
 </settings>

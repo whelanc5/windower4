@@ -7,6 +7,38 @@
             <default>
 
             </default>
+            <fulltank>
+                <frame>valoredge frame</frame>
+                <head>soulsoother head</head>
+                <slot01>optic fiber ii</slot01>
+                <slot02>optic fiber</slot02>
+                <slot03>auto-repair kit iv</slot03>
+                <slot04>mana jammer iv</slot04>
+                <slot05>mana jammer ii</slot05>
+                <slot06>coiler ii</slot06>
+                <slot07>coiler</slot07>
+                <slot08>armor plate iv</slot08>
+                <slot09>armor plate ii</slot09>
+                <slot10>strobe ii</slot10>
+                <slot11>strobe</slot11>
+                <slot12>tension spring ii</slot12>
+            </fulltank>
+            <overdrive>
+                <frame>valoredge frame</frame>
+                <head>valoredge head</head>
+                <slot01>attuner</slot01>
+                <slot02>inhibitor ii</slot02>
+                <slot03>inhibitor</slot03>
+                <slot04>tension spring iii</slot04>
+                <slot05>turbo charger</slot05>
+                <slot06>turbo charger ii</slot06>
+                <slot07>optic fiber ii</slot07>
+                <slot08>optic fiber</slot08>
+                <slot09>auto-repair kit iii</slot09>
+                <slot10>coiler ii</slot10>
+                <slot11>coiler</slot11>
+                <slot12>dynamo</slot12>
+            </overdrive>
             <rng>
                 <frame>sharpshot frame</frame>
                 <head>valoredge head</head>
@@ -41,8 +73,8 @@
         <maneuvertimers>false</maneuvertimers>
         <padding>0</padding>
         <pos>
-            <x>1200</x>
-            <y>50</y>
+            <x>1727</x>
+            <y>553</y>
         </pos>
         <text>
             <alpha>255</alpha>
@@ -64,10 +96,4 @@
         </text>
         <visible>false</visible>
     </global>
-    <snipper>
-        <pos>
-            <x>1727</x>
-            <y>553</y>
-        </pos>
-    </snipper>
 </settings>

@@ -9,7 +9,7 @@ function get_sets()
 	
 	include('cdhelper.lua')
 	
-	tpModes = {"Default", "Acc", "Haste", "Pet",  "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	tpModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	wsModes = {"Default", "Acc"}  --sets.WS.Mode
 	idleModes = {"Default", "Pet", "DT", "Custom"}
@@ -41,25 +41,25 @@ function get_sets()
 	sets.Nuke = {}
 
 
-	sets.base = {head="Hizamaru Somen +1",neck="Lissome Necklace",
+	sets.base = {head="Herculean Helm",neck="Lissome Necklace",
         ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Tali'ah Manteel",hands="Herculean Gloves",
         ring1="Rajas Ring",ring2="Epona's Ring", back="Visucius's Mantle",waist="Moonbow Belt",legs= hercLegsTA,
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
-	sets.base.WS = set_combine(sets.base,{ hands="Ryuo Tekko"})	
+	sets.base.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko", legs = hercLegsSTR})	
 	sets.WS = set_combine(sets.base.WS,{ring1 = "Spiral Ring", neck="Shifting Necklace +1"})
 	sets.WS.Default = set_combine(sets.base.WS,{ring1 = "Spiral Ring"})
-	sets.WS.Acc = set_combine(sets.base.WS,{ waist = "Hurch'lan Sash", neck="Shifting Necklace +1", legs = hercLegsCrit})	
+	sets.WS.Acc = set_combine(sets.base.WS,{ waist = "Hurch'lan Sash", neck="Shifting Necklace +1"})	
     sets.precast.WS = set_combine(sets.base.WS,{ring1 = "Spiral Ring"})
 	
 	sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
 	sets.WS['Shijin Spiral'].Acc = set_combine(sets.WS['Shijin Spiral'], {neck="Shifting Necklace +1"})
 		
 	
-	sets.WS['Victory Smite'] = set_combine(sets.WS[wsMode],{ring1 = "Rajas Ring", Neck="Light Gorget", legs= hercLegsCrit, feet = hercFeetCrit})
+	sets.WS['Victory Smite'] = set_combine(sets.WS[wsMode],{ring1 = "Rajas Ring", Neck="Light Gorget", feet = hercFeetCrit})
 	sets.WS['Victory Smite'].Acc = set_combine(sets.WS['Victory Smite'], {neck="Shifting Necklace +1"})
 	
-	sets.WS['Stringing Pummel'] = {ring1 = "Spiral Ring", Neck="Soil Gorget", legs= hercLegsCrit, feet = hercFeetCrit}
+	sets.WS['Stringing Pummel'] = {ring1 = "Spiral Ring", Neck="Soil Gorget", feet = hercFeetCrit}
 	sets.WS['Stringing Pummel'].Acc = set_combine(sets.WS['Stringing Pummel'], {neck="Shifting Necklace +1"})
 
 
@@ -67,8 +67,8 @@ function get_sets()
     sets.TP = set_combine(sets.base,{})
 	sets.TP.Current = sets.TP
 	sets.TP.Default = set_combine(sets.TP,{})
-    sets.TP.Acc = set_combine(sets.TP,{  legs = hercLegsCrit, hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
-	sets.TP.Haste = set_combine(sets.TP,{})	
+    sets.TP.Acc = set_combine(sets.TP,{ head="Hizamaru Somen +1", hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
+	sets.TP.Haste = set_combine(sets.TP,{body = "Rawhide Vest"})	
     sets.TP.DT=  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" , back="Cheviot Cape"})
 	sets.TP.Pet= set_combine(sets.base,{ring1="Thurandaut Ring"})	
 	sets.TP.Custom = set_combine(sets.TP,{})
