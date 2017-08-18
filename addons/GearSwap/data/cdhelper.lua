@@ -142,9 +142,14 @@
 	runes = S{"Tellus", "Flabra"}
 
 
-
-
-
+	autoRA = false
+	function autoRange()
+	equip({ammo="Bronze Bullet"})
+	send_command('input /ra  <t>')
+		if (autoRA == true) then
+			send_command('wait 5 ;input //gs c autoRange')
+		end
+	end
 
 ------------------------------------------------------------------------Precast Function---------------------------------------------------------------------------------------------------------------
 -- if a sets.precast["spell name"] exists it will equip that.
@@ -181,7 +186,7 @@ function precast(spell)
     elseif string.find(spell.english,'Maneuver')  then
 		equip(sets.precast.maneuver)
 	elseif string.find(spell.english,'Waltz')  then
-		equip(sets.precast.Waltz)
+		equip(sets.precast.Waltz)		
     end
 	
    end
@@ -526,10 +531,20 @@ function self_command(command)
 			autocast = false
 			add_to_chat(122, command .. " off")
 		end
-
+	
 	elseif command == "autoMagicCast" then
 		autoMagicCast()
-
+	elseif command == "autoRA" then
+		if autoRA == false then 
+			autoRA = true
+			add_to_chat(122, command .. " on")
+			send_command('wait 2 ;input //gs c autoRange')
+		else 
+			autoRA = false
+			add_to_chat(122, command .. " off")
+		end
+	elseif command == "autoRange" then
+		autoRange()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
 	elseif command == "customTP"  then
 		sets.TP.Custom =   customSet()	

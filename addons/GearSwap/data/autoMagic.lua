@@ -1,8 +1,8 @@
 --//gs c autocast is the command to start
 
 
-DefensiveSpells = {"Cure", "Cure II", "Barfira", "Barwatera", "Barstonra"} -- put spells that you cast on yourself in here
-OffensiveSpells = { }	--put spells that you cast on enemies in here
+DefensiveSpells = {"Cure", "Barpoison"} -- put spells that you cast on yourself in here
+OffensiveSpells = {"Dia", "Bio" }	--put spells that you cast on enemies in here
 --Spells need to be in autoCast and in either of Defensive or Offensive
 
 
