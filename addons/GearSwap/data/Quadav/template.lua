@@ -49,8 +49,8 @@ function get_sets()
 	----------------------------------------------------------------NUKE---------------------------------------------------------------------------------------------
 	--changes sets.midcast.Elemental to this set based on mode
 	sets.Nuke = {}
-	sets.Nuke.Default = {} -- don't change this
-	sets.Nuke.Custom = {} -- don't change this
+	sets.Nuke.Default = sets.Nuke -- don't change this
+	sets.Nuke.Custom = sets.Nuke-- don't change this
 	sets.Nuke.Acc = {}
 	sets.Nuke.Burst = {}
 	sets.midcast.Burst = {}
@@ -64,7 +64,7 @@ function get_sets()
 	sets.TP = set_combine(sets.base,{})	 -- base set for TP gear
 	sets.TP.Current = sets.TP -- don't change this
 	sets.aftercast.TP = sets.TP -- don't change this
-	sets.TP.Custom = set_combine(sets.TP,{}) -- don't change this
+	sets.TP.Custom = sets.TP -- don't change this
 	sets.TP.Default = sets.TP -- don't change this
     sets.TP.Acc = set_combine(sets.TP,{})	
 	sets.TP.Haste = set_combine(sets.TP,{})	

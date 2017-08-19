@@ -46,20 +46,20 @@ function get_sets()
         ring1="Rajas Ring",ring2="Epona's Ring", back="Visucius's Mantle",waist="Moonbow Belt",legs= hercLegsTA,
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
-	sets.base.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1"})	
-	sets.WS = set_combine(sets.base.WS,{ring1 = "Spiral Ring"})
-	sets.WS.Default = set_combine(sets.base.WS,{ring1 = "Spiral Ring"})
-	sets.WS.Acc = set_combine(sets.base.WS,{ neck="Shifting Necklace +1"})	
+	--sets.base.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1", body = "Hizamaru Haramaki"})	
+	sets.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1", body = "Hizamaru Haramaki", ring1 =	"Spiral Ring"})
+	sets.WS.Default = set_combine(sets.WS,{ring1 = "Spiral Ring"})
+	sets.WS.Acc = set_combine(sets.WS,{ neck="Shifting Necklace +1", body="Tali'ah Manteel"})	
     sets.precast.WS = sets.WS -- don't change
 	
-	sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
-	sets.WS['Shijin Spiral'].Acc = set_combine(sets.WS['Shijin Spiral'], {neck="Shifting Necklace +1"})
+	sets.WS['Shijin Spiral'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget", body="Tali'ah Manteel" })
+	sets.WS['Shijin Spiral'].Acc = set_combine(sets.WS.Acc, { ring1 = "Rajas Ring", neck="Shifting Necklace +1"})
 		
 	
 	sets.WS['Victory Smite'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget"})
-	sets.WS['Victory Smite'].Acc = set_combine(sets.WS, {neck="Shifting Necklace +1"})
+	sets.WS['Victory Smite'].Acc = set_combine(sets.WS.Acc, {})
 	
-	sets.WS['Stringing Pummel'] = {ring1 = "Spiral Ring", Neck="Soil Gorget"}
+	sets.WS['Stringing Pummel'] = set_combine(sets.WS, {ring1 = "Spiral Ring", Neck="Soil Gorget"})
 	sets.WS['Stringing Pummel'].Acc = set_combine(sets.WS['Stringing Pummel'], {neck="Shifting Necklace +1"})
 
 
