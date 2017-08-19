@@ -178,13 +178,13 @@ function precast(spell)
         equip(sets.precast.JA[spell.english])
     
     elseif spell.type=="WeaponSkill" then   
-		equip(sets.WS)
 		if sets.WS[spell.english] then
 			equip(sets.WS[spell.english]) 
 			if sets.WS[spell.english][wsMode] ~= nil then
 				equip(sets.WS[spell.english][wsMode]) 
 			end
-			
+		else 
+			equip(sets.precast.WS)
 		end	
     elseif string.find(spell.english,'Maneuver')  then
 		equip(sets.precast.maneuver)
@@ -451,6 +451,7 @@ function self_command(command)
 		else
 			modeChange("wsMode", "ws")		
 			sets.precast.WS = sets.WS[wsMode]		
+
 		end
 	elseif command == "petWS"  then -- type gs c petWS to change to petws gear
 		if petWS == false then

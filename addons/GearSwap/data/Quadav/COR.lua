@@ -95,8 +95,9 @@ function get_sets()
 	sets.Blue.Cure = {}
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
-	sets.precast.WS = {} -- -- don't change this 
+	
 	sets.WS = set_combine(sets.base,{})--base set for weaponskill that isn't named
+	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 
 	sets.WS.Acc = set_combine(sets.WS,{})
