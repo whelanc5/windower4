@@ -1,47 +1,15 @@
 <?xml version="1.1" ?>
 <settings>
     <global>
-        <AutoActivate>false</AutoActivate>
+        <AutoActivate>true</AutoActivate>
         <AutoDeusExAutomata>false</AutoDeusExAutomata>
         <autosets>
             <default>
 
             </default>
-            <overdrive>
-                <frame>valoredge frame</frame>
-                <head>valoredge head</head>
-                <slot01>attuner</slot01>
-                <slot02>inhibitor ii</slot02>
-                <slot03>inhibitor</slot03>
-                <slot04>tension spring iii</slot04>
-                <slot05>turbo charger</slot05>
-                <slot06>auto-repair kit iii</slot06>
-                <slot07>armor plate iv</slot07>
-                <slot08>coiler</slot08>
-                <slot09>coiler ii</slot09>
-                <slot10>target marker</slot10>
-                <slot11>optic fiber ii</slot11>
-                <slot12>optic fiber</slot12>
-            </overdrive>
-            <rng>
-                <frame>sharpshot frame</frame>
-                <head>valoredge head</head>
-                <slot01>tension spring iv</slot01>
-                <slot02>tension spring ii</slot02>
-                <slot03>turbo charger ii</slot03>
-                <slot04>turbo charger</slot04>
-                <slot05>repeater</slot05>
-                <slot06>armor plate iv</slot06>
-                <slot07>coiler ii</slot07>
-                <slot08>coiler</slot08>
-                <slot09>dynamo ii</slot09>
-                <slot10>optic fiber</slot10>
-                <slot11>optic fiber ii</slot11>
-                <slot12>auto-repair kit iii</slot12>
-            </rng>
         </autosets>
         <bg>
-            <alpha>0</alpha>
+            <alpha>255</alpha>
             <blue>0</blue>
             <green>0</green>
             <red>0</red>
@@ -54,11 +22,11 @@
             <italic>false</italic>
             <right>false</right>
         </flags>
-        <maneuvertimers>false</maneuvertimers>
+        <maneuvertimers>true</maneuvertimers>
         <padding>0</padding>
         <pos>
-            <x>1727</x>
-            <y>553</y>
+            <x>400</x>
+            <y>300</y>
         </pos>
         <text>
             <alpha>255</alpha>
@@ -71,13 +39,18 @@
             <red>255</red>
             <size>10</size>
             <stroke>
-                <alpha>-7.5297816100864e+028</alpha>
+                <alpha>255</alpha>
                 <blue>0</blue>
                 <green>0</green>
                 <red>0</red>
                 <width>0</width>
             </stroke>
         </text>
-        <visible>false</visible>
     </global>
+    <snipper>
+        <pos>
+            <x>1691</x>
+            <y>751</y>
+        </pos>
+    </snipper>
 </settings>

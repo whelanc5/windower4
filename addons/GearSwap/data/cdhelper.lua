@@ -127,9 +127,10 @@
 
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
-	hercLegsCrit = {name="Herculean Trousers", augments={'Accuracy+26','Crit.hit rate+4','AGI+5','Attack+1',}}
+	hercLegsCrit = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
 	hercFeetCrit = { name="Herculean Boots", augments={'Accuracy+23','Crit.hit rate+5','INT+6','Attack+9',}}
 	hercFeetTA = { name="Herculean Boots", augments={'Accuracy+30','"Triple Atk."+3','INT+3','Attack+13',}}
+	hercLegsSTR = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
 	
 	
 	--------------------------------------------------------Set for pet WS--------------------------------------------------------------------------------
@@ -141,9 +142,17 @@
 	runes = S{"Tellus", "Flabra"}
 
 
-
-
-
+	autoRA = false
+	function autoRange()
+	if player.skills.marksmanship > 397 then
+		autoRA = false
+	end
+	equip({ammo="Bronze Bullet"})
+	send_command('input /ra  <t>')
+		if (autoRA == true) then
+			send_command('wait 5 ;input //gs c autoRange')
+		end
+	end
 
 ------------------------------------------------------------------------Precast Function---------------------------------------------------------------------------------------------------------------
 -- if a sets.precast["spell name"] exists it will equip that.
@@ -180,7 +189,7 @@ function precast(spell)
     elseif string.find(spell.english,'Maneuver')  then
 		equip(sets.precast.maneuver)
 	elseif string.find(spell.english,'Waltz')  then
-		equip(sets.precast.Waltz)
+		equip(sets.precast.Waltz)		
     end
 	
    end
@@ -429,7 +438,7 @@ function self_command(command)
 			modeChange("petMode", "pet")
 			sets.TP.Pet = sets.Pet[petMode]
 			equip(sets.TP.Pet)
-			sets.aftercast.TP = sets.TP.Pet	
+			sets.aftercast.TP = sets.Pet[petMode]
 			if sets.Pet.Idle[petMode] ~= nil then
 				sets.Idle.Pet = sets.Pet.Idle[petMode]
 			else
@@ -525,10 +534,20 @@ function self_command(command)
 			autocast = false
 			add_to_chat(122, command .. " off")
 		end
-
+	
 	elseif command == "autoMagicCast" then
 		autoMagicCast()
-
+	elseif command == "autoRA" then
+		if autoRA == false then 
+			autoRA = true
+			add_to_chat(122, command .. " on")
+			send_command('wait 2 ;input //gs c autoRange')
+		else 
+			autoRA = false
+			add_to_chat(122, command .. " off")
+		end
+	elseif command == "autoRange" then
+		autoRange()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
 	elseif command == "customTP"  then
 		sets.TP.Custom =   customSet()	
