@@ -387,25 +387,37 @@ function self_command(command)
 	--	self_command("tpMode")
 	---------------------------------------------------------------equip sets ---------------------------------------------------------------------------------------------------------------
 	elseif command == "equipTP" then -- equip current tp
-		equip(sets.TP.Current)
 		add_to_chat(122,tpMode .. "tp")
+		sets.TP.Current = sets.TP[tpMode]
+		sets.aftercast.TP = sets.TP.Current
+		equip(sets.TP.Current)
+		
 		
 	elseif  command == "equipDT" then -- equip current dt
-		if player.status =='Engaged' then
+			sets.TP.DT = sets.DT[dtMode]
 			equip(sets.TP.DT)
+			sets.aftercast.TP = sets.DT[dtMode]
+			sets.aftercast.Idle = sets.DT[dtMode]
+		if player.status =='Engaged' then
+			equip(sets.DT[dtMode])
 		else
-			equip(sets.Idle.DT) 
+			equip(sets.DT[dtMode]) 
 		end
 		add_to_chat(122,dtMode .. "dt")
 		
 	elseif command == "equipIdle" then -- for changing idle mode
+			sets.Idle.Current = sets.Idle[idleMode]
+			sets.aftercast.Idle = sets.Idle.Current
 			equip(sets.Idle.Current)
 			add_to_chat(122,idleMode .. "idle")
 			
 	elseif command == "Pet/Nuke" then ---- for changing Pet mode or Nuke mode
 		if player.main_job == "PUP" or player.main_job == "SMN" or player.main_job == "BST" then
-			equip(sets.TP.Pet)
+			sets.aftercast.TP = sets.Pet[petMode]
+			sets.aftercast.Idle = sets.Pet[petMode]
+			equip(sets.Pet[petMode])
 			add_to_chat(122, petMode .. "pet")
+			
 		else 
 			equip(sets.Nuke[nukeMode])
 			add_to_chat(122, nukeMode .. "nuke")
@@ -415,14 +427,14 @@ function self_command(command)
 			if  #dtModes == 0 then
 			equip(sets.DT)
 			sets.aftercast.TP = sets.DT
-			sets.Idle.DT = sets.DT
+			sets.aftercast.Idle= sets.DT
 			add_to_chat(122, "DT")
 		else
 			modeChange("dtMode", "dt")
 			sets.TP.DT = sets.DT[dtMode]
 			equip(sets.TP.DT)
 			sets.aftercast.TP = sets.DT[dtMode]
-			sets.Idle.DT = sets.DT[dtMode]
+			sets.aftercast.Idle = sets.DT[dtMode]
 		end
 	elseif command == "nukeMode"  then		-- for changing nuke modes by hotkey, type gs c nukeMode
 		if  #nukeModes == 0 then			
@@ -440,9 +452,9 @@ function self_command(command)
 			equip(sets.TP.Pet)
 			sets.aftercast.TP = sets.Pet[petMode]
 			if sets.Pet.Idle[petMode] ~= nil then
-				sets.Idle.Pet = sets.Pet.Idle[petMode]
+				sets.aftercast.Idle = sets.Pet.Idle[petMode]
 			else
-				sets.Idle.Pet = sets.Pet[petMode]
+				sets.aftercast.Idle = sets.Pet[petMode]
 			end
 		end
 	elseif command == "wsMode" then		-- for changing ws modes by hotkey, type gs c wsmode
@@ -461,7 +473,7 @@ function self_command(command)
 				petWS = true
 				end
 		else
-			equip(sets.aftercast.TP)
+			equip(sets.TP.Current)
 			petWS = false
 		end
 	elseif command == "tpMode" then -- for changing tp modes by hotkey, bound to ctrl-f9 in my init file

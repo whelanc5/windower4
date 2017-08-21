@@ -1,12 +1,28 @@
 <?xml version="1.1" ?>
 <settings>
     <global>
-        <AutoActivate>true</AutoActivate>
+        <AutoActivate>false</AutoActivate>
         <AutoDeusExAutomata>false</AutoDeusExAutomata>
         <autosets>
             <default>
 
             </default>
+            <tank>
+                <frame>valoredge frame</frame>
+                <head>valoredge head</head>
+                <slot01>strobe ii</slot01>
+                <slot02>strobe</slot02>
+                <slot03>tension spring iv</slot03>
+                <slot04>galvanizer</slot04>
+                <slot05>turbo charger ii</slot05>
+                <slot06>turbo charger</slot06>
+                <slot07>armor plate iv</slot07>
+                <slot08>auto-repair kit iv</slot08>
+                <slot09>optic fiber ii</slot09>
+                <slot10>mana jammer iv</slot10>
+                <slot11>coiler ii</slot11>
+                <slot12>target marker</slot12>
+            </tank>
         </autosets>
         <bg>
             <alpha>255</alpha>
@@ -25,8 +41,8 @@
         <maneuvertimers>true</maneuvertimers>
         <padding>0</padding>
         <pos>
-            <x>400</x>
-            <y>300</y>
+            <x>1691</x>
+            <y>751</y>
         </pos>
         <text>
             <alpha>255</alpha>
@@ -47,10 +63,4 @@
             </stroke>
         </text>
     </global>
-    <snipper>
-        <pos>
-            <x>1691</x>
-            <y>751</y>
-        </pos>
-    </snipper>
 </settings>
