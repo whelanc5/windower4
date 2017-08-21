@@ -166,8 +166,10 @@
 -- if sets.precast.Waltz is set, it will equip that set when any maneuver is used
 function precast(spell)
 	
-	if sets.precast[spell.english] then
+	if sets.precast[spell.english] then	
         equip(sets.precast[spell.english])
+	if sets.precast.JA[spell.english] then	
+		equip(sets.precast.JA[spell.english])
 	elseif spell.action_type == 'Magic' then		
 		if spell.skill == 'Healing Magic' and equip(sets.precast.Magic.Healing) ~= nil then
 			equip(sets.precast.Magic.Healing)			
