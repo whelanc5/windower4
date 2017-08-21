@@ -7,6 +7,22 @@
             <default>
 
             </default>
+            <overdrive>
+                <frame>valoredge frame</frame>
+                <head>valoredge head</head>
+                <slot01>optic fiber ii</slot01>
+                <slot02>optic fiber</slot02>
+                <slot03>auto-repair kit iii</slot03>
+                <slot04>armor plate iv</slot04>
+                <slot05>mana jammer iv</slot05>
+                <slot06>coiler ii</slot06>
+                <slot07>coiler</slot07>
+                <slot08>target marker</slot08>
+                <slot09>attuner</slot09>
+                <slot10>inhibitor ii</slot10>
+                <slot11>speedloader ii</slot11>
+                <slot12>tension spring ii</slot12>
+            </overdrive>
             <tank>
                 <frame>valoredge frame</frame>
                 <head>valoredge head</head>
