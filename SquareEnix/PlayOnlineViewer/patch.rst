@@ -1,1 +1,0 @@
-polcfg/sysinfo.sys polcfg/polcfg.chm polhook.dll polcfg/sysinfo.dll pol.exe polcfg/polcfg.exe viewer/contents/polcontentsINT.dll 
