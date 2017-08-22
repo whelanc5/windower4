@@ -34,6 +34,7 @@ function get_sets()
 	sets.precast.TP ={}			
 	sets.precast.JA = {}
 	sets.precast.Magic = {}
+	sets.precast.Roll = {}
 
 	----------------------------------------------------------------Midcast------------------------------------------------------------------------------------------
 	sets.midcast = {}

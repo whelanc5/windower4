@@ -23,13 +23,29 @@
                 <slot11>speedloader ii</slot11>
                 <slot12>tension spring ii</slot12>
             </overdrive>
+            <rng>
+                <frame>sharpshot frame</frame>
+                <head>valoredge head</head>
+                <slot01>attuner</slot01>
+                <slot02>tension spring iv</slot02>
+                <slot03>strobe</slot03>
+                <slot04>turbo charger</slot04>
+                <slot05>turbo charger ii</slot05>
+                <slot06>repeater</slot06>
+                <slot07>mana jammer iv</slot07>
+                <slot08>coiler ii</slot08>
+                <slot09>coiler</slot09>
+                <slot10>stabilizer ii</slot10>
+                <slot11>auto-repair kit iv</slot11>
+                <slot12>optic fiber ii</slot12>
+            </rng>
             <tank>
                 <frame>valoredge frame</frame>
                 <head>valoredge head</head>
                 <slot01>strobe ii</slot01>
                 <slot02>strobe</slot02>
                 <slot03>tension spring iv</slot03>
-                <slot04>galvanizer</slot04>
+                <slot04>coiler</slot04>
                 <slot05>turbo charger ii</slot05>
                 <slot06>turbo charger</slot06>
                 <slot07>armor plate iv</slot07>
@@ -57,8 +73,8 @@
         <maneuvertimers>true</maneuvertimers>
         <padding>0</padding>
         <pos>
-            <x>1691</x>
-            <y>751</y>
+            <x>1747</x>
+            <y>304</y>
         </pos>
         <text>
             <alpha>255</alpha>

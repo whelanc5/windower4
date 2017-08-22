@@ -113,7 +113,7 @@
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
-	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "autoWS", "rest"} --booleans
+	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "autoWS", "rest", "autoRoll"} --booleans
 	deploy = false
 	automaneuver = false
 	magicburst = false
@@ -124,6 +124,7 @@
 	rest = true
 	autocast = false 
 	firstAuto = true
+	autoRoll = false
 
 ----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
 	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
@@ -164,11 +165,10 @@
 -- if sets.WS["WS name"]."Ws mode" exists it will equip that
 -- if sets.precast.maneuver is set it will equip that set when any maneuver is used
 -- if sets.precast.Waltz is set, it will equip that set when any maneuver is used
-function precast(spell)
-	
+function precast(spell)	
 	if sets.precast[spell.english] then	
         equip(sets.precast[spell.english])
-	if sets.precast.JA[spell.english] then	
+	elseif sets.precast.JA[spell.english] then	
 		equip(sets.precast.JA[spell.english])
 	elseif spell.action_type == 'Magic' then		
 		if spell.skill == 'Healing Magic' and equip(sets.precast.Magic.Healing) ~= nil then
@@ -190,6 +190,8 @@ function precast(spell)
 		end	
     elseif string.find(spell.english,'Maneuver')  then
 		equip(sets.precast.maneuver)
+	elseif string.find(spell.english,'Roll')  then
+		equip(sets.precast.Roll)
 	elseif string.find(spell.english,'Waltz')  then
 		equip(sets.precast.Waltz)		
     end
@@ -201,6 +203,11 @@ function precast(spell)
 -- if runes it set to true, it will put up any runes that of within the runes set as they wear off
 function buff_change(name, gain)
 	if not gain and automaneuver and string.find(name,'Maneuver') then --maneuver auto put back up if automaneuver is true
+			add_to_chat(122,name)
+			send_command(name)		
+	
+	end
+	if not gain and autoRoll and string.find(name,'Roll') then --roll auto put back up if autoRoll is true
 			add_to_chat(122,name)
 			send_command(name)		
 	
