@@ -25,7 +25,16 @@ function get_sets()
 	
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
-	sets.base = {} -- Base set. Can use this as a base for other sets
+	sets.base ={
+    head="Meghanada Visor +1",
+    body="Meghanada Cuirie",
+    hands="Meg. Gloves +1",
+    legs="Meg. Chausses",
+    feet="Meg. Jam. +1",
+    left_ring="Barataria Ring",
+    right_ring="Warp Ring",
+    back="Camulus's Mantle",
+} -- Base set. Can use this as a base for other sets
 
 
 	----------------------------------------------------------------Precast------------------------------------------------------------------------------------------
@@ -80,7 +89,7 @@ function get_sets()
 	sets.DT.Full = set_combine(sets.DT,{})
 	
 	----------------------------------------------------------------IDLE---------------------------------------------------------------------------------------------
-	sets.Idle = set_combine(sets.base,{}) -- base set for idle
+	sets.Idle = set_combine(sets.base,{feet="Hermes' Sandals"}) -- base set for idle
 	sets.aftercast.Idle = sets.Idle -- don't change this
 	sets.Idle.Current = sets.Idle -- don't change this
 	sets.Idle.Default = sets.Idle -- don't change this
