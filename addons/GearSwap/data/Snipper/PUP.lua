@@ -49,9 +49,9 @@ function get_sets()
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
 	--sets.base.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1", body = "Hizamaru Haramaki"})	
-	sets.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1", body = "Hizamaru Haramaki", ring1 =	"Spiral Ring"})
+	sets.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1", body = "Hiza. Haramaki +1", ring1 =	"Spiral Ring"})
 	sets.WS.Default = set_combine(sets.WS,{ring1 = "Spiral Ring"})
-	sets.WS.Acc = set_combine(sets.WS,{ neck="Shifting Necklace +1", body="Tali'ah Manteel"})	
+	sets.WS.Acc = set_combine(sets.WS,{ neck="Shifting Necklace +1"})	
     sets.precast.WS = sets.WS -- don't change
 	
 	sets.WS['Shijin Spiral'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget", body="Tali'ah Manteel" })
@@ -69,7 +69,7 @@ function get_sets()
     sets.TP = set_combine(sets.base,{})
 	sets.TP.Current = sets.TP
 	sets.TP.Default = set_combine(sets.TP,{})
-    sets.TP.Acc = set_combine(sets.TP,{ head="Hizamaru Somen +1", hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
+    sets.TP.Acc = set_combine(sets.TP,{body = "Hiza. Haramaki +1", head="Hizamaru Somen +1", hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
 	sets.TP.Haste = set_combine(sets.TP,{body = "Rawhide Vest"})	
     sets.TP.DT=  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" , back="Cheviot Cape"})
 	sets.TP.Pet= set_combine(sets.base,{ring1="Thurandaut Ring"})	
@@ -95,12 +95,12 @@ function get_sets()
     sets.aftercast.Idle = set_combine(sets.TP.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
 	
 	----------------------------------------------------Idle------------------------------------------------------------------
-	sets.Idle = set_combine(sets.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
+	sets.Idle = set_combine(sets.DT,{feet="Hermes' Sandals", body ="Hiza. Haramaki +1"})
 	sets.Idle.Current = sets.Idle
 	sets.Idle.DT = set_combine(sets.DT,{})
-	sets.Idle.Default = set_combine(sets.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
+	sets.Idle.Default = sets.Idle 
 	sets.Idle.Pet = set_combine(sets.DT,{ring1="Thurandaut Ring"})
-	sets.Idle.Custom = set_combine(sets.DT,{feet="Hermes' Sandals"})
+	sets.Idle.Custom = sets.Idle
 	
 	
 	----------------------------------------------Pet-------------------------------------------------------------------------
