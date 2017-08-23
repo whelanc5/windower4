@@ -31,7 +31,6 @@ function get_sets()
     hands="Meg. Gloves +1",
     legs="Meg. Chausses",
     feet="Meg. Jam. +1",
-    left_ring="Barataria Ring",
     right_ring="Warp Ring",
     back="Camulus's Mantle",
 } -- Base set. Can use this as a base for other sets
@@ -43,7 +42,7 @@ function get_sets()
 	sets.precast.TP ={}			
 	sets.precast.JA = {}
 	sets.precast.Magic = {}
-	sets.precast.Roll = {}
+	sets.precast.Roll = {left_ring="Barataria Ring"}
 
 	----------------------------------------------------------------Midcast------------------------------------------------------------------------------------------
 	sets.midcast = {}

@@ -46,9 +46,42 @@
 	--f12 is bound to equip current Pet set when on pup, nuking set when on anything else
 	--Crtl f12 is bound to change pet mode when on pup, and nuking set on anything else
 	----------------------------------------------------------------------------------------------------
+	--------------------------------------------------------Set for pet WS--------------------------------------------------------------------------------
+    petWeaponskills = S{"Slapstick", "Knockout", 
+    "Chimera Ripper", "String Clipper",  "Cannibal Blade", "Bone Crusher", "String Shredder",
+    "Arcuballista", "Daze", "Armor Piercer", "Armor Shatterer"}
 	
-	
-	
+	   rolls = {
+        ["Corsair's Roll"]   = {"lucky=5, unlucky=9, bonus=Experience Points"},
+        ["Ninja Roll"]       = {"lucky=4, unlucky=8, bonus=Evasion"},
+        ["Hunter's Roll"]    = {"lucky=4, unlucky=8, bonus=Accuracy"},
+        ["Chaos Roll"]       = {"lucky=4, unlucky=8, bonus=Attack"},
+        ["Magus's Roll"]     = {"lucky=2, unlucky=6, bonus=Magic Defense"},
+        ["Healer's Roll"]    = {"lucky=3, unlucky=7, bonus=Cure Potency Received"},
+        ["Puppet Roll"]      = {"lucky=4, unlucky=8, bonus=Pet Magic Accuracy/Attack"},
+        ["Choral Roll"]      = {"lucky=2, unlucky=6, bonus=Spell Interruption Rate"},
+        ["Monk's Roll"]      = {"lucky=3, unlucky=7, bonus=Subtle Blow"},
+        ["Beast Roll"]       = {"lucky=4, unlucky=8, bonus=Pet Attack"},
+        ["Samurai Roll"]     = {"lucky=2, unlucky=6, bonus=Store TP"},
+        ["Evoker's Roll"]    = {"lucky=5, unlucky=9, bonus=Refresh"},
+        ["Rogue's Roll"]     = {"lucky=5, unlucky=9, bonus=Critical Hit Rate"},
+        ["Warlock's Roll"]   = {"lucky=4, unlucky=8, bonus=Magic Accuracy"},
+        ["Fighter's Roll"]   = {"lucky=5, unlucky=9, bonus=Double Attack Rate"},
+        ["Drachen Roll"]     = {"lucky=3, unlucky=7, bonus=Pet Accuracy"},
+        ["Gallant's Roll"]   = {"lucky=3, unlucky=7, bonus=Defense"},
+        ["Wizard's Roll"]    = {"lucky=5, unlucky=9, bonus=Magic Attack"},
+        ["Dancer's Roll"]    = {"lucky=3, unlucky=7, bonus=Regen"},
+        ["Scholar's Roll"]   = {"lucky=2, unlucky=6, bonus=Conserve MP"},
+        ["Bolter's Roll"]    = {"lucky=3, unlucky=9, bonus=Movement Speed"},
+        ["Caster's Roll"]    = {"lucky=2, unlucky=7, bonus=Fast Cast"},
+        ["Courser's Roll"]   = {"lucky=3, unlucky=9, bonus=Snapshot"},
+        ["Blitzer's Roll"]   = {"lucky=4, unlucky=9, bonus=Attack Delay"},
+        ["Tactician's Roll"] = {"lucky=5, unlucky=8, bonus=Regain"},
+        ["Allies's Roll"]    = {"lucky=3, unlucky=10, bonus=Skillchain Damage"},
+        ["Miser's Roll"]     = {"lucky=5, unlucky=7, bonus=Save TP"},
+        ["Companion's Roll"] = {"lucky=2, unlucky=10, bonus=Pet Regain and Regen"},
+        ["Avenger's Roll"]   = {"lucky=4, unlucky=8, bonus=Counter Rate"},
+    }
 	
 	
 	---------------------------------------------------------Sets for blu spells----------------------------------------------
@@ -134,10 +167,7 @@
 	hercLegsSTR = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
 	
 	
-	--------------------------------------------------------Set for pet WS--------------------------------------------------------------------------------
-    petWeaponskills = S{"Slapstick", "Knockout", 
-    "Chimera Ripper", "String Clipper",  "Cannibal Blade", "Bone Crusher", "String Shredder",
-    "Arcuballista", "Daze", "Armor Piercer", "Armor Shatterer"}
+	
 	
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 	runes = S{"Tellus", "Flabra"}
@@ -190,8 +220,9 @@ function precast(spell)
 		end	
     elseif string.find(spell.english,'Maneuver')  then
 		equip(sets.precast.maneuver)
-	elseif string.find(spell.english,'Roll')  then
+	elseif rolls[spell.english] ~= nil  then
 		equip(sets.precast.Roll)
+		add_to_chat(122,rolls[spell.english][1])
 	elseif string.find(spell.english,'Waltz')  then
 		equip(sets.precast.Waltz)		
     end
@@ -303,9 +334,12 @@ function midcast(spell)
 			elseif blueBuff:contains(spell.english) then
 				equip(sets.Blue.Cure)
 			elseif blueMagic:contains(spell.english) then
-				equip(sets.Blue.Magic[nukeMode])
-				add_to_chat(nukeMode)
-			else equip(sets.Blue)
+				if sets.Blue.Magic[nukeMode] then 
+				 equip(sets.Blue.Magic[nukeMode])
+				else
+				equip(sets.Blue.Magic)
+				end				
+			else equip(sets.Blue.Magic)
 			end
 		end	
 	end
