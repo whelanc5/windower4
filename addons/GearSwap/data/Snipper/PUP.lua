@@ -8,11 +8,9 @@ function get_sets()
 	
 	
 	include('cdhelper.lua')
-	
 
-	--------------------------------------------------------------------------------------------------------------------------------------------------------------
-	VisuciusPet ={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10',}}
-	VisuciusDmg ={ name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
+
+
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
 
 	

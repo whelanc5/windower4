@@ -1,5 +1,5 @@
 
-	
+	include('augments.lua')
 	----------------------------------------------------Commands---------------------------------------------------------------------------------------------------
 	--------------booleans--------------------------------
 	-----------When used these will switch on if they're off, and off if they're on
@@ -118,26 +118,25 @@
 	
 	
 	----------------------------------------------------------List of catagories-----------------------------------------------------------
-	--prefix + mode
-	--ex "tpMode"
+
 	modeSets = {
-		["tpMode"] = {num = 1, suffix = "TP", tpType = 1, idleType = 0, midcastType = 0, precastType = 0, setModes = tpModes},
-		["dtMode"] = {num = 1, suffix = "DT", tpType = 1,idleType = 1, midcastType = 0, precastType = 0, setModes = dtModes},
-		["petMode"] = {num = 1, suffix = "Pet", tpType = 1, idleType = 1, midcastType = 0, precastType = 0, setModes = petModes},
-		["wsMode"] = {num = 1, suffix = "WS", tpType = 0, idleType = 0, midcastType = 0, precastType = 1, setModes = wsModes}, 
-		["elementalMode"]= {num = 1, suffix = "Elemental", tpType = 0, idleType = 0, midcastType = 0, precastType = 1,setModes = elementalModes},
-		["idleMode"] = {num = 1, suffix = "Idle", tpType = 0, idleType = 1, midcastType = 0, precastType = 0, setModes = idleModes},
-		["rangeMode"] = {num = 1, suffix = "Range", tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes}
+		["tpMode"] =	 	{num = 1, suffix = "TP", 			tpType = 1, idleType = 0, midcastType = 0, precastType = 0, setModes = tpModes},
+		["dtMode"] = 		{num = 1, suffix = "DT", 			tpType = 1,	idleType = 1, midcastType = 0, precastType = 0, setModes = dtModes},
+		["petMode"] = 		{num = 1, suffix = "Pet",			tpType = 1, idleType = 1, midcastType = 0, precastType = 0, setModes = petModes},
+		["wsMode"] = 		{num = 1, suffix = "WS", 			tpType = 0, idleType = 0, midcastType = 0, precastType = 1, setModes = wsModes}, 
+		["elementalMode"]= 	{num = 1, suffix = "Elemental",	 	tpType = 0, idleType = 0, midcastType = 0, precastType = 1,	setModes = elementalModes},
+		["idleMode"] = 		{num = 1, suffix = "Idle", 			tpType = 0, idleType = 1, midcastType = 0, precastType = 0, setModes = idleModes},
+		["rangeMode"] = 	{num = 1, suffix = "Range", 		tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes}
 	}, {"num", "suffix", "tpType","idleType", "midcastType", "precastType", "setModes"}
 	
-	
+	--- list of commands for equiping a set
 	equipSets = {
-	["equipTP"] = "tpMode",
-	["equipDT"] = "dtMode",
-	["equipPet"] = "petMode",
-	["equipIdle"] = "idleMode",
-	["equipRange"] = "rangeMode",
-	["equipElemental"] = "elementalMode",
+		["equipTP"] =	 		"tpMode",
+		["equipDT"] = 			"dtMode",
+		["equipPet"] = 			"petMode",
+		["equipIdle"] = 		"idleMode",
+		["equipRange"] = 		"rangeMode",
+		["equipElemental"] = 	"elementalMode",
 	}
 	
 
@@ -157,12 +156,7 @@
 	firstAuto = true
 	autoRoll = false
 
-----------------------------------------------------------------------Variables for augmented gear-----------------------------------------------------------------------------------------
-	hercLegsTA = { name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}}
-	hercLegsCrit = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
-	hercFeetCrit = { name="Herculean Boots", augments={'Accuracy+23','Crit.hit rate+5','INT+6','Attack+9',}}
-	hercFeetTA = { name="Herculean Boots", augments={'Accuracy+30','"Triple Atk."+3','INT+3','Attack+13',}}
-	hercLegsSTR = { name="Herculean Trousers", augments={'Accuracy+25','"Counter"+1','STR+10',}}
+
 	
 	
 	
@@ -289,15 +283,28 @@ end
 
 
 -----------------------------------------------midcast----------------------------------------------------------------------------------------------
+--mid cast sets---------------
+-- sets.midcast[spell.english]
+-- sets.midcast.Elemental
+-- sets.midcast.Elemental.Burst
+-- sets.midcast.Ranged
+-- sets.midcast.Healing
+-- sets.Blue.Magic
+-- sets.Blue.Physical
+-- sets.Blue.Debuff
+-- sets.Blue.Buff
+-- sets.Blue.Cure
+-- sets.Blue.
+
 function midcast(spell)
 	if sets.midcast[spell.english] then
         equip(sets.midcast[spell.english])	
 	elseif  spell.action_type == 'Magic' then
 		if spell.skill == 'Healing Magic' and sets.midcast.Healing ~= nil then
 			equip(sets.midcast.Healing)				
-		elseif spell.skill == 'Elemental Magic' then
-			if magicburst then
-				equip(sets.midcast.Burst)
+		elseif spell.skill == 'Elemental Magic' and sets.midcast.Elemental ~= nil  then
+			if magicburst and sets.midcast.Elemental.Burst  ~= nil then
+				equip(sets.midcast.Elemental.Burst)
 			else			
 				equip(sets.midcast.Elemental)
 			end
@@ -305,28 +312,23 @@ function midcast(spell)
 			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
 				equip(sets.obi[spell.element])
 			end
-		elseif spell.skill == "Blue Magic" then			
+		elseif spell.skill == "Blue Magic" then	
+			equip(sets.Blue.Magic)
 			if bluePhysical:contains(spell.english) then
 				equip(sets.Blue.Physical)
 			elseif blueDebuff:contains(spell.english) then
 				equip(sets.Blue.Debuff)
 			elseif blueBuff:contains(spell.english) then
 				equip(sets.Blue.Buff)
-			elseif blueBuff:contains(spell.english) then
+			elseif blueCure:contains(spell.english) then
 				equip(sets.Blue.Cure)
-			elseif blueMagic:contains(spell.english) then
-				if sets.Blue.Magic[nukeMode] then 
-				 equip(sets.Blue.Magic[nukeMode])
-				else
-				equip(sets.Blue.Magic)
-				end				
-			else equip(sets.Blue.Magic)
-			end
+			elseif blueMagic:contains(spell.english) and sets.Blue.Magic[elementalMode] then
+					equip(sets.Blue.Magic[elementaMode])
+			end				
+				
 		end	
-	elseif spell.action_type == "Ranged Attack" then
-		if sets.midcast.Ranged ~= nil then
-			equip(sets.midcast.Ranged)
-		end
+	elseif spell.action_type == "Ranged Attack" and sets.midcast.Ranged ~= nil then
+			equip(sets.midcast.Ranged)		
 	end
 end
 
@@ -372,7 +374,7 @@ function equip_Sets(currMode, num)
 	if currMode.tpType == 1 then
 		sets.TP.Current = sets.TP[current]
 		sets.aftercast.TP = sets.TP.Current
-		add_to_chat(122, "TP = " .. current .. currMode.suffix)
+		add_to_chat(122, "TP = " .. current .. " " .. currMode.suffix)
 	end
 		if player.status =='Engaged' or num == 1 or currMode.suffix == "TP" then
 			equip(sets.TP.Current) 
@@ -383,7 +385,7 @@ function equip_Sets(currMode, num)
 			add_to_chat(122, "Idle = Default" .. currMode.suffix)
 		else
 			sets.aftercast.Idle = sets[currMode.suffix][current]
-			add_to_chat(122,  "Idle = " .. current .. currMode.suffix )
+			add_to_chat(122,  "Idle = " .. current ..  " " .. currMode.suffix )
 		end
 			if player.status =='Idle' then
 				equip(sets.aftercast.Idle) 
