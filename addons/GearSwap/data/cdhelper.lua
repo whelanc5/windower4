@@ -383,9 +383,9 @@ function equip_Sets(currMode, num)
 		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
 			sets.aftercast.Idle= sets[currMode.suffix]
 			add_to_chat(122, "Idle = Default" .. currMode.suffix)
-		else
+		else 
 			sets.aftercast.Idle = sets[currMode.suffix][current]
-			add_to_chat(122,  "Idle = " .. current ..  " " .. currMode.suffix )
+			add_to_chat(122,  "Idle = " .. current .. " " .. currMode.suffix )
 		end
 			if player.status =='Idle' then
 				equip(sets.aftercast.Idle) 
@@ -400,7 +400,7 @@ function equip_Sets(currMode, num)
 		end
 		
 	end
-	if currMode.midcastType == 1 then
+	if currMode.midcastType == 1 then -- canges midcast set
 		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
 			add_to_chat(122, currMode.suffix " Midcast = " .. currMode.suffix .. " Default" )
 		else					
@@ -553,9 +553,5 @@ function self_command(command)
 		add_to_chat(122, "Custom Nuke Set")
 	end
 end
-
-    
-
-		
     
 	
