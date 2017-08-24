@@ -10,6 +10,7 @@ function get_sets()
 
 	
 	include('cdhelper.lua')
+	
 -------------------------------------------modes---------------------------------------------------------------------------------
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
@@ -34,6 +35,7 @@ function get_sets()
     left_ring="Meghanada Ring",
     right_ring="Warp Ring",
     back="Camulus's Mantle",
+	ammo="Titanium Bullet"
 } -- Base set. Can use this as a base for other sets
 
 
