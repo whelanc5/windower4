@@ -14,13 +14,13 @@ function get_sets()
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
 -- All modes should have a "Default" entry
-	tpModes = {"Default", "Acc", "Haste", "Custom"} 
-	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
-	wsModes = {"Default", "Acc"}  --sets.WS.Mode
-	idleModes = {"Default", "DT", "Custom"}
-	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
-	nukeModes ={"Default"}
-	
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
+	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
+	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
+	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
+	modeSets["elementalMode"].setModes = nil
+	modeSets["rangeMode"].setModes = nil
 	
 	
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------

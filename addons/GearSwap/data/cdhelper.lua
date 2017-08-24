@@ -368,7 +368,6 @@ end
 
 --changes the mode to match the current mode number
 function equip_Sets(currMode, num)
-  add_to_chat(122, currMode.setModes[currMode.num])
   	current = currMode.setModes[currMode.num]
 	if currMode.tpType == 1 then
 		sets.TP.Current = sets.TP[current]
