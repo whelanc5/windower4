@@ -114,33 +114,61 @@
 	----------------------------------------------------------------Modes--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	
 	--To create a mode you have to do the following:
-	
+	--Put the catagory in the following set. The format should be an identifying prefix, followed by "Mode" as the suffix. Ex: for changing tp "tp" is the prefix, Mode is the suffix, so you'd put tpMode. 
+	-- you will also need to create a num variable which should be set to 1, this should be the prefix followed by Num. ex: tpMode's num variable will be tpNum = 1. 
+	-- next you will need to set the modes set for that catagory. this should be entereed as the prefix followed by "Modes" and be set to the empty set {}. Ex: tpModes = {} 
+	-- finally you'll need to set the modes to a value, this has to match a set in the jobs LUA, and should be redefined there. It is a good idea to create holder value that is set to "Default", incase it isn't made. Ex: tpMode = "Default"
 	
 	
 	----------------------------------------------------------List of catagories-----------------------------------------------------------
 	--prefix + mode
 	--ex "tpMode"
-	modeSets = {
-		["tpMode"] = {num = 1, suffix = "TP", tpType = 1, idleType = 0, midcastType = 0, precastType = 0, setModes = tpModes},
-		["dtMode"] = {num = 1, suffix = "DT", tpType = 1,idleType = 1, midcastType = 0, precastType = 0, setModes = dtModes},
-		["petMode"] = {num = 1, suffix = "Pet", tpType = 1, idleType = 1, midcastType = 0, precastType = 0, setModes = petModes},
-		["wsMode"] = {num = 1, suffix = "WS", tpType = 0, idleType = 0, midcastType = 0, precastType = 1, setModes = wsModes}, 
-		["elementalMode"]= {num = 1, suffix = "Elemental", tpType = 0, idleType = 0, midcastType = 0, precastType = 1,setModes = elementalModes},
-		["idleMode"] = {num = 1, suffix = "Idle", tpType = 0, idleType = 1, midcastType = 0, precastType = 0, setModes = idleModes},
-		["rangeMode"] = {num = 1, suffix = "Range", tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes}
-	}, {"num", "suffix", "tpType","idleType", "midcastType", "precastType", "setModes"}
+	modes = {["tpMode"] = {num = 1, suffix = "tp", tpType = 1, setModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"}}, 			,
+			["petMode"] = {num = 1, suffix = "pet", tpType = 1},
+			["dtMode"] = {num = 1, suffix = "dt", tpType = 1}, 
+			["wsMode"] = {num = 1, suffix = "ws", tpType = 0}, 
+			["nukeMode"]= {num = 1, suffix = "nuke", tpType = 0},
+			["idleMode"] = {num = 1, suffix = "idle", tpType = 0},
+			["rangeMode"] = {num = 1, suffix = "range", tpType = 0}
+			} 
 	
 	
-	equipSets = {
-	["equipTP"] = "tpMode",
-	["equipDT"] = "dtMode",
-	["equipPet"] = "petMode",
-	["equipIdle"] = "idleMode",
-	["equipRange"] = "rangeMode",
-	["equipElemental"] = "elementalMode",
-	}
 	
+	
+	---------------------------------------------------------ModeNum Variables--------------------------------------------------------------
+	---Global Variables to keep trade of set number, should be set to 1
+	-- prefix + Num
+	-- ex tpNum = 1
+	tpNum = 1 --nums to keep track of which of the set to use
+	petNum= 1
+	idleNum=1
+	dtNum =1
+	wsNum = 1
+	nukeNum = 1
+	rangeNum = 1
+	---------------------------------------------Mode Lists-----------------------------------------------------------------------------------
+	--they are a list of modes which that particular catagory can have
+	--prefix + Modes
+	-- ex tpModes = {}
+	tpModes = {} --sets of modes
+	dtModes = {}
+	petModes = {}
+	idleModes = {}
+	wsModes = {}
+	nukeModes = {}
+	rangeModes = {}
+	------------------------------------------------------Mode variables
+	--vars to hold name of the current set
+	-- pre+Mode
+	-- ex idleMode = "Default"
 
+	idleMode= "Default"
+	petMode= "Default"
+	dtMode = "Default"
+	wsMode = "Default"
+	nukeMode = "Default"
+	tpMode = "Default"
+	rangeModes = "Default"
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
@@ -352,63 +380,38 @@ function booleanChange(bool) ---------------------------------------------------
 end
 
 ------------------------------------------------------------------------------change modes-------------------------------------------------------------------------
+function modeChange(command, str) --for changing different modes -- command is the mode's variable name, and str is the suffix of the name ie tpMode, "tp"
+	local modesVar = _G[command .. "s"]
+	local modesNum = _G[str .. "Num"]
+	if modes:contains(command) and #modesVar ~= 0 then	
+		if modesNum == #modesVar then
+			modesNum = 1 
+		else
+			modesNum = modesNum + 1	
+		end
+			_G[str .. "Mode"]= modesVar[modesNum]
+			_G[str .. "Num"] = modesNum			
+			add_to_chat(122, _G[str .. "Mode"] .. str)
+		
+	end
+end
 
--- changes number of mode passed in and calls equip_Sets to change that set
 function modeChange(currMode)
 	local currNum = 0
-	
-	if currMode.num == #currMode.setModes then
-			currMode.num = 1 
+	if currMode[num] == #currMode[setModes] then
+			currMode[num] = 1 
 		else
-			currMode.num = currMode.num + 1	
+			currMode[num] = currMode[num] + 1	
 	end
-	equip_Sets(currMode ,0)
-end
-----------------------------------------------------------------equipSets------------------------------------------------
-
---changes the mode to match the current mode number
-function equip_Sets(currMode, num)
-  add_to_chat(122, currMode.setModes[currMode.num])
-  	current = currMode.setModes[currMode.num]
-	if currMode.tpType == 1 then
+	current = currMode[currMode[num]]
+	if currMode[tpType] == 1 then
 		sets.TP.Current = sets.TP[current]
 		sets.aftercast.TP = sets.TP.Current
-		add_to_chat(122, "TP = " .. current .. currMode.suffix)
-	end
-		if player.status =='Engaged' or num == 1 or currMode.suffix == "TP" then
-			equip(sets.TP.Current) 
-		end
-	if currMode.idleType == 1 then
-		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
-			sets.aftercast.Idle= sets[currMode.suffix]
-			add_to_chat(122, "Idle = Default" .. currMode.suffix)
-		else
-			sets.aftercast.Idle = sets[currMode.suffix][current]
-			add_to_chat(122,  "Idle = " .. current .. currMode.suffix )
-		end
-			if player.status =='Idle' then
-				equip(sets.aftercast.Idle) 
-			end
-	end
-	if currMode.precastType == 1 then
-		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
-			add_to_chat(122, currMode.suffix .." Precast = " .. currMode.suffix .. " Default"  )
-		else					
-			sets.precast[currMode.suffix] = sets[currMode.suffix][current]
-			add_to_chat(122, currMode.suffix .." Precast = " .. current )
-		end
-		
-	end
-	if currMode.midcastType == 1 then
-		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
-			add_to_chat(122, currMode.suffix " Midcast = " .. currMode.suffix .. " Default" )
-		else					
-			sets.midcast[currMode.suffix] = sets[currMode.suffix][current]
-			add_to_chat(122, currMode.suffix .." Midcast = " .. current  )
-		end
-		
+		equip(sets.TP.Current)
+		add_to_chat(122,  current.."TP")
 	end
 end
+
 ----------------------------------------------------------------custom sets------------------------------------------------------------------------------------------
 function customSet()
 	 return {head= player.equipment.head, neck= player.equipment.neck,
@@ -418,10 +421,14 @@ function customSet()
 		--add_to_chat(122, set)
 end
 	
+	
+
 
 function self_command(command)
 	if command == "c1" then --equip tp C1 -- f9
 		self_command("equipTP") 
+	elseif modes[command] then 
+		modeChange(modes[command])
 	elseif command == "c12" then --changeTP mode c12 - crtl f9
 		self_command("tpMode")
 	elseif command == "c13" then
@@ -445,11 +452,7 @@ function self_command(command)
 	--elseif command == "c34" then
 	--	self_command("Pet/Nuke")
 	elseif command == "c4" then
-		if player.main_job == "PUP" then
-			self_command("equipPet")
-		else
-			self_command("equipElemental")
-		end
+		self_command("Pet/Nuke")
 	elseif command == "c42" then
 		if player.main_job == "PUP" then
 			self_command("petMode")
@@ -460,14 +463,85 @@ function self_command(command)
 	--	self_command("equipTP")
 	--elseif command == "c44" then
 	--	self_command("tpMode")
-	--------------------------------------------------------------------------------Modes--------------------------------------------------------------------------------------------------------------
-
-	elseif modeSets[command] ~= nil then 		
-		if modeSets[command].setModes == nil then
-			add_to_chat(122, "no modes set up for " .. modeSets[command].suffix)
+---------------------------------------------------------------equip sets ---------------------------------------------------------------------------------------------------------------
+	elseif command == "equipTP" then -- equip current tp
+		add_to_chat(122,tpMode .. "tp")
+		sets.TP.Current = sets.TP[tpMode]
+		sets.aftercast.TP = sets.TP.Current
+		equip(sets.TP.Current)
+		
+		
+	elseif  command == "equipDT" then -- equip current dt
+			sets.TP.DT = sets.DT[dtMode]
+			equip(sets.TP.DT)
+			sets.aftercast.TP = sets.DT[dtMode]
+			sets.aftercast.Idle = sets.DT[dtMode]
+		if player.status =='Engaged' then
+			equip(sets.DT[dtMode])
 		else
-		--add_to_chat(122,  modeSets[command].num)
-			modeChange(modeSets[command])
+			equip(sets.DT[dtMode]) 
+		end
+		add_to_chat(122,dtMode .. "dt")
+		
+	elseif command == "equipIdle" then -- for changing idle mode
+			sets.Idle.Current = sets.Idle[idleMode]
+			sets.aftercast.Idle = sets.Idle.Current
+			equip(sets.Idle.Current)
+			add_to_chat(122,idleMode .. "idle")
+			
+	elseif command == "Pet/Nuke" then ---- for changing Pet mode or Nuke mode
+		if player.main_job == "PUP" or player.main_job == "SMN" or player.main_job == "BST" then
+			sets.aftercast.TP = sets.Pet[petMode]
+			sets.aftercast.Idle = sets.Pet[petMode]
+			equip(sets.Pet[petMode])
+			add_to_chat(122, petMode .. "pet")
+			
+		else 
+			equip(sets.Nuke[nukeMode])
+			add_to_chat(122, nukeMode .. "nuke")
+		end
+--------------------------------------------------------------------------------Modes--------------------------------------------------------------------------------------------------------------
+		elseif command == "dtMode" then		-- for changing dt modes
+			if  #dtModes == 0 then
+			equip(sets.DT)
+			sets.aftercast.TP = sets.DT
+			sets.aftercast.Idle= sets.DT
+			add_to_chat(122, "DT")
+		else
+			modeChange("dtMode", "dt")
+			sets.TP.DT = sets.DT[dtMode]
+			equip(sets.TP.DT)
+			sets.aftercast.TP = sets.DT[dtMode]
+			sets.aftercast.Idle = sets.DT[dtMode]
+		end
+	elseif command == "nukeMode"  then		-- for changing nuke modes by hotkey, type gs c nukeMode
+		if  #nukeModes == 0 then			
+			add_to_chat(122, "nuke default")
+		else
+			modeChange("nukeMode", "nuke")
+			sets.midcast.Elemental = sets.Nuke[nukeMode]
+		end
+	elseif command == "petMode" then		-- for changing pet modes by hotkey, type gs c petMode
+		if  #petModes == 0 then
+			add_to_chat(122, "no pet modes")
+		else
+			modeChange("petMode", "pet")
+			sets.TP.Pet = sets.Pet[petMode]
+			equip(sets.TP.Pet)
+			sets.aftercast.TP = sets.Pet[petMode]
+			if sets.Pet.Idle[petMode] ~= nil then
+				sets.aftercast.Idle = sets.Pet.Idle[petMode]
+			else
+				sets.aftercast.Idle = sets.Pet[petMode]
+			end
+		end
+	elseif command == "wsMode" then		-- for changing ws modes by hotkey, type gs c wsmode
+		if  #wsModes == 0 then
+			add_to_chat(122, "defaultWS")
+		else
+			modeChange("wsMode", "ws")		
+			sets.precast.WS = sets.WS[wsMode]		
+
 		end
 	elseif command == "petWS"  then -- type gs c petWS to change to petws gear
 		if petWS == false then
@@ -480,14 +554,23 @@ function self_command(command)
 			equip(sets.TP.Current)
 			petWS = false
 		end
----------------------------------------------------------------equip sets ---------------------------------------------------------------------------------------------------------------
-	elseif equipSets[command] ~= nil then
-		if modeSets[equipSets[command]].setModes == nil then
-			add_to_chat(122, "no modes set up for " .. modeSets[equipSets[command]].suffix)
+	elseif command == "tpMode" then -- for changing tp modes by hotkey, bound to ctrl-f9 in my init file
+		modeChange("tpMode", "tp" )
+		sets.TP.Current = sets.TP[tpMode]
+		sets.aftercast.TP = sets.TP.Current
+		equip(sets.TP.Current)
+	elseif  command == "idleMode" then		--key bind for changing idle modes bound to ctrl-f11
+		if  #idleModes == 0 then
+			equip(sets.aftercast.Idle)
+			add_to_chat(122, "Idle")
 		else
-			equip_Sets(modeSets[equipSets[command]], 1)
-		end
----------------------------------------------------------------------------------------------booleans--------------------------------------------------------------------------------------
+			modeChange("idleMode", "idle")
+			sets.Idle.Current = sets.Idle[idleMode]
+			sets.aftercast.Idle = sets.Idle.Current
+			equip(sets.Idle.Current)
+		end	
+
+	---------------------------------------------------------------------------------------------booleans--------------------------------------------------------------------------------------
 	
 	elseif booleans:contains(command) then		--turns booleans off or on, booleans must be in the commands section
 		_G[command] = booleanChange(_G[command])
@@ -507,6 +590,28 @@ function self_command(command)
 				enable("back")
 				add_to_chat(122, command .. " off")
 			end
+	-- elseif command == "skillupD" then
+		-- if skillupD == false then
+			-- skillupD = true;
+			-- add_to_chat(122, command .. " on")
+			-- send_command('wait 10 ;input //gs c skillUpMagic')
+		-- else 
+			-- skillupD = false
+			-- add_to_chat(122, command .. " off")
+		-- end
+	-- elseif command == "skillupO" then
+		-- if skillupO == false then
+			-- skillupO = true;
+			-- add_to_chat(122, command .. " on")
+			-- send_command('wait 10 ;input //gs c skillupOffensive')
+		-- else 
+			-- skillupO = false
+			-- add_to_chat(122, command .. " off")
+		-- end
+	-- elseif command == "skillUpMagic" then
+		-- skillUpMagic()
+	-- elseif command == "skillupOffensive" then
+		-- skillupOffensive()
 	elseif command == "autocast" then
 	--	if firstAuto then
 			include('autoMagic.lua')

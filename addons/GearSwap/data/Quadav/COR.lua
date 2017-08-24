@@ -14,23 +14,24 @@ function get_sets()
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
 -- All modes should have a "Default" entry
-	tpModes = {"Default", "Acc", "Haste", "Custom"} 
-	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
-	wsModes = {"Default", "Acc"}  --sets.WS.Mode
-	idleModes = {"Default", "DT", "Custom"}
-	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
-	nukeModes ={"Default"}
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
+	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
+	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
+	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	
 	
 	
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
 	sets.base ={
-    head="Meghanada Visor +1",
-    body="Meghanada Cuirie",
+  	head="Meghanada Visor +1",
+    body="Meg. Cuirie +1",
     hands="Meg. Gloves +1",
-    legs="Meg. Chausses",
+    legs="Meg. Chausses +1",
     feet="Meg. Jam. +1",
+    left_ear="Pixie Earring",
+    left_ring="Meghanada Ring",
     right_ring="Warp Ring",
     back="Camulus's Mantle",
 } -- Base set. Can use this as a base for other sets

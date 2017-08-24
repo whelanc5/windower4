@@ -9,17 +9,18 @@ function get_sets()
 	
 	include('cdhelper.lua')
 	
-	tpModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
-	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
-	wsModes = {"Default", "Acc"}  --sets.WS.Mode
-	idleModes = {"Default", "Pet", "DT", "Custom"}
-	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
+
 	--------------------------------------------------------------------------------------------------------------------------------------------------------------
 	VisuciusPet ={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10',}}
 	VisuciusDmg ={ name="Visucius's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}}
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
---these can be overridden in job lua
 
+	
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
+	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
+	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
+	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	
 	-- --- precast--------------------------------
 	sets.precast = {}
@@ -54,7 +55,7 @@ function get_sets()
 	sets.WS.Acc = set_combine(sets.WS,{ neck="Shifting Necklace +1"})	
     sets.precast.WS = sets.WS -- don't change
 	
-	sets.WS['Shijin Spiral'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget", body="Tali'ah Manteel" })
+	sets.WS['Shijin Spiral'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget"})
 	sets.WS['Shijin Spiral'].Acc = set_combine(sets.WS.Acc, { ring1 = "Rajas Ring", neck="Shifting Necklace +1"})
 		
 	
@@ -67,6 +68,7 @@ function get_sets()
 
 	-----------------------------------------------Tp---------------------------------------------------------------------------------------
     sets.TP = set_combine(sets.base,{})
+	sets.aftercast.TP = sets.TP  
 	sets.TP.Current = sets.TP
 	sets.TP.Default = set_combine(sets.TP,{})
     sets.TP.Acc = set_combine(sets.TP,{body = "Hiza. Haramaki +1", head="Hizamaru Somen +1", hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
@@ -91,8 +93,8 @@ function get_sets()
 	sets.DT.Custom = sets.DT
 	
 	------------------------------------------------------After Cast---------------------------------------------
-    sets.aftercast.TP = sets.TP    
-    sets.aftercast.Idle = set_combine(sets.TP.DT,{feet="Hermes' Sandals", body = "Hizamaru Haramaki"})
+    
+  
 	
 	----------------------------------------------------Idle------------------------------------------------------------------
 	sets.Idle = set_combine(sets.DT,{feet="Hermes' Sandals", body ="Hiza. Haramaki +1"})
@@ -101,7 +103,7 @@ function get_sets()
 	sets.Idle.Default = sets.Idle 
 	sets.Idle.Pet = set_combine(sets.DT,{ring1="Thurandaut Ring"})
 	sets.Idle.Custom = sets.Idle
-	
+	sets.aftercast.Idle = sets.Idle
 	
 	----------------------------------------------Pet-------------------------------------------------------------------------
 	sets.midcast.Pet = {}	
