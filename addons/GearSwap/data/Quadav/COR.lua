@@ -18,18 +18,18 @@ function get_sets()
 	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
 	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
-	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
+	modeSets["rangeMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	
 	
 	
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
 	sets.base ={
-  	head="Meghanada Visor +1",
+    head="Herculean Helm",
     body="Meg. Cuirie +1",
-    hands="Meg. Gloves +1",
+    hands="Herculean Gloves",
     legs="Meg. Chausses +1",
-    feet="Meg. Jam. +1",
+    feet="Herculean Boots", 
     left_ear="Pixie Earring",
     left_ring="Meghanada Ring",
     right_ring="Warp Ring",
@@ -106,7 +106,7 @@ function get_sets()
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
-	sets.WS = set_combine(sets.base,{})--base set for weaponskill that isn't named
+	sets.WS = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Meghanada Ring", back="Camulus's Mantle"})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 
@@ -118,18 +118,10 @@ function get_sets()
 
 	
 
-	----------------------------------------------------------------PET----------------------------------------------------------------------------------------------
-	sets.Pet = set_combine(sets.base,{}) -- baseset for pet
-	sets.Pet.Custom  = sets.Pet -- don't change this
-	sets.Pet.Default = sets.Pet -- don't change this
-	sets.Pet.Tank = set_combine(sets.Pet,{})
-	sets.Pet.DD = set_combine(sets.Pet,{})
-	sets.Pet.Hybrid = set_combine(sets.Pet,{})
-	
-	sets.midcast.Pet = {}	
-	sets.midcast.Pet.Cure = { }
-	sets.midcast.Pet['Elemental Magic'] = {}
-	sets.midcast.Pet.WeaponSkill = set_combine(sets.TP.DD, {})
+	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
+	sets.Ranged = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Meghanada Ring", back="Camulus's Mantle"})
+	sets.midcast.Ranged = set_combine(sets.Ranged,{})
+	sets.precast.Ranged = set_combine(sets.Ranged,{})
 	----------------------------------------------------macro book--------------------------------------------------
 	--set the book and set to your jobs macro set
 	send_command('input /macro book 1;wait .1;input /macro set 9')
