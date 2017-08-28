@@ -21,6 +21,7 @@ function get_sets()
 	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	modeSets["elementalMode"].setModes = nil
 	modeSets["rangeMode"].setModes = nil
+	modesets["darknessMode"].setModes = {"Default", "Burst", "Acc"}
 	
 	
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
@@ -28,32 +29,72 @@ function get_sets()
 	sets.base = {} -- Base set. Can use this as a base for other sets
 
 
-	----------------------------------------------------------------Precast------------------------------------------------------------------------------------------
+		----------------------------------------------------------------Precast------------------------------------------------------------------------------------------
 	sets.precast = {}
-	sets.precast.Magic = {}
 	sets.precast.TP ={}			
 	sets.precast.JA = {}
-	sets.precast.Magic = {}
-
+	sets.precast.Magic = {} -- base precast set for magic
+	------------- precast for specific skills
+	sets.precast.Elemental = nil 
+	sets.precast.Enhancing = nil
+	sets.precast.Healing = nil
+	sets.precast.Darkness = nil
+	sets.precast.Geomancy = nil
+	sets.precast.Ninjitsu = nil
 	----------------------------------------------------------------Midcast------------------------------------------------------------------------------------------
+	---------------- mid cast sets, over write these 
 	sets.midcast = {}
+	sets.midcast.Elemental = nil 
+	sets.midcast.Enhancing = nil
+	sets.midcast.Healing = nil
+	sets.midcast.Darkness = nil
+	sets.midcast.Geomancy = nil
+	sets.midcast.Ninjitsu = nil
 			----------------------------------------------------------------AFTERCAST----------------------------------------------------------------------------------------	
 	sets.aftercast = {}	
 	  
   
 	----------------------------------------------------------------MAGIC--------------------------------------------------------------------------------------------
 	sets.midcast.Magic = {}	
-	sets.midcast.Elemental = {}	
-	sets.midcast.Healing = nil --set to a set if going to be used
-	sets.precast.Magic.Healing = nil --set to a set if going to be used
-	----------------------------------------------------------------NUKE---------------------------------------------------------------------------------------------
+	
+		----------------------------------------------------------------elemental---------------------------------------------------------------------------------------------
 	--changes sets.midcast.Elemental to this set based on mode
-	sets.Nuke = {}
-	sets.Nuke.Default = {} -- don't change this
-	sets.Nuke.Custom = {} -- don't change this
-	sets.Nuke.Acc = {}
-	sets.Nuke.Burst = {}
-	sets.midcast.Burst = {}
+	sets.Elemental = {}
+	sets.precast.Elemental = nil
+	sets.midcast.Elemental = sets.Elemental
+	sets.Elemental.Default = sets.Elemental
+	sets.Elemental.Burst = nil
+	sets.Elemental.Acc = nil
+
+		----------------------------------------------------------------Darkness---------------------------------------------------------------------------------------------
+	--changes sets.midcast.Darkness to this set based on mode
+	sets.Darkness = {}
+	sets.precast.Darkness = nil
+	sets.midcast.Darkness = sets.Darkness
+	sets.Darkness.Default = sets.Darkness
+	sets.Darkness.Burst = nil
+	sets.Darkness.Acc = nil
+----------------------------------------------------------------healing---------------------------------------------------------------------------------------------
+	sets.precast.Healing = nil
+	sets.midcast.Healing = nil
+
+
+----------------------------------------------------------------Geomancy---------------------------------------------------------------------------------------------
+	sets.precast.Geomancy = nil
+	sets.midcast.Geomancy = nil
+
+----------------------------------------------------------------enhancing---------------------------------------------------------------------------------------------
+	sets.precast.Enhancing = nil
+	sets.midcast.Enhancing = nil
+	
+----------------------------------------------------------------BLUE---------------------------------------------------------------------------------------------
+	sets.Blue = {}
+	sets.Blue.Magic = {}
+	sets.Blue.Physical = {}
+	sets.Blue.Debuff = {}
+	sets.Blue.Buff = {}
+	sets.Blue.Cure = {}
+
 	----------------------------------------------------------------JA-----------------------------------------------------------------------------------------------
 	-- put sets.precast.JA['Spell Name'] = {set} to equip before using a ja
 	-- ex: sets.precast.JA['Tactical Switch'] = {feet="Cirque Scarpe +2"}	
@@ -86,13 +127,6 @@ function get_sets()
 	sets.Idle.Custom = sets.Idle -- don't change this
 	sets.Idle.DT = set_combine(sets.Idle,{})
 
-	----------------------------------------------------------------BLUE---------------------------------------------------------------------------------------------
-	sets.Blue = {}
-	sets.Blue.Magic = {}
-	sets.Blue.Physical = {}
-	sets.Blue.Debuff = {}
-	sets.Blue.Buff = {}
-	sets.Blue.Cure = {}
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	sets.precast.WS = {} -- -- don't change this 
@@ -105,7 +139,10 @@ function get_sets()
   
 	----sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
 
-	
+	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
+	sets.Range = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Meghanada Ring", back="Camulus's Mantle"})
+	sets.midcast.Range = set_combine(sets.Ranged,{})
+	sets.precast.Range = set_combine(sets.Ranged,{})
 
 	----------------------------------------------------------------PET----------------------------------------------------------------------------------------------
 	sets.Pet = set_combine(sets.base,{}) -- baseset for pet

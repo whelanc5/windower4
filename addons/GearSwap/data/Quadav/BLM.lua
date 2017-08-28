@@ -18,8 +18,8 @@ function get_sets()
 	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
 	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
-	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
-	
+	modesets["darknessMode"].setModes = {"Default", "Burst", "Acc"}
+	modesets["elementalMode"].setModes = {"Default", "Burst", "Acc"}
 	
 	
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
@@ -29,30 +29,70 @@ function get_sets()
 
 	----------------------------------------------------------------Precast------------------------------------------------------------------------------------------
 	sets.precast = {}
-	sets.precast.Magic = {}
 	sets.precast.TP ={}			
 	sets.precast.JA = {}
-	sets.precast.Magic = {}
-
+	sets.precast.Magic = {} -- base precast set for magic
+	------------- precast for specific skills
+	sets.precast.Elemental = nil 
+	sets.precast.Enhancing = nil
+	sets.precast.Healing = nil
+	sets.precast.Darkness = nil
+	sets.precast.Geomancy = nil
+	sets.precast.Ninjitsu = nil
 	----------------------------------------------------------------Midcast------------------------------------------------------------------------------------------
+	---------------- mid cast sets, over write these 
 	sets.midcast = {}
+	sets.midcast.Elemental = nil 
+	sets.midcast.Enhancing = nil
+	sets.midcast.Healing = nil
+	sets.midcast.Darkness = nil
+	sets.midcast.Geomancy = nil
+	sets.midcast.Ninjitsu = nil
 			----------------------------------------------------------------AFTERCAST----------------------------------------------------------------------------------------	
 	sets.aftercast = {}	
 	  
   
 	----------------------------------------------------------------MAGIC--------------------------------------------------------------------------------------------
 	sets.midcast.Magic = {}	
-	sets.midcast.Elemental = {}	
-	sets.midcast.Healing = nil --set to a set if going to be used
-	sets.precast.Magic.Healing = nil --set to a set if going to be used
-	----------------------------------------------------------------NUKE---------------------------------------------------------------------------------------------
+	
+		----------------------------------------------------------------elemental---------------------------------------------------------------------------------------------
 	--changes sets.midcast.Elemental to this set based on mode
-	sets.Nuke = {}
-	sets.Nuke.Default = sets.Nuke -- don't change this
-	sets.Nuke.Custom = sets.Nuke-- don't change this
-	sets.Nuke.Acc = {}
-	sets.Nuke.Burst = {}
-	sets.midcast.Burst = {}
+	sets.Elemental = {}
+	sets.precast.Elemental = nil
+	sets.midcast.Elemental = sets.Elemental
+	sets.Elemental.Default = sets.Elemental
+	sets.Elemental.Burst = nil
+	sets.Elemental.Acc = nil
+
+		----------------------------------------------------------------Darkness---------------------------------------------------------------------------------------------
+	--changes sets.midcast.Darkness to this set based on mode
+	sets.Darkness = {}
+	sets.precast.Darkness = nil
+	sets.midcast.Darkness = sets.Darkness
+	sets.Darkness.Default = sets.Darkness
+	sets.Darkness.Burst = nil
+	sets.Darkness.Acc = nil
+----------------------------------------------------------------healing---------------------------------------------------------------------------------------------
+	sets.precast.Healing = nil
+	sets.midcast.Healing = nil
+
+
+----------------------------------------------------------------Geomancy---------------------------------------------------------------------------------------------
+	sets.precast.Geomancy = nil
+	sets.midcast.Geomancy = nil
+
+----------------------------------------------------------------enhancing---------------------------------------------------------------------------------------------
+	sets.precast.Enhancing = nil
+	sets.midcast.Enhancing = nil
+	
+----------------------------------------------------------------BLUE---------------------------------------------------------------------------------------------
+	sets.Blue = {}
+	sets.Blue.Magic = {}
+	sets.Blue.Physical = {}
+	sets.Blue.Debuff = {}
+	sets.Blue.Buff = {}
+	sets.Blue.Cure = {}
+
 	----------------------------------------------------------------JA-----------------------------------------------------------------------------------------------
 	-- put sets.precast.JA['Spell Name'] = {set} to equip before using a ja
 	-- ex: sets.precast.JA['Tactical Switch'] = {feet="Cirque Scarpe +2"}	
@@ -85,13 +125,6 @@ function get_sets()
 	sets.Idle.Custom = sets.Idle -- don't change this
 	sets.Idle.DT = set_combine(sets.Idle,{})
 
-	----------------------------------------------------------------BLUE---------------------------------------------------------------------------------------------
-	sets.Blue = {}
-	sets.Blue.Magic = {}
-	sets.Blue.Physical = {}
-	sets.Blue.Debuff = {}
-	sets.Blue.Buff = {}
-	sets.Blue.Cure = {}
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
