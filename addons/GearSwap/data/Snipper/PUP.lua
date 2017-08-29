@@ -111,11 +111,12 @@ function get_sets()
 	sets.base.Pet = {}
 	sets.base.Pet.DD = {head = "Tali'ah Turban", hands = "Foire Dastanas +1", back="Visucius's Mantle", body="Pitre Tobe +1", ring1="Thurandaut Ring", waist ="Hurch'lan Sash", ear1="Domes. Earring", ear2="Burana Earring", feet = "Naga Kyahan", legs = "Tali'ah Seraweels"}
 	sets.Pet = set_combine(sets.base,{ring1="Thurandaut Ring", back = VisuciusPet })	
+	sets.Pet.Base = set_combine(sets.base,{ring1="Thurandaut Ring", back = VisuciusPet })	
 	sets.Pet.Default = set_combine(sets.base,{ring1="Thurandaut Ring"})	
 	sets.Pet.DD = set_combine(sets.Pet, sets.base.Pet.DD)
 	sets.Pet.Hybrid = set_combine(sets.Pet,{ body="Pitre Tobe +1", waist ="Hurch'lan Sash", head = "Tali'ah Turban"})
 	sets.Pet.DT = set_combine(sets.Pet,{neck="Twilight Torque", ring2="Dark Ring"})
-	sets.Pet.Tank= set_combine(sets.Pet,{body = "Pitre Tobe +1",head = "Tali'ah Turban", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote"})  	
+	sets.Pet.Tank = set_combine(sets.Pet.Base,{body = "Pitre Tobe +1",head = "Tali'ah Turban", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote"})  	
 	sets.Pet.Idle = set_combine(sets.DT,sets.Pet.Tank)
 	sets.Pet.Idle.DD = set_combine(sets.DT, sets.base.Pet.DD)	
 	sets.Pet.Idle.Tank = set_combine(sets.DT, sets.Pet.Tank)

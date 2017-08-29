@@ -401,12 +401,11 @@ end
 function equip_Sets(currMode, num)
   	current = currMode.setModes[currMode.num]
 	if currMode.tpType == 1 then
-		sets.TP.Current = sets.TP[current]
-		sets.aftercast.TP = sets.TP.Current
+		sets.aftercast.TP = sets[currMode.suffix][current]
 		add_to_chat(122, "TP = " .. current .. " " .. currMode.suffix)
 	end
 		if player.status =='Engaged' or num == 1 or currMode.suffix == "TP" then
-			equip(sets.TP.Current) 
+			equip(sets.TP[currMode.suffix]) 
 		end
 	if currMode.idleType == 1 then
 		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
