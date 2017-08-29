@@ -33,7 +33,7 @@ function get_sets()
     feet="Herculean Boots", 
     left_ear="Pixie Earring",
     left_ring="Meghanada Ring",
-    right_ring="Warp Ring",
+    right_ring="Epona's Ring",
     back="Camulus's Mantle",
 	ammo="Titanium Bullet"
 } -- Base set. Can use this as a base for other sets
@@ -71,7 +71,7 @@ function get_sets()
 	-- ex: sets.precast.JA['Tactical Switch'] = {feet="Cirque Scarpe +2"}	
 	sets.precast.Waltz = {} -- sets for curing waltz
 	sets.precast.maneuver = {} -- sets for manuevers
-
+	sets.precast.Quickdraw = {left_ear = "Hecate's Earring"}
 	----------------------------------------------------------------TP-----------------------------------------------------------------------------------------------
 	sets.TP = set_combine(sets.base,{})	 -- base set for TP gear
 	sets.TP.Current = sets.TP -- don't change this

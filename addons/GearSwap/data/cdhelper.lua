@@ -81,7 +81,17 @@
         ["Miser's Roll"]     = {"lucky=5, unlucky=7, bonus=Save TP"},
         ["Companion's Roll"] = {"lucky=2, unlucky=10, bonus=Pet Regain and Regen"},
         ["Avenger's Roll"]   = {"lucky=4, unlucky=8, bonus=Counter Rate"},
-    }
+	}
+	
+	quickDraw  = {	
+	["Light Shot"] = {}, 
+	["Dark Shot"] = {},
+	["Fire Shot"] = {},
+	["Water Shot"] = {},
+	["Thunder Shot"] = {},
+	["Earth Shot"] = {},
+	["Wind Shot"]= {},
+	}
 	
 	magicSkills = {
         ["Elemental Magic"]   	= "Elemental",
@@ -141,7 +151,7 @@
 		["dtMode"] = 		{num = 1, suffix = "DT", 			tpType = 1,	idleType = 1, midcastType = 0, precastType = 0, setModes = dtModes},
 		["petMode"] = 		{num = 1, suffix = "Pet",			tpType = 1, idleType = 1, midcastType = 0, precastType = 0, setModes = petModes},
 		["wsMode"] = 		{num = 1, suffix = "WS", 			tpType = 0, idleType = 0, midcastType = 0, precastType = 1, setModes = wsModes}, 
-		["elementalMode"]= 	{num = 1, suffix = "Elemental",	 	tpType = 0, idleType = 0, midcastType = 0, precastType = 1,	setModes = elementalModes},
+		["elementalMode"]= 	{num = 1, suffix = "Elemental",	 	tpType = 0, idleType = 0, midcastType = 1, precastType = 0,	setModes = elementalModes},
 		["idleMode"] = 		{num = 1, suffix = "Idle", 			tpType = 0, idleType = 1, midcastType = 0, precastType = 0, setModes = idleModes},
 		["rangeMode"] = 	{num = 1, suffix = "Range", 		tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes},
 		["darknessMode"]= 	{num = 1, suffix = "Darkness",	 	tpType = 0, idleType = 0, midcastType = 0, precastType = 1,	setModes = darknessModes}}, 
@@ -246,7 +256,9 @@ function precast(spell)
 		equip(sets.precast.Roll)
 		add_to_chat(122,rolls[spell.english][1])
 	elseif string.find(spell.english,'Waltz')  then
-		equip(sets.precast.Waltz)	
+		equip(sets.precast.Waltz)
+	elseif quickDraw[spell.english] then
+		equip(sets.precast.Quickdraw)
 	elseif spell.action_type == "Ranged Attack" then
 		if sets.precast.Ranged ~= nil then
 			equip(sets.precast.Ranged)
@@ -411,6 +423,7 @@ function equip_Sets(currMode, num)
 	if currMode.precastType == 1 then
 		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
 			add_to_chat(122, currMode.suffix .." Precast = " .. currMode.suffix .. " Default"  )
+			sets.precast[currMode.suffix] = sets[currMode.suffix]
 		else					
 			sets.precast[currMode.suffix] = sets[currMode.suffix][current]
 			add_to_chat(122, currMode.suffix .." Precast = " .. current )
@@ -419,7 +432,8 @@ function equip_Sets(currMode, num)
 	end
 	if currMode.midcastType == 1 then -- canges midcast set
 		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
-			add_to_chat(122, currMode.suffix " Midcast = " .. currMode.suffix .. " Default" )
+			add_to_chat(122, currMode.suffix .. " Midcast = " .. currMode.suffix .. " Default" )
+			sets.midcast[currMode.suffix] = sets[currMode.suffix]
 		else					
 			sets.midcast[currMode.suffix] = sets[currMode.suffix][current]
 			add_to_chat(122, currMode.suffix .." Midcast = " .. current  )
@@ -495,7 +509,7 @@ function self_command(command)
 				petWS = true
 				end
 		else
-			equip(sets.TP.Current)
+			equip(sets.aftercast.TP)
 			petWS = false
 		end
 ---------------------------------------------------------------equip sets ---------------------------------------------------------------------------------------------------------------
