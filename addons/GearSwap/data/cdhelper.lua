@@ -83,6 +83,21 @@
         ["Avenger's Roll"]   = {"lucky=4, unlucky=8, bonus=Counter Rate"},
     }
 	
+	magicSkills = {
+        ["Elemental Magic"]   	= "Elemental",
+        ["Healing Magic"]    	= "Healing",
+        ["Enfeebling Magic"]    = "Enfeebling",
+        ["Geomancy"]       		= "Geomancy",
+        ["Singing Skill"]       = "Song",
+        ["Blue Magic"]    		= "Blue",
+        ["Dark Magic"]     		= "Dark",
+        ["Enhancing Magic"]     = "Enhancing",
+        ["Ninjutsu"]       		= "Ninjutsu",
+        ["Summoning Magic"]     = "Summoning",
+        ["Divine Magic"]      	= "Divine"
+    
+    }
+	
 	sets.obi = {
 		Fire = {waist="Karin Obi"},
 		Earth = {waist="Dorin Obi"},
@@ -100,7 +115,8 @@
 		Wind = "Windstorm",
 		Ice = "Hailstorm",
 		Lightning = "Thunderstorm",
-		Dark = "Voidstorm"
+		Dark = "Voidstorm",
+		Light = "Aurorastorm"
 	}
 		runes = S{"Tellus", "Flabra"}
 	
@@ -209,18 +225,9 @@ function precast(spell)
 	elseif sets.precast.JA[spell.english] then	
 		equip(sets.precast.JA[spell.english])
 	elseif spell.action_type == 'Magic' then	
-		if spell.skill == "Elemental Magic" and sets.precast.Elemental then
-			equip(sets.precast.Elemental)
-		elseif spell.skill == "Healing Magic" and sets.precast.Healing then
-			equip(sets.precast.Healing)
-		elseif spell.skill == "Geomancy" and sets.precast.Geomancy then
-			equip(sets.precast.Geomancy)
-		elseif spell.skill == "Enhancing Magic" and sets.precast.Enhancing then
-			equip(sets.precast.Enhancing)
-		elseif spell.skill == "Ninjitsu" and sets.precast.Ninjitsu then
-			equip(sets.precast.Ninjitsu)
-		elseif spell.skill == "Darkness Magic" and sets.precast.Darkness then
-			equip(sets.precast.Darkness)
+		local currSkill = magicSkills[spell.skill]
+		if  sets.precast[currSkill] then
+			equip(sets.precast[currSkill])
 		else
 			equip(sets.precast.Magic)
 		end				   
@@ -308,32 +315,17 @@ function midcast(spell)
 	if sets.midcast[spell.english] then
         equip(sets.midcast[spell.english])	
 	elseif  spell.action_type == 'Magic' then
-		if spell.skill == 'Healing Magic' and sets.midcast.Healing ~= nil then
-			equip(sets.midcast.Healing)		
-		if spell.element == world.weather_element or spell.element == world.day_element or buffactive['Aurorastorm']  then
-				equip(sets.obi[spell.element])
+		local currSkill = magicSkills[spell.skill]
+		if sets.midcast[currSkill] then
+			equip(sets.midcast[currSkill])
+		else
+			equip(sets.midcast.Magic)
 		end	
-		elseif spell.skill == 'Elemental Magic' and sets.midcast.Elemental ~= nil  then
-			if magicburst and sets.Elemental.Burst  ~= nil then
-				equip(sets.Elemental.Burst)
-			else			
-				equip(sets.midcast.Elemental)
-			end
-			storm = storms[spell.element]
-			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
-				equip(sets.obi[spell.element])
-			end	
-		elseif spell.skill == 'Dark Magic' and sets.midcast.Darkness ~= nil  then
-			if magicburst and sets.Darkness.Burst  ~= nil then
-				equip(sets.Darkness.Burst)
-			else			
-				equip(sets.midcast.Darkness)
-			end
-			--storm = storms[spell.element]
-			if spell.element == world.weather_element or spell.element == world.day_element or buffactive['Voidstorm']  then
-				equip(sets.obi[spell.element])
-			end	
-		elseif spell.skill == "Blue Magic" then	
+		local burst = "Burst"
+		if magicburst and sets[currSkill][burst] then
+			equip(sets[currSkill][burst])
+		end
+		if spell.skill == "Blue Magic" then	
 			equip(sets.Blue.Magic)
 			if bluePhysical:contains(spell.english) then
 				equip(sets.Blue.Physical)
@@ -346,11 +338,11 @@ function midcast(spell)
 			elseif blueMagic:contains(spell.english) and sets.Blue.Magic[elementalMode] then
 					equip(sets.Blue.Magic[elementaMode])
 			end	
-		elseif sets.midcast.Enhancing then
-			equip(sets.midcast.Enhancing)
-		elseif sets.midcast[spell.type] then
-			equip(sets.midcast[spell.type])
 			
+		end
+		local storm = storms[spell.element]
+			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
+				equip(sets.obi[spell.element])
 		end	
 	elseif spell.action_type == "Ranged Attack" and sets.midcast.Ranged ~= nil then
 			equip(sets.midcast.Ranged)		

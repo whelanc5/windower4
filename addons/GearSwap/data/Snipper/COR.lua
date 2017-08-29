@@ -30,47 +30,13 @@ function get_sets()
     sets.precast.JA = {} 
     sets.aftercast = {}
     sets.aftercast.TP = sets.TP
+
+	sets.precast.Ninjutsu = {head = "Herculean Helm"}
+	sets.midcast.Ninjutsu = {head="Taeon Chapeau"}
+	sets.Ninjutsu = {}
+	sets.Ninjutsu.Burst = {body="Taeon Tabard"}
     
     sets.aftercast.Idle = set_combine(sets.TP.DT,{})
     send_command('input /macro book 10;wait .1;input /macro set 1')
 end
 
-function precast(spell)
-	if sets.precast.JA[spell.english] then
-        equip(sets.precast.JA[spell.english])
-      elseif sets.precast[spell.english] then
-        equip(sets.precast[spell.english])
-    elseif spell.type=="WeaponSkill" then
-        equip(sets.precast.WS)
-    elseif string.find(spell.english,'Waltz') then
-        equip(sets.precast.Waltz)
-    end
-end
-
-function midcast(spell)
-end
-
-function aftercast(spell)
-    if player.status =='Engaged' then
-        equip(sets.aftercast.TP)
-    else
-        equip(sets.aftercast.Idle)
-    end
-end
-
-function status_change(new,old)
-    if T{'Idle','Resting'}:contains(new) then
-        equip(sets.aftercast.Idle)
-    elseif new == 'Engaged' then
-        equip(sets.aftercast.TP)
-    end
-end
-
-function self_command(command)
-	
-	if sets.TP[command] then
-		sets.aftercast.TP = sets.TP[command]
-		equip(sets.TP[command])
-		add_to_chat(122,command)
-	end
-end
