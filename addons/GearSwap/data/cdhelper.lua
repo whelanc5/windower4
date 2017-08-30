@@ -395,7 +395,7 @@ function modeChange(currMode)
 	end
 	equip_Sets(currMode ,0)
 end
-----------------------------------------------------------------equipSets------------------------------------------------
+----------------------------------------
 
 --changes the mode to match the current mode number
 function equip_Sets(currMode, num)

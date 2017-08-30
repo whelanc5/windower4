@@ -12,6 +12,7 @@ wait 5;
 load LuaCore;
 load Timers;
 lua load GearSwap;
+lua load latentchecker;
 lua load PetTP;
 lua load shortcuts;
 lua load TParty;
