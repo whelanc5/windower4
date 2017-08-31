@@ -26,16 +26,19 @@ function get_sets()
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
 	sets.base ={
-    head="Herculean Helm",
+    ammo="Titanium Bullet",
+    head={ name="Herculean Helm", augments={'"Triple Atk."+3','STR+2','Accuracy+8',}},
     body="Meg. Cuirie +1",
-    hands="Herculean Gloves",
+    hands={ name="Herculean Gloves", augments={'Attack+14','"Triple Atk."+4','Accuracy+15',}},
     legs="Meg. Chausses +1",
-    feet="Herculean Boots", 
+    feet={ name="Herculean Boots", augments={'"Triple Atk."+3','AGI+3','Accuracy+11',}},
+    neck="Waylayer's Scarf +1",
+    waist="Windbuffet Belt",
     left_ear="Pixie Earring",
+    right_ear="Friomisi Earring",
     left_ring="Meghanada Ring",
     right_ring="Epona's Ring",
     back="Camulus's Mantle",
-	ammo="Titanium Bullet"
 } -- Base set. Can use this as a base for other sets
 
 
@@ -58,22 +61,15 @@ function get_sets()
 	sets.midcast.Elemental = {}	
 	sets.midcast.Healing = nil --set to a set if going to be used
 	sets.precast.Magic.Healing = nil --set to a set if going to be used
-	----------------------------------------------------------------NUKE---------------------------------------------------------------------------------------------
-	--changes sets.midcast.Elemental to this set based on mode
-	sets.Nuke = {}
-	sets.Nuke.Default = sets.Nuke -- don't change this
-	sets.Nuke.Custom = sets.Nuke-- don't change this
-	sets.Nuke.Acc = {}
-	sets.Nuke.Burst = {}
-	sets.midcast.Burst = {}
+
 	----------------------------------------------------------------JA-----------------------------------------------------------------------------------------------
 	-- put sets.precast.JA['Spell Name'] = {set} to equip before using a ja
 	-- ex: sets.precast.JA['Tactical Switch'] = {feet="Cirque Scarpe +2"}	
 	sets.precast.Waltz = {} -- sets for curing waltz
 	sets.precast.maneuver = {} -- sets for manuevers
-	sets.precast.Quickdraw = {left_ear = "Hecate's Earring"}
+	sets.precast.Quickdraw = {right_ear="Friomisi Earring",left_ear = "Hecate's Earring"}
 	----------------------------------------------------------------TP-----------------------------------------------------------------------------------------------
-	sets.TP = set_combine(sets.base,{})	 -- base set for TP gear
+	sets.TP = set_combine(sets.base,{ })	 -- base set for TP gear
 	sets.TP.Current = sets.TP -- don't change this
 	sets.aftercast.TP = sets.TP -- don't change this
 	sets.TP.Custom = sets.TP -- don't change this
@@ -108,12 +104,13 @@ function get_sets()
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
-	sets.WS = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Meghanada Ring", back="Camulus's Mantle"})--base set for weaponskill that isn't named
+	sets.WS = set_combine(sets.base,{      ammo="Titanium Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
+    neck="Waylayer's Scarf +1", waist="Windbuffet Belt", left_ear="Hecate's Earring", right_ear="Friomisi Earring", left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle",})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 
 	sets.WS.Acc = set_combine(sets.WS,{})
-	
+	sets.WS['Leaden Salute'] = set_combine(sets.WS, {left_ear="Hecate's Earring", right_ear="Friomisi Earring"})
 	
   
 	----sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
@@ -121,7 +118,7 @@ function get_sets()
 	
 
 	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
-	sets.Range = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Meghanada Ring", back="Camulus's Mantle"})
+	sets.Range = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", neck = "Waylayer's Scarf +1", })
 	sets.midcast.Range = set_combine(sets.Range,{})
 	sets.precast.Range  = set_combine(sets.Range,{})
 	----------------------------------------------------macro book--------------------------------------------------

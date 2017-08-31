@@ -7,8 +7,11 @@ sets.exported={
     hands="Meg. Gloves +1",
     legs="Meg. Chausses +1",
     feet="Meg. Jam. +1",
-    left_ear="Pixie Earring",
+    neck="Waylayer's Scarf +1",
+    waist="Windbuffet Belt",
+    left_ear="Hecate's Earring",
+    right_ear="Friomisi Earring",
     left_ring="Meghanada Ring",
-    right_ring="Warp Ring",
+    right_ring="Epona's Ring",
     back="Camulus's Mantle",
 }

@@ -213,7 +213,9 @@ end
 --------------------------------------------------------------------autoRange function for automatic range attacks---------------------------------------------------------------
 	autoRA = false
 	function autoRange()
-	send_command('input /ra  <t>')
+	if player.in_combat and player.target ~= nil then
+		send_command('input /ra  <t>')
+	end
 		if (autoRA == true) then
 			send_command('wait 5 ;input //gs c autoRange')
 		end
