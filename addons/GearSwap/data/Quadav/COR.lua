@@ -118,9 +118,9 @@ function get_sets()
 	
 
 	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
-	sets.Range = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", neck = "Waylayer's Scarf +1", })
-	sets.midcast.Range = set_combine(sets.Range,{})
-	sets.precast.Range  = set_combine(sets.Range,{})
+	sets.Ranged = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", neck = "Waylayer's Scarf +1", })
+	sets.midcast.Ranged = set_combine(sets.Ranged,{})
+	sets.precast.Ranged  = set_combine(sets.Ranged,{})
 	----------------------------------------------------macro book--------------------------------------------------
 	--set the book and set to your jobs macro set
 	send_command('input /macro book 1;wait .1;input /macro set 9')

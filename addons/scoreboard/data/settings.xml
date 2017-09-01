@@ -79,6 +79,14 @@
         <numplayers>8</numplayers>
         <visible>false</visible>
     </kwame>
+    <quadav>
+        <display>
+            <pos>
+                <x>1583</x>
+                <y>555</y>
+            </pos>
+        </display>
+    </quadav>
     <snipper>
         <display>
             <pos>
@@ -86,5 +94,6 @@
                 <y>430</y>
             </pos>
         </display>
+        <numplayers>8</numplayers>
     </snipper>
 </settings>
