@@ -52,35 +52,35 @@
     "Arcuballista", "Daze", "Armor Piercer", "Armor Shatterer"}
 	
 	   rolls = {
-        ["Corsair's Roll"]   = {"lucky=5, unlucky=9, bonus=Experience Points"},
-        ["Ninja Roll"]       = {"lucky=4, unlucky=8, bonus=Evasion"},
-        ["Hunter's Roll"]    = {"lucky=4, unlucky=8, bonus=Accuracy"},
-        ["Chaos Roll"]       = {"lucky=4, unlucky=8, bonus=Attack"},
-        ["Magus's Roll"]     = {"lucky=2, unlucky=6, bonus=Magic Defense"},
-        ["Healer's Roll"]    = {"lucky=3, unlucky=7, bonus=Cure Potency Received"},
-        ["Puppet Roll"]      = {"lucky=4, unlucky=8, bonus=Pet Magic Accuracy/Attack"},
-        ["Choral Roll"]      = {"lucky=2, unlucky=6, bonus=Spell Interruption Rate"},
-        ["Monk's Roll"]      = {"lucky=3, unlucky=7, bonus=Subtle Blow"},
-        ["Beast Roll"]       = {"lucky=4, unlucky=8, bonus=Pet Attack"},
-        ["Samurai Roll"]     = {"lucky=2, unlucky=6, bonus=Store TP"},
-        ["Evoker's Roll"]    = {"lucky=5, unlucky=9, bonus=Refresh"},
-        ["Rogue's Roll"]     = {"lucky=5, unlucky=9, bonus=Critical Hit Rate"},
-        ["Warlock's Roll"]   = {"lucky=4, unlucky=8, bonus=Magic Accuracy"},
-        ["Fighter's Roll"]   = {"lucky=5, unlucky=9, bonus=Double Attack Rate"},
-        ["Drachen Roll"]     = {"lucky=3, unlucky=7, bonus=Pet Accuracy"},
-        ["Gallant's Roll"]   = {"lucky=3, unlucky=7, bonus=Defense"},
-        ["Wizard's Roll"]    = {"lucky=5, unlucky=9, bonus=Magic Attack"},
-        ["Dancer's Roll"]    = {"lucky=3, unlucky=7, bonus=Regen"},
-        ["Scholar's Roll"]   = {"lucky=2, unlucky=6, bonus=Conserve MP"},
-        ["Bolter's Roll"]    = {"lucky=3, unlucky=9, bonus=Movement Speed"},
-        ["Caster's Roll"]    = {"lucky=2, unlucky=7, bonus=Fast Cast"},
-        ["Courser's Roll"]   = {"lucky=3, unlucky=9, bonus=Snapshot"},
-        ["Blitzer's Roll"]   = {"lucky=4, unlucky=9, bonus=Attack Delay"},
-        ["Tactician's Roll"] = {"lucky=5, unlucky=8, bonus=Regain"},
-        ["Allies's Roll"]    = {"lucky=3, unlucky=10, bonus=Skillchain Damage"},
-        ["Miser's Roll"]     = {"lucky=5, unlucky=7, bonus=Save TP"},
-        ["Companion's Roll"] = {"lucky=2, unlucky=10, bonus=Pet Regain and Regen"},
-        ["Avenger's Roll"]   = {"lucky=4, unlucky=8, bonus=Counter Rate"},
+        ["Corsair's Roll"]   = "lucky=5, unlucky=9, bonus=Experience Points",
+        ["Ninja Roll"]       = "lucky=4, unlucky=8, bonus=Evasion",
+        ["Hunter's Roll"]    = "lucky=4, unlucky=8, bonus=Accuracy",
+        ["Chaos Roll"]       = "lucky=4, unlucky=8, bonus=Attack",
+        ["Magus's Roll"]     = "lucky=2, unlucky=6, bonus=Magic Defense",
+        ["Healer's Roll"]    = "lucky=3, unlucky=7, bonus=Cure Potency Received",
+        ["Puppet Roll"]      = "lucky=4, unlucky=8, bonus=Pet Magic Accuracy/Attack",
+        ["Choral Roll"]      = "lucky=2, unlucky=6, bonus=Spell Interruption Rate",
+        ["Monk's Roll"]      = "lucky=3, unlucky=7, bonus=Subtle Blow",
+        ["Beast Roll"]       = "lucky=4, unlucky=8, bonus=Pet Attack",
+        ["Samurai Roll"]     = "lucky=2, unlucky=6, bonus=Store TP",
+        ["Evoker's Roll"]    = "lucky=5, unlucky=9, bonus=Refresh",
+        ["Rogue's Roll"]     = "lucky=5, unlucky=9, bonus=Critical Hit Rate",
+        ["Warlock's Roll"]   = "lucky=4, unlucky=8, bonus=Magic Accuracy",
+        ["Fighter's Roll"]   = "lucky=5, unlucky=9, bonus=Double Attack Rate",
+        ["Drachen Roll"]     = "lucky=3, unlucky=7, bonus=Pet Accuracy",
+        ["Gallant's Roll"]   = "lucky=3, unlucky=7, bonus=Defense",
+        ["Wizard's Roll"]    = "lucky=5, unlucky=9, bonus=Magic Attack",
+        ["Dancer's Roll"]    = "lucky=3, unlucky=7, bonus=Regen",
+        ["Scholar's Roll"]   = "lucky=2, unlucky=6, bonus=Conserve MP",
+        ["Bolter's Roll"]    = "lucky=3, unlucky=9, bonus=Movement Speed",
+        ["Caster's Roll"]    = "lucky=2, unlucky=7, bonus=Fast Cast",
+        ["Courser's Roll"]   = "lucky=3, unlucky=9, bonus=Snapshot",
+        ["Blitzer's Roll"]   = "lucky=4, unlucky=9, bonus=Attack Delay",
+        ["Tactician's Roll"] = "lucky=5, unlucky=8, bonus=Regain",
+        ["Allies's Roll"]    = "lucky=3, unlucky=10, bonus=Skillchain Damage",
+        ["Miser's Roll"]     = "lucky=5, unlucky=7, bonus=Save TP",
+        ["Companion's Roll"] = "lucky=2, unlucky=10, bonus=Pet Regain and Regen",
+        ["Avenger's Roll"]   = "lucky=4, unlucky=8, bonus=Counter Rate",
 	}
 	
 	quickDraw  = {	
@@ -182,6 +182,7 @@
 	autocast = false 
 	firstAuto = true
 	autoRoll = false
+	autoItem = false
 
 
 	
@@ -221,6 +222,12 @@ end
 		end
 	end
 
+	function autoItemUse()
+	send_command('input /item "Silt Pouch" <me>')
+		if (autoItem == true) then
+			send_command('wait 3 ;input //gs c autoItemUse')
+		end
+	end
 ------------------------------------------------------------------------Precast Function---------------------------------------------------------------------------------------------------------------
 -- if a sets.precast["spell name"] exists it will equip that.
 -- if magic it will equip sets.precast.magic
@@ -256,7 +263,7 @@ function precast(spell)
 		equip(sets.precast.maneuver)
 	elseif rolls[spell.english] ~= nil  then
 		equip(sets.precast.Roll)
-		add_to_chat(122,rolls[spell.english][1])
+		add_to_chat(4,rolls[spell.english])
 	elseif string.find(spell.english,'Waltz')  then
 		equip(sets.precast.Waltz)
 	elseif quickDraw[spell.english] then
@@ -567,6 +574,17 @@ function self_command(command)
 		end
 	elseif command == "autoRange" then
 		autoRange()
+		elseif command == "autoItem" then
+		if autoItem == false then 
+			autoItem = true
+			add_to_chat(122, command .. " on")
+			send_command('wait 2 ;input //gs c autoItemUse')
+		else 
+			autoItem = false
+			add_to_chat(122, command .. " off")
+		end
+	elseif command == "autoItemUse" then
+		autoItemUse()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
 	elseif command == "customTP"  then
 		sets.TP.Custom =   customSet()	
