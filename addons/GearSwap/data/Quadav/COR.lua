@@ -32,7 +32,7 @@ function get_sets()
     hands={ name="Herculean Gloves", augments={'Attack+14','"Triple Atk."+4','Accuracy+15',}},
     legs="Meg. Chausses +1",
     feet={ name="Herculean Boots", augments={'"Triple Atk."+3','AGI+3','Accuracy+11',}},
-    neck="Waylayer's Scarf +1",
+    neck="Ej Necklace",
     waist="Windbuffet Belt",
     left_ear="Pixie Earring",
     right_ear="Friomisi Earring",
@@ -105,7 +105,7 @@ function get_sets()
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
 	sets.WS = set_combine(sets.base,{      ammo="Titanium Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
-    neck="Waylayer's Scarf +1", waist="Windbuffet Belt", left_ear="Hecate's Earring", right_ear="Friomisi Earring", left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle",})--base set for weaponskill that isn't named
+    neck="Waylayer's Scarf +1", left_ear="Hecate's Earring", right_ear="Friomisi Earring", left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle",})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 

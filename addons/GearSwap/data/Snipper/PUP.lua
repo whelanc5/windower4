@@ -80,7 +80,7 @@ function get_sets()
     sets.precast.JA['Repair'] = {feet="Foire Babouches +1", ammo="Automat. Oil +3", ear1 ="Guignol Earring"}	
 	sets.precast.JA['Maintenance'] = {ammo="Automat. Oil +1"}
 	sets.precast.JA['Overdrive'] = {body = "Pitre Tobe +1"}
-	sets.precast.maneuver = {body="Cirque Farsetto +2", hands="Foire Dastanas +1", neck="Buffoon's Collar", back= VisuciusPet}
+	sets.precast.maneuver = {body="Cirque Farsetto +2", hands="Foire Dastanas +1", neck="Buffoon's Collar", back= VisuciusPet, ear1 = "Burana Earring"}
 	
 	
 	------------------------------------------DT-----------------------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ function get_sets()
 	sets.Pet.DD = set_combine(sets.Pet, sets.base.Pet.DD)
 	sets.Pet.Hybrid = set_combine(sets.Pet,{ body="Pitre Tobe +1", waist ="Hurch'lan Sash", head = "Tali'ah Turban"})
 	sets.Pet.DT = set_combine(sets.Pet,{neck="Twilight Torque", ring2="Dark Ring"})
-	sets.Pet.Tank = set_combine(sets.Pet.Base,{body = "Pitre Tobe +1",head = "Tali'ah Turban", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote"})  	
+	sets.Pet.Tank = set_combine(sets.Pet.Base,{body = "Pitre Tobe +1",head = "Tali'ah Turban", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote", waist ="Hurch'lan Sash"})  	
 	sets.Pet.Idle = set_combine(sets.DT,sets.Pet.Tank)
 	sets.Pet.Idle.DD = set_combine(sets.DT, sets.base.Pet.DD)	
 	sets.Pet.Idle.Tank = set_combine(sets.DT, sets.Pet.Tank)
