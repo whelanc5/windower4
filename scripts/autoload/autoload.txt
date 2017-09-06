@@ -10,8 +10,13 @@
 
 wait 5;
 load LuaCore;
+load Timers;
+lua load autocontrol;
+lua load AutoRA;
+lua load distance;
 lua load GearSwap;
 lua load PetTP;
 lua load shortcuts;
+lua load timestamp;
 lua load TParty;
 exec init.txt;
