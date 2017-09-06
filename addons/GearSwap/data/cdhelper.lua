@@ -153,7 +153,7 @@
 		["wsMode"] = 		{num = 1, suffix = "WS", 			tpType = 0, idleType = 0, midcastType = 0, precastType = 1, setModes = wsModes}, 
 		["elementalMode"]= 	{num = 1, suffix = "Elemental",	 	tpType = 0, idleType = 0, midcastType = 1, precastType = 0,	setModes = elementalModes},
 		["idleMode"] = 		{num = 1, suffix = "Idle", 			tpType = 0, idleType = 1, midcastType = 0, precastType = 0, setModes = idleModes},
-		["rangeMode"] = 	{num = 1, suffix = "Range", 		tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes},
+		["rangeMode"] = 	{num = 1, suffix = "Ranged", 		tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes},
 		["darknessMode"]= 	{num = 1, suffix = "Darkness",	 	tpType = 0, idleType = 0, midcastType = 0, precastType = 1,	setModes = darknessModes}}, 
 		{"num", "suffix", "tpType","idleType", "midcastType", "precastType", "setModes"}
 	
