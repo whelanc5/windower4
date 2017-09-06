@@ -494,7 +494,7 @@ function self_command(command)
 		if player.main_job == "PUP" then
 			self_command("petMode")
 		else
-			self_command("ElementalMode")
+			self_command("elementalMode")
 		end
 	--elseif command == "c43" then
 	--	self_command("equipTP")
