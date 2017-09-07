@@ -15,10 +15,10 @@ function get_sets()
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
 -- All modes should have a "Default" entry
-	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
-	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["dtMode"].setModes = {"Default", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
-	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
+	modeSets["idleMode"].setModes = {"Default", "Custom"}
 	modeSets["rangeMode"].setModes = {"Default"}
 	
 	
@@ -26,7 +26,6 @@ function get_sets()
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
 	sets.base ={
-    ammo="Titanium Bullet",
     head={ name="Herculean Helm", augments={'"Triple Atk."+3','STR+2','Accuracy+8',}},
     body="Meg. Cuirie +1",
     hands={ name="Herculean Gloves", augments={'Attack+14','"Triple Atk."+4','Accuracy+15',}},
@@ -34,8 +33,8 @@ function get_sets()
     feet={ name="Herculean Boots", augments={'"Triple Atk."+3','AGI+3','Accuracy+11',}},
     neck="Ej Necklace",
     waist="Windbuffet Belt",
-    left_ear="Pixie Earring",
-    right_ear="Friomisi Earring",
+	ear1="Bladeborn Earring",
+	ear2="Steelflash Earring",
     left_ring="Meghanada Ring",
     right_ring="Epona's Ring",
     back="Camulus's Mantle",
@@ -74,7 +73,7 @@ function get_sets()
 	sets.aftercast.TP = sets.TP -- don't change this
 	sets.TP.Custom = sets.TP -- don't change this
 	sets.TP.Default = sets.TP -- don't change this
-    sets.TP.Acc = set_combine(sets.TP,{})	
+    sets.TP.Acc = set_combine(sets.TP,{waist ="Hurch'lan Sash", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1"})	
 	sets.TP.Haste = set_combine(sets.TP,{})	
     sets.TP.DT=  set_combine(sets.TP,{})
 	sets.TP.Pet= set_combine(sets.TP,{})	
@@ -104,8 +103,8 @@ function get_sets()
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
-	sets.WS = set_combine(sets.base,{      ammo="Titanium Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
-    neck="Waylayer's Scarf +1", left_ear="Hecate's Earring", right_ear="Friomisi Earring", left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle",})--base set for weaponskill that isn't named
+	sets.WS = set_combine(sets.base,{      ammo="Eminent Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
+    neck="Waylayer's Scarf +1", left_ear="Hecate's Earring", left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle",})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 
@@ -118,9 +117,9 @@ function get_sets()
 	
 
 	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
-	sets.Ranged = set_combine(sets.base,{  head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", neck = "Waylayer's Scarf +1", })
+	sets.Ranged = set_combine(sets.base,{ ammo = "Eminent Bullet", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", neck = "Waylayer's Scarf +1", })
 	sets.midcast.Ranged = set_combine(sets.Ranged,{})
-	sets.precast.Ranged  = set_combine(sets.Ranged,{})
+	sets.precast.Ranged  = set_combine(sets.Ranged,{ammo = "Eminent Bullet",legs = "Nahtirah Trousers"})
 	----------------------------------------------------macro book--------------------------------------------------
 	--set the book and set to your jobs macro set
 	send_command('input /macro book 1;wait .1;input /macro set 9')

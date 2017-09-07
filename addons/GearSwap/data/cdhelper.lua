@@ -611,8 +611,8 @@ function self_command(command)
 		sets.DT.Custom =   customSet()	
 		add_to_chat(122, "Custom DT Set")
 	elseif command == "customNuke"  then
-		sets.Nuke.Custom =   customSet()	
-		add_to_chat(122, "Custom Nuke Set")
+		sets.Elemental.Custom =   customSet()	
+		add_to_chat(122, "Custom Elemental Set")
 	end
 end
     
