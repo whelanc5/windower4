@@ -410,17 +410,29 @@ end
 function equip_Sets(currMode, num)
   	current = currMode.setModes[currMode.num]
 	if currMode.tpType == 1 then
-		sets.aftercast.TP = sets[currMode.suffix][current]
-		add_to_chat(122, "TP = " .. current .. " " .. currMode.suffix)
+		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
+			sets.aftercast.TP= sets[currMode.suffix]
+			add_to_chat(122, "TP = Default" .. currMode.suffix)
+		else 
+			if sets.TP[currMode.suffix] then
+				sets.TP[currMode.suffix] = sets[currMode.suffix][current]
+			end
+			sets.aftercast.TP = sets[currMode.suffix][current]
+			add_to_chat(122, "TP = " .. current .. " " .. currMode.suffix)
 	end
 		if player.status =='Engaged' or num == 1 or currMode.suffix == "TP" then
 			equip(sets.aftercast.TP) 
 		end
+	end	
 	if currMode.idleType == 1 then
+		
 		if  #currMode.setModes == 0 or sets[currMode.suffix][current] == nil then
 			sets.aftercast.Idle= sets[currMode.suffix]
 			add_to_chat(122, "Idle = Default" .. currMode.suffix)
 		else 
+			if sets.Idle[currMode.suffix] then
+				sets.Idle[currMode.suffix] = sets[currMode.suffix][current]
+			end
 			sets.aftercast.Idle = sets[currMode.suffix][current]
 			add_to_chat(122,  "Idle = " .. current .. " " .. currMode.suffix )
 		end

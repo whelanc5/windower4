@@ -14,10 +14,10 @@ function get_sets()
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
 
 	
-	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "DT", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
-	modeSets["idleMode"].setModes = {"Default", "Pet", "DT", "Custom"}
+	modeSets["idleMode"].setModes = {"Default", "Pet", "Custom"}
 	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
 	
 	-- --- precast--------------------------------
