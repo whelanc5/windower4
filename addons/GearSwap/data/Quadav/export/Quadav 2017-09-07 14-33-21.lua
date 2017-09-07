@@ -1,0 +1,17 @@
+sets.exported={
+    main="Demersal Degen",
+    range="Hgafircian +2",
+    ammo="Eminent Bullet",
+    head="Meghanada Visor +1",
+    body="Meg. Cuirie +1",
+    hands="Meg. Gloves +1",
+    legs="Meg. Chausses +1",
+    feet="Hermes' Sandals",
+    neck="Bathy Choker",
+    waist="Hurch'lan Sash",
+    left_ear="Bladeborn Earring",
+    right_ear="Steelflash Earring",
+    left_ring="Meghanada Ring",
+    right_ring="Epona's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+}
