@@ -108,7 +108,7 @@ function get_sets()
 	sets.WS.Default = sets.WS -- don't change this
 
 	sets.WS.Acc = set_combine(sets.WS,{})
-	sets.WS['Leaden Salute'] = set_combine(sets.WS, {left_ear="Hecate's Earring", right_ear="Friomisi Earring"})
+	sets.WS['Leaden Salute'] = set_combine(sets.WS, {left_ear="Hecate's Earring", right_ear="Friomisi Earring", body = "Rawhide Vest"})
 	
   
 	----sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
