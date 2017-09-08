@@ -167,13 +167,21 @@
 		["equipElemental"] = 	"elementalMode",
 	}
 	
-
+	customSets = {
+		["customTP"] =	 		"tpMode",
+		["customDT"] = 			"dtMode",
+		["customPet"] = 			"petMode",
+		["customIdle"] = 		"idleMode",
+		["customRange"] = 		"rangeMode",
+		["customElemental"] = 	"elementalMode",
+	}
+	
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
 	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoRoll"} --booleans
 	deploy = false
-	automaneuver = false
+	automaneuver = true
 	magicburst = false
 	rune = false
 	cap = false
@@ -598,21 +606,12 @@ function self_command(command)
 	elseif command == "autoItemUse" then
 		autoItemUse()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
-	elseif command == "customTP"  then
-		sets.TP.Custom =   customSet()	
-		add_to_chat(122, "Custom TP Set")	
-	elseif command == "customPet"  then
-		sets.Pet.Custom =   customSet()	
-		add_to_chat(122, "Custom Pet Set")
-	elseif command == "customIdle"  then
-		sets.Idle.Custom =   customSet()	
-		add_to_chat(122, "Custom Idle Set")
-	elseif command == "customDT"  then
-		sets.DT.Custom =   customSet()	
-		add_to_chat(122, "Custom DT Set")
-	elseif command == "customNuke"  then
-		sets.Elemental.Custom =   customSet()	
-		add_to_chat(122, "Custom Elemental Set")
+	elseif customSets[command] then
+		
+		if sets[modeSets[customSets[command]].suffix].Custom ~= nil then
+			sets[modeSets[customSets[command]].suffix].Custom =  customSet()	
+		end
+		add_to_chat(122, "Custom " .. modeSets[customSets[command]].suffix .." Set")
 	end
 end
     

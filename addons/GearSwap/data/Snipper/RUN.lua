@@ -37,17 +37,14 @@ function get_sets()
 	sets.Blue.Debuff = {}
 	sets.Blue.Buff = {}
 	sets.Blue.Cure = {}
-	------------Nuke-------------------------
-	sets.Nuke = {}
 
 
 	sets.base = {head="Herculean Helm",neck="Lissome Necklace",
-        ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Tali'ah Manteel",hands="Herculean Gloves",
-        ring1="Rajas Ring",ring2="Epona's Ring", back="", waist ="Hurch'lan Sash",legs= hercLegsTA,
+        ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Rawhide Vest",hands="Herculean Gloves",
+        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Hurch'lan Sash",legs="Meg. Chausses +1",
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
-	--sets.base.WS = set_combine(sets.base,{ head="Hizamaru Somen +1", hands="Ryuo Tekko",  legs="Hiza. Hizayoroi +1", body = "Hizamaru Haramaki"})	
-	sets.WS = set_combine(sets.base,{ })
+	sets.WS = set_combine(sets.base,{ hands="Meg. Gloves +1"})
 	sets.WS.Default = set_combine(sets.WS,{})
 	sets.WS.Acc = set_combine(sets.WS,{ })	
     sets.precast.WS = sets.WS -- don't change
