@@ -258,7 +258,6 @@
 		["Curaga III"] = 			"",
 		["Curaga IV"] = 		"",
 		["Curaga V"] = 		"",
-		["Cure 6"] = 	"",
 	}
 	cures = {
 		["Cure"] =	 		"",
@@ -266,7 +265,7 @@
 		["Cure III"] = 			"",
 		["Cure IV"] = 		"",
 		["Cure V"] = 		"",
-		["Cure 6"] = 	"",
+		["Cure VI"] = 	"",
 	}
 	
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
@@ -443,8 +442,16 @@ function midcast(spell)
         equip(sets.midcast[spell.english])
 	elseif cures[spell.english] and sets.midcast.Cure then
 		equip(sets.midcast.Cure)
+		local storm = storms[spell.element]
+			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
+				equip(sets.obi[spell.element])
+		end	
 	elseif curagas[spell.english] and sets.midcast.Curaga then
 		equip(sets.midcast.Curaga)
+		local storm = storms[spell.element]
+			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
+				equip(sets.obi[spell.element])
+		end	
 	elseif  spell.action_type == 'Magic' then
 		local currSkill = magicSkills[spell.skill]
 		if sets.midcast[currSkill] then
