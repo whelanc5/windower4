@@ -34,22 +34,7 @@ bind ^f10 drawdistance set 1
 bind f12 showfps
 bind sysrq screenshot png hide
 bind ^v paste
-bind f9 gs c c1
-bind ^f9 gs c c12
-bind !f9 gs c c13
-bind ^!f9 gs c c14
-bind f10 gs c c2
-bind ^f10 gs c c22
-bind !f10 gs c c23
-bind ^!f10 gs c c24
-bind f11 gs c c3
-bind ^f11 gs c c32
-bind !f11 gs c c33
-bind ^!f11 gs c c34
-bind f12 gs c c4
-bind ^f12 gs c c42
-bind !f12 gs c c43
-bind ^!f12 gs c c44
+
 echo Toggle Lighting = F11 (Bump mapping must be off to work properly)
 echo Toggle FPS = F12
 echo DrawDistance Lv 10: Alt-F10

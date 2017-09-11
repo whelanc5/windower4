@@ -41,36 +41,27 @@ function get_sets()
 
 	sets.base = {head="Herculean Helm",neck="Lissome Necklace",
         ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Rawhide Vest",hands="Herculean Gloves",
-        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Hurch'lan Sash",legs="Meg. Chausses +1",
+        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Anguinus Belt",legs="Meg. Chausses +1",
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
-	sets.WS = set_combine(sets.base,{ hands="Meg. Gloves +1"})
+	sets.WS = set_combine(sets.base,{ hands="Meg. Gloves +1", legs = hercLegsSTR, ring2 = "Apate Ring", head="Meghanada Visor +1"})
 	sets.WS.Default = set_combine(sets.WS,{})
 	sets.WS.Acc = set_combine(sets.WS,{ })	
     sets.precast.WS = sets.WS -- don't change
-	
+	sets.WS['Resolution'] = set_combine(sets.WS, {neck = "Soil Gorget", waist = "Soil Belt"})
 
 
 
-	-----------------------------------------------Tp---------------------------------------------------------------------------------------
-    sets.TP = set_combine(sets.base,{})
-	sets.aftercast.TP = sets.TP  
-	sets.TP.Current = sets.TP
-	sets.TP.Default = set_combine(sets.TP,{})
-    sets.TP.Acc = set_combine(sets.TP,{})	
-	sets.TP.Haste = set_combine(sets.TP,{})	
-    sets.TP.DT=  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring"})
 
-	sets.TP.Custom = set_combine(sets.TP,{})
 	
 	--------------------------------------------------------------------JA------------------------------------------------------------------
 
 	
 	
 	------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring"})
-    sets.DT.Default = set_combine(sets.base,{})
-	sets.DT.Magic  = set_combine(sets.base,{})
+	sets.DT = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1"})
+    sets.DT.Default = set_combine(sets.DT,{})
+	sets.DT.Magic  = set_combine(sets.DT,{})
 	sets.DT.Full = sets.DT
 	sets.DT.Custom = sets.DT
 	
@@ -87,7 +78,16 @@ function get_sets()
 	sets.aftercast.Idle = sets.Idle
 	
 
-	
+		-----------------------------------------------Tp---------------------------------------------------------------------------------------
+    sets.TP = set_combine(sets.base,{})
+	sets.aftercast.TP = sets.TP  
+	sets.TP.Current = sets.TP
+	sets.TP.Default = set_combine(sets.TP,{})
+    sets.TP.Acc = set_combine(sets.TP,{})	
+	sets.TP.Haste = set_combine(sets.TP,{})	
+    sets.TP.DT =  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1"})
+
+	sets.TP.Custom = set_combine(sets.TP,{})
 	
 	send_command('input /macro book 9;wait .1;input /macro set 1')
 end

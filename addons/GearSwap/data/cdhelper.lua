@@ -1,5 +1,57 @@
 
 	include('augments.lua')
+	
+	
+	
+	send_command('bind f9 gs c equipTP')
+    send_command('bind f10 gs c equipDT')
+    send_command('bind f11 gs c equipIdle')
+    
+
+	send_command('bind ^f9 gs c tpMode')
+    send_command('bind ^f10 gs c dtMode')
+    send_command('bind ^f11 gs c idleMode')
+   
+	
+	send_command('bind !f9 gs c customTP')
+    send_command('bind !f10 gs c customDT')
+    send_command('bind !f11 gs c customIdle')
+	
+   
+   if player.main_job == "PUP" then
+		
+		send_command('bind !f12 gs c customPet')
+		send_command('bind ^f12 gs c petMode')
+		send_command('bind f12 gs c equipPet')
+	else 
+		send_command('bind !f12 gs c customElemental')
+		send_command('bind ^f12 gs c elementalMode')
+		send_command('bind f12 gs c equipElemental')
+	end
+	
+	
+      function file_unload()
+     
+ 
+        send_command('unbind ^f9')
+        send_command('unbind ^f10')
+        send_command('unbind ^f11')
+        send_command('unbind ^f12')
+       
+        send_command('unbind !f9')
+        send_command('unbind !f10')
+        send_command('unbind !f11')
+        send_command('unbind !f12')
+ 
+        send_command('unbind f9')
+        send_command('unbind f10')
+        send_command('unbind f11')
+        send_command('unbind f12')
+ 
+       
+ 
+    end
+    
 	----------------------------------------------------Commands---------------------------------------------------------------------------------------------------
 	--------------booleans--------------------------------
 	-----------When used these will switch on if they're off, and off if they're on
@@ -81,6 +133,7 @@
         ["Miser's Roll"]     = "lucky=5, unlucky=7, bonus=Save TP",
         ["Companion's Roll"] = "lucky=2, unlucky=10, bonus=Pet Regain and Regen",
         ["Avenger's Roll"]   = "lucky=4, unlucky=8, bonus=Counter Rate",
+		["Runeist's Roll"]     = "lucky=4, unlucky=8, bonus=Magic Evasion"
 	}
 	
 	quickDraw  = {	
@@ -91,6 +144,29 @@
 	["Thunder Shot"] = {},
 	["Earth Shot"] = {},
 	["Wind Shot"]= {},
+	["Ice Shot"] = {}
+	}
+	
+	maneuvers  = {	
+	["Light Maneuer"] = {}, 
+	["Dark Maneuver"] = {},
+	["Fire Maneuver"] = {},
+	["Water Maneuver"] = {},
+	["Thunder Maneuver"] = {},
+	["Earth Maneuver"] = {},
+	["Wind Maneuver"]= {},
+	["Ice Maneuver"] = {}
+	}
+	
+	waltz = {	
+	["Curing Waltz"] = {}, 
+	["Curing Waltz II"] = {},
+	["Curing Waltz III"] = {},
+	["Curing Waltz IV"] = {},
+	["Curing Waltz V"] = {},
+	["Divine Waltz"] = {},
+	["Divine Waltz II"]= {},
+	["Healing Waltz"] = {}
 	}
 	
 	magicSkills = {
@@ -176,6 +252,23 @@
 		["customElemental"] = 	"elementalMode",
 	}
 	
+	curagas = {
+		["Curaga"] =	 		"",
+		["Curaga II"] = 			"",
+		["Curaga III"] = 			"",
+		["Curaga IV"] = 		"",
+		["Curaga V"] = 		"",
+		["Cure 6"] = 	"",
+	}
+	cures = {
+		["Cure"] =	 		"",
+		["Cure II"] = 			"",
+		["Cure III"] = 			"",
+		["Cure IV"] = 		"",
+		["Cure V"] = 		"",
+		["Cure 6"] = 	"",
+	}
+	
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
@@ -247,8 +340,13 @@ end
 -- if sets.precast.maneuver is set it will equip that set when any maneuver is used
 -- if sets.precast.Waltz is set, it will equip that set when any maneuver is used
 function precast(spell)	
+	
 	if sets.precast[spell.english] then	
         equip(sets.precast[spell.english])
+	elseif cures[spell.english] and sets.precast.Cure then
+		equip(sets.precast.Cure)
+	elseif curagas[spell.english] and sets.precast.Curaga then
+		equip(sets.precast.Curaga)
 	elseif sets.precast.JA[spell.english] then	
 		equip(sets.precast.JA[spell.english])
 	elseif spell.action_type == 'Magic' then	
@@ -261,18 +359,18 @@ function precast(spell)
     elseif spell.type=="WeaponSkill" then   
 		if sets.WS[spell.english] then
 			equip(sets.WS[spell.english]) 
-			if sets.WS[spell.english][wsMode] ~= nil then
+			if sets.WS[spell.english][wsMode] then
 				equip(sets.WS[spell.english][wsMode]) 
 			end
 		else 
 			equip(sets.precast.WS)
 		end	
-    elseif string.find(spell.english,'Maneuver')  then
+    elseif maneuvers[spell.english]  then
 		equip(sets.precast.maneuver)
-	elseif rolls[spell.english] ~= nil  then
+	elseif rolls[spell.english]  then
 		equip(sets.precast.Roll)
 		add_to_chat(4,rolls[spell.english])
-	elseif string.find(spell.english,'Waltz')  then
+	elseif waltz[spell.english]  then
 		equip(sets.precast.Waltz)
 	elseif quickDraw[spell.english] then
 		equip(sets.precast.Quickdraw)
@@ -342,7 +440,11 @@ end
 
 function midcast(spell)
 	if sets.midcast[spell.english] then
-        equip(sets.midcast[spell.english])	
+        equip(sets.midcast[spell.english])
+	elseif cures[spell.english] and sets.midcast.Cure then
+		equip(sets.midcast.Cure)
+	elseif curagas[spell.english] and sets.midcast.Curaga then
+		equip(sets.midcast.Curaga)
 	elseif  spell.action_type == 'Magic' then
 		local currSkill = magicSkills[spell.skill]
 		if sets.midcast[currSkill] then
@@ -480,49 +582,45 @@ end
 	
 
 function self_command(command)
-	if command == "c1" then --equip tp C1 -- f9
-		self_command("equipTP") 
-	elseif command == "c12" then --changeTP mode c12 - crtl f9
-		self_command("tpMode")
-	elseif command == "c13" then
-		self_command("customTP")
-	elseif command == "c14" then
-		self_command("customPet")
-	elseif command == "c2" then
-		self_command("equipDT")
-	elseif command == "c22" then
-		self_command("dtMode")
-	elseif command == "c23" then
-		self_command("wsMode")
-	--elseif command == "c24" then
-	--	self_command("tpMode")
-	elseif command == "c3" then
-		self_command("equipIdle")
-	elseif command == "c32" then
-		self_command("idleMode")
-	elseif command == "c33" then
-		self_command("rangeMode")
-	--elseif command == "c34" then
-	--	self_command("Pet/Nuke")
-	elseif command == "c4" then
-		if player.main_job == "PUP" then
-			self_command("equipPet")
-		else
-			self_command("equipElemental")
-		end
-	elseif command == "c42" then
-		if player.main_job == "PUP" then
-			self_command("petMode")
-		else
-			self_command("elementalMode")
-		end
-	--elseif command == "c43" then
+	-- if command == "c1" then --equip tp C1 -- f9
+		-- self_command("equipTP") 
+	-- elseif command == "c12" then --changeTP mode c12 - crtl f9
+		-- self_command("tpMode")
+	-- elseif command == "c13" then
+		-- self_command("customTP")
+	-- elseif command == "c14" then
+		-- self_command("customPet")
+	-- elseif command == "c2" then
+		-- self_command("equipDT")
+	-- elseif command == "c22" then
+		-- self_command("dtMode")
+	-- elseif command == "c23" then
+		-- self_command("wsMode")
+	-- --elseif command == "c24" then
+	-- --	self_command("tpMode")
+	-- elseif command == "c3" then
+		-- self_command("equipIdle")
+	-- elseif command == "c32" then
+		-- self_command("idleMode")
+	-- elseif command == "c33" then
+		-- self_command("rangeMode")
+	-- --elseif command == "c34" then
+	-- --	self_command("Pet/Nuke")
+	-- elseif command == "c4" then
+		
+	-- elseif command == "c42" then
+		-- if player.main_job == "PUP" then
+			-- self_command("petMode")
+		-- else
+			-- self_command("elementalMode")
+		-- end
+	-- --elseif command == "c43" then
 	--	self_command("equipTP")
 	--elseif command == "c44" then
 	--	self_command("tpMode")
 	--------------------------------------------------------------------------------Modes--------------------------------------------------------------------------------------------------------------
 
-	elseif modeSets[command] ~= nil then 		
+	if modeSets[command] ~= nil then 		
 		if modeSets[command].setModes == nil then
 			add_to_chat(122, "no modes set up for " .. modeSets[command].suffix)
 		else
@@ -607,11 +705,12 @@ function self_command(command)
 		autoItemUse()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
 	elseif customSets[command] then
-		
-		if sets[modeSets[customSets[command]].suffix].Custom ~= nil then
-			sets[modeSets[customSets[command]].suffix].Custom =  customSet()	
+		if sets[modeSets[customSets[command]].suffix] then
+				if sets[modeSets[customSets[command]].suffix].Custom ~= nil then
+					sets[modeSets[customSets[command]].suffix].Custom =  customSet()	
+				end
+			add_to_chat(122, "Custom " .. modeSets[customSets[command]].suffix .." Set")
 		end
-		add_to_chat(122, "Custom " .. modeSets[customSets[command]].suffix .." Set")
 	end
 end
     
