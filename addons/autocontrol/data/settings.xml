@@ -39,6 +39,22 @@
                 <slot11>auto-repair kit iv</slot11>
                 <slot12>optic fiber ii</slot12>
             </rng>
+            <rngexp>
+                <frame>sharpshot frame</frame>
+                <head>sharpshot head</head>
+                <slot01>attuner</slot01>
+                <slot02>inhibitor ii</slot02>
+                <slot03>repeater</slot03>
+                <slot04>drum magazine</slot04>
+                <slot05>turbo charger ii</slot05>
+                <slot06>turbo charger</slot06>
+                <slot07>tension spring iii</slot07>
+                <slot08>coiler ii</slot08>
+                <slot09>auto-repair kit iii</slot09>
+                <slot10>target marker</slot10>
+                <slot11>optic fiber</slot11>
+                <slot12>optic fiber ii</slot12>
+            </rngexp>
             <tank>
                 <frame>valoredge frame</frame>
                 <head>valoredge head</head>
@@ -73,8 +89,8 @@
         <maneuvertimers>true</maneuvertimers>
         <padding>0</padding>
         <pos>
-            <x>1747</x>
-            <y>304</y>
+            <x>1725</x>
+            <y>578</y>
         </pos>
         <text>
             <alpha>255</alpha>
@@ -95,10 +111,4 @@
             </stroke>
         </text>
     </global>
-    <snipper>
-        <pos>
-            <x>1725</x>
-            <y>578</y>
-        </pos>
-    </snipper>
 </settings>

@@ -29,7 +29,9 @@
 		send_command('bind f12 gs c equipElemental')
 	end
 	
-	
+	if player.name == "Quadav" then
+		send_command('send set Snipper')
+	end
       function file_unload()
      
  
@@ -283,7 +285,8 @@
 	firstAuto = true
 	autoRoll = false
 	autoItem = false
-
+	send = false
+	autoWS = false
 
 	
 	
@@ -321,7 +324,15 @@ end
 			send_command('wait 5 ;input //gs c autoRange')
 		end
 	end
-
+	function autoWeaponSkill()
+	if player.in_combat and (player.target ~= nil) and player.tp > 999 then
+		send_command('input /Victory Smite <t>')
+	end
+		if (autoWS == true) then
+			send_command('wait 2 ;input //gs c autoWeaponSkill')
+		end
+	end
+		
 	function autoItemUse()
 	send_command('input /item "Silt Pouch" <me>')
 		if (autoItem == true) then
@@ -699,6 +710,18 @@ function self_command(command)
 		end
 	elseif command == "autoRange" then
 		autoRange()
+		
+	elseif command == "autoWS" then
+		if autoWS == false then 
+			autoWS = true
+			add_to_chat(122, command .. " on")
+			send_command('wait 2 ;input //gs c autoWeaponSkill')
+		else 
+			autoWS = false
+			add_to_chat(122, command .. " off")
+		end
+	elseif command == "autoWeaponSkill" then
+		autoWeaponSkill()
 		elseif command == "autoItem" then
 		if autoItem == false then 
 			autoItem = true
