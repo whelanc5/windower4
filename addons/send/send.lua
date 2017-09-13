@@ -2,23 +2,32 @@ _addon.version = '1.0'
 _addon.name = 'Send'
 _addon.command = 'send'
 _addon.author = 'Byrth'
+name = "quadav"
 
 windower.register_event('addon command',function (...)
     local term = table.concat({...}, ' ')
 	local broken_init = split(term, ' ')
 	local qual = table.remove(broken_init,1)
 	local player = windower.ffxi.get_player()
-	if qual:lower()==player['name']:lower() then
-		if broken_init ~= nil then
-			relevant_msg(table.concat(broken_init,' '))
-		end
-	elseif qual:lower()=='@all' or qual:lower()=='@'..player.main_job:lower() then
+	
+	
+	
+	
+	if qual:lower()=='@all' or qual:lower()=='@'..player.main_job:lower() then
+	windower.add_to_chat(122, "12")
 		if broken_init ~= nil then
 			relevant_msg(table.concat(broken_init,' '))
 		end
 		windower.send_ipc_message('send ' .. term)
+		
+	elseif qual:lower() == 'set' then
+		name = table.remove({...}, 2)
+		windower.add_to_chat(122, "name set to " ..name)
 	else
+		term = name .. " ".. term
+		windower.add_to_chat(122, term)
 		windower.send_ipc_message('send ' .. term)
+		
 	end
 end)
 
@@ -29,7 +38,7 @@ windower.register_event('ipc message',function (msg)
     if command ~= 'send' then
         return
     end
-
+		
 	if #broken < 2 then return end
 	
 	local qual = table.remove(broken,1)
