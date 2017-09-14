@@ -273,7 +273,7 @@
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
-	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoRoll"} --booleans
+	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoHaste" ,"autoRoll"} --booleans
 	deploy = false
 	automaneuver = true
 	magicburst = false
@@ -287,6 +287,7 @@
 	autoItem = false
 	send = false
 	autoWS = false
+	autoHaste = false
 
 	
 	
@@ -312,6 +313,10 @@ function buff_change(name, gain)
 	if not gain and rune and  runes:contains(name) then
 		add_to_chat(122,name)
 		send_command(name)
+	end
+	if not gain and autoHaste and  name == "Haste" then
+		add_to_chat(122,name)
+		send_command('send haste 2 ' .. player.name)
 	end
 end
 --------------------------------------------------------------------autoRange function for automatic range attacks---------------------------------------------------------------
