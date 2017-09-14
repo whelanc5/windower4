@@ -317,24 +317,29 @@ end
 --------------------------------------------------------------------autoRange function for automatic range attacks---------------------------------------------------------------
 	autoRA = false
 	function autoRange()
-	if player.in_combat and player.target ~= nil then
-		send_command('input /ra  <t>')
-	end
+		if player.in_combat and player.target ~= nil then
+			send_command('input /ra  <t>')
+		end
 		if (autoRA == true) then
 			send_command('wait 5 ;input //gs c autoRange')
 		end
 	end
-	function autoWeaponSkill()
-	if player.in_combat and (player.target ~= nil) and player.tp > 999 then
-		send_command('input /Victory Smite <t>')
+	currWS = "Victory Smite"
+	function setAutoWS(wsName)
+		currWS = wsName
+		add_to_chat(122,currWS)
 	end
+	function autoWeaponSkill()
+		if player.in_combat and (player.target ~= nil) and player.tp > 999 then
+			send_command('input / '.. currWS ..' <t>')
+		end
 		if (autoWS == true) then
 			send_command('wait 2 ;input //gs c autoWeaponSkill')
 		end
 	end
 		
 	function autoItemUse()
-	send_command('input /item "Silt Pouch" <me>')
+		send_command('input /item "Silt Pouch" <me>')
 		if (autoItem == true) then
 			send_command('wait 3 ;input //gs c autoItemUse')
 		end
@@ -731,6 +736,7 @@ function self_command(command)
 			autoItem = false
 			add_to_chat(122, command .. " off")
 		end
+	
 	elseif command == "autoItemUse" then
 		autoItemUse()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
@@ -741,6 +747,8 @@ function self_command(command)
 				end
 			add_to_chat(122, "Custom " .. modeSets[customSets[command]].suffix .." Set")
 		end
+	elseif string.find(command,"setAutoWS") then
+		setAutoWS(string.sub(command,11))
 	end
 end
     
