@@ -285,7 +285,6 @@
 	firstAuto = true
 	autoRoll = false
 	autoItem = false
-	send = false
 	autoWS = false
 	autoHaste = false
 

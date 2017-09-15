@@ -18,7 +18,7 @@ function get_sets()
 	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
 	modeSets["idleMode"].setModes = {"Default", "Pet", "Custom"}
-	modeSets["petMode"].setModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
+	modeSets["petMode"].setModes = {"Default","Tank","Hybrid", "Custom"}
 	
 	-- --- precast--------------------------------
 	sets.precast = {}
@@ -116,7 +116,7 @@ function get_sets()
 	sets.Pet.DD = set_combine(sets.Pet, sets.base.Pet.DD)
 	sets.Pet.Hybrid = set_combine(sets.Pet,{ body="Pitre Tobe +1", waist ="Hurch'lan Sash", head = "Tali'ah Turban"})
 	sets.Pet.DT = set_combine(sets.Pet,{neck="Twilight Torque", ring2="Dark Ring"})
-	sets.Pet.Tank = set_combine(sets.Pet.Base,{body = "Pitre Tobe +1",head = "Tali'ah Turban", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote", waist ="Hurch'lan Sash"})  	
+	sets.Pet.Tank = set_combine(sets.Pet.Base,{body = "Pitre Tobe +1",head = "Tali'ah Turban", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote", waist ="Isa Belt"})  	
 	sets.Pet.Idle = set_combine(sets.DT,sets.Pet.Tank)
 	sets.Pet.Idle.DD = set_combine(sets.DT, sets.base.Pet.DD)	
 	sets.Pet.Idle.Tank = set_combine(sets.DT, sets.Pet.Tank)
