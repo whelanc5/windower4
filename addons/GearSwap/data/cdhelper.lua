@@ -460,21 +460,13 @@ end
 function midcast(spell)
 	if sets.midcast[spell.english] then
         equip(sets.midcast[spell.english])
-	elseif cures[spell.english] and sets.midcast.Cure then
-		equip(sets.midcast.Cure)
-		local storm = storms[spell.element]
-			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
-				equip(sets.obi[spell.element])
-		end	
-	elseif curagas[spell.english] and sets.midcast.Curaga then
-		equip(sets.midcast.Curaga)
-		local storm = storms[spell.element]
-			if spell.element == world.weather_element or spell.element == world.day_element or buffactive[storm]  then
-				equip(sets.obi[spell.element])
-		end	
 	elseif  spell.action_type == 'Magic' then
 		local currSkill = magicSkills[spell.skill]
-		if sets.midcast[currSkill] then
+		if cures[spell.english] and sets.midcast.Cure then
+		equip(sets.midcast.Cure)
+		elseif curagas[spell.english] and sets.midcast.Curaga then
+		equip(sets.midcast.Curaga)		
+		elseif sets.midcast[currSkill] then
 			equip(sets.midcast[currSkill])
 		else
 			equip(sets.midcast.Magic)
