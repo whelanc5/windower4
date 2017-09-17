@@ -10,7 +10,7 @@ function get_sets()
 
 	
 	include('cdhelper.lua')
-	
+	currWS = "Last Stand"
 -------------------------------------------modes---------------------------------------------------------------------------------
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
