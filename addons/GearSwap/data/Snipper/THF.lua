@@ -26,7 +26,7 @@ function get_sets()
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
 	sets.base = {
-    head={ name="Taeon Chapeau", augments={'Accuracy+14 Attack+14','Pet: "Regen"+3',}},
+    head={ name="Herculean Helm"},
     body={ name="Rawhide Vest", augments={'HP+49','"Subtle Blow"+6','"Triple Atk."+2',}},
     hands={ name="Herculean Gloves", augments={'Accuracy+16','"Triple Atk."+3','DEX+1',}},
     legs={ name="Herculean Trousers", augments={'Attack+22','"Triple Atk."+3','DEX+10','Accuracy+15',}},
@@ -84,7 +84,7 @@ function get_sets()
 	sets.TP.Custom = set_combine(sets.TP,{})	
 	
 	----------------------------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base,{})
+	sets.DT = set_combine(sets.base,{head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1", hands="Meg. Gloves +1", legs="Meg. Chausses +1", })
     sets.DT.Default = sets.DT -- don't change this
 	sets.DT.Custom = sets.DT -- don't change this
 	sets.DT.Magic  = set_combine(sets.DT,{})
