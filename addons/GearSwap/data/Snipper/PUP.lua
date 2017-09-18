@@ -14,7 +14,7 @@ function get_sets()
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
 
 	
-	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Pet", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Pet", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
 	modeSets["idleMode"].setModes = {"Default", "Pet", "Custom"}
@@ -70,7 +70,7 @@ function get_sets()
 	sets.TP.Current = sets.TP
 	sets.TP.Default = set_combine(sets.TP,{})
     sets.TP.Acc = set_combine(sets.TP,{body = "Hiza. Haramaki +1", head="Hizamaru Somen +1", hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
-	sets.TP.Haste = set_combine(sets.TP,{body = "Rawhide Vest"})	
+	sets.TP.Haste = set_combine(sets.TP,{})	
     sets.TP.DT=  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" , back="Cheviot Cape"})
 	sets.TP.Pet= set_combine(sets.base,{ring1="Thurandaut Ring"})	
 	sets.TP.Custom = set_combine(sets.TP,{})
@@ -84,8 +84,8 @@ function get_sets()
 	
 	
 	------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", back="Cheviot Cape", head = "Naga Somen", hands = "Naga Tekko", waist = "Moonbow Belt"})
-    sets.DT.Default = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" , back="Cheviot Cape"})
+	sets.DT = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", back="Moonbeam Cape", head = "Naga Somen", hands = "Naga Tekko", waist = "Moonbow Belt"})
+    sets.DT.Default = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" })
 	sets.DT.Magic  = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head = "Naga Somen" , hands = "Naga Tekko"})
 	sets.DT.Full = sets.DT
 	sets.DT.Custom = sets.DT

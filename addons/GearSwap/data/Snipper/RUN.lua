@@ -14,7 +14,7 @@ function get_sets()
 ----------------------------------------------------------------------Base sets-------------------------------------------------------------------------------
 
 	
-	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste","Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["tpMode"].setModes = {"Default", "DT","Acc","Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	modeSets["dtMode"].setModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
 	modeSets["idleMode"].setModes = {"Default","Custom"}
@@ -59,9 +59,9 @@ function get_sets()
 	
 	
 	------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base,{neck="Twilight Torque",body="Meg. Cuirie +1", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1", waist = "Flume Belt"})
+	sets.DT = set_combine(sets.base,{back="Moonbeam Cape", neck="Twilight Torque",body="Meg. Cuirie +1", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1", waist = "Flume Belt"})
     sets.DT.Default = set_combine(sets.DT,{})
-	sets.DT.Magic  = set_combine(sets.DT,{})
+	sets.DT.Magic  = set_combine(sets.DT,{ back="Moonbeam Cape"})
 	sets.DT.Full = sets.DT
 	sets.DT.Custom = sets.DT
 	
@@ -85,7 +85,7 @@ function get_sets()
 	sets.TP.Default = set_combine(sets.TP,{})
     sets.TP.Acc = set_combine(sets.TP,{})	
 	sets.TP.Haste = set_combine(sets.TP,{})	
-    sets.TP.DT =  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1"})
+    sets.TP.DT =  set_combine(sets.DT,{back="Ogma's Cape"}})
 
 	sets.TP.Custom = set_combine(sets.TP,{})
 	
