@@ -41,7 +41,7 @@ function get_sets()
 
 	sets.base = {head="Herculean Helm",neck="Lissome Necklace",
         ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Rawhide Vest",hands="Herculean Gloves",
-        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Anguinus Belt",legs="Meg. Chausses +1",
+        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Ioskeha Belt",legs="Meg. Chausses +1",
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
 	sets.WS = set_combine(sets.base,{ hands="Meg. Gloves +1", legs = hercLegsSTR, ring2 = "Apate Ring", head="Meghanada Visor +1"})
@@ -59,7 +59,7 @@ function get_sets()
 	
 	
 	------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1"})
+	sets.DT = set_combine(sets.base,{neck="Twilight Torque",body="Meg. Cuirie +1", ring1="Dark Ring", ring2="Dark Ring", head="Meghanada Visor +1", hands="Meg. Gloves +1", waist = "Flume Belt"})
     sets.DT.Default = set_combine(sets.DT,{})
 	sets.DT.Magic  = set_combine(sets.DT,{})
 	sets.DT.Full = sets.DT

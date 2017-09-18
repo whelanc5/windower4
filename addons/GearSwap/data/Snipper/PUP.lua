@@ -43,7 +43,7 @@ function get_sets()
 
 
 	sets.base = {head="Herculean Helm",neck="Lissome Necklace",
-        ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Tali'ah Manteel",hands="Herculean Gloves",
+        ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Tali'ah Manteel +1",hands="Herculean Gloves",
         ring1="Hizamaru Ring",ring2="Epona's Ring", back=VisuciusDmg,waist="Moonbow Belt",legs= hercLegsTA,
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
