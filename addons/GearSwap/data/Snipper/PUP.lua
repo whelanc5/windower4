@@ -53,15 +53,15 @@ function get_sets()
 	sets.WS.Acc = set_combine(sets.WS,{ neck="Shifting Necklace +1"})	
     sets.precast.WS = sets.WS -- don't change
 	
-	sets.WS['Shijin Spiral'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget"})
-	sets.WS['Shijin Spiral'].Acc = set_combine(sets.WS.Acc, { ring1 = "Rajas Ring", neck="Shifting Necklace +1"})
+	sets.WS['Shijin Spiral'] = set_combine(sets.WS,{body="Tali'ah Manteel +1", ring1 = "Rajas Ring", Neck="Light Gorget", head = "Tali'ah Turban +1"})
+	sets.WS['Shijin Spiral'].Acc = sets.WS['Shijin Spiral']
 		
 	
 	sets.WS['Victory Smite'] = set_combine(sets.WS,{ring1 = "Rajas Ring", Neck="Light Gorget"})
-	sets.WS['Victory Smite'].Acc = set_combine(sets.WS.Acc, {})
+	sets.WS['Victory Smite'].Acc = sets.WS['Victory Smite']
 	
 	sets.WS['Stringing Pummel'] = set_combine(sets.WS, {ring1 = "Spiral Ring", Neck="Soil Gorget"})
-	sets.WS['Stringing Pummel'].Acc = set_combine(sets.WS['Stringing Pummel'], {neck="Shifting Necklace +1"})
+	sets.WS['Stringing Pummel'].Acc = sets.WS['Stringing Pummel']
 
 
 	-----------------------------------------------Tp---------------------------------------------------------------------------------------
@@ -69,7 +69,7 @@ function get_sets()
 	sets.aftercast.TP = sets.TP  
 	sets.TP.Current = sets.TP
 	sets.TP.Default = set_combine(sets.TP,{})
-    sets.TP.Acc = set_combine(sets.TP,{body = "Hiza. Haramaki +1", head="Hizamaru Somen +1", hands = "Ryuo Tekko", neck="Shifting Necklace +1"})	
+    sets.TP.Acc = set_combine(sets.TP,{ hands = "Ryuo Tekko", neck="Shifting Necklace +1", head = "Tali'ah Turban +1"})	
 	sets.TP.Haste = set_combine(sets.TP,{})	
     sets.TP.DT=  set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" , back="Cheviot Cape"})
 	sets.TP.Pet= set_combine(sets.base,{ring1="Thurandaut Ring"})	
@@ -107,9 +107,8 @@ function get_sets()
 	sets.midcast.Pet = {}	
 	sets.midcast.Pet.Cure = { }
 	sets.midcast.Pet['Elemental Magic'] = {hands = "Naga Tekko", head ="Rawhide Mask", Ear1 = "Burana Earring", Feet = "Cirque Scarpe +2"}
-	sets.midcast.Pet.WeaponSkill = set_combine(sets.TP.DD, {head= "Cirque Cappello +2",  hands = "Cirque Guanti +2", ear2 = "Burana Earring", body="Pitre Tobe +1", ring1="Thurandaut Ring", ear1="Domes. Earring", feet = "Naga Kyahan"})
 	sets.base.Pet = {}
-	sets.base.Pet.DD = {head = "Tali'ah Turban", hands = "Foire Dastanas +1", back="Visucius's Mantle", body="Pitre Tobe +1", ring1="Thurandaut Ring", waist ="Hurch'lan Sash", ear1="Domes. Earring", ear2="Burana Earring", feet = "Naga Kyahan", legs = "Tali'ah Seraweels"}
+	sets.base.Pet.DD = {head = "Tali'ah Turban +1", hands = "Foire Dastanas +1", back="Visucius's Mantle", body="Pitre Tobe +1", ring1="Thurandaut Ring", waist ="Hurch'lan Sash", ear1="Domes. Earring", ear2="Burana Earring", feet = "Naga Kyahan", legs = "Tali'ah Seraweels"}
 	sets.Pet = set_combine(sets.base,{ring1="Thurandaut Ring", back = VisuciusPet })	
 	sets.Pet.Base = set_combine(sets.base,{ring1="Thurandaut Ring", back = VisuciusPet })	
 	sets.Pet.Default = set_combine(sets.base,{ring1="Thurandaut Ring"})	

@@ -1,0 +1,2 @@
+hercLegsTA = { name="Herculean Trousers", augments={'Accuracy+29','"Triple Atk."+4','DEX+1'}}
+	hercLegsCrit = { name="Herculean Trousers", augments={'Attack+21','Crit.hit rate+5','AGI+8','Accuracy+10',}}
