@@ -23,6 +23,10 @@
 		send_command('bind !f12 gs c customPet')
 		send_command('bind ^f12 gs c petMode')
 		send_command('bind f12 gs c equipPet')
+	elseif player.main_job == "RUN"  then
+		send_command('bind ^f12 gs c tankMode')
+		send_command('bind !f12 gs c customTank')	
+		send_command('bind f12 gs c equipTank')
 	else 
 		send_command('bind !f12 gs c customElemental')
 		send_command('bind ^f12 gs c elementalMode')
@@ -232,6 +236,7 @@
 		["elementalMode"]= 	{num = 1, suffix = "Elemental",	 	tpType = 0, idleType = 0, midcastType = 1, precastType = 0,	setModes = elementalModes},
 		["idleMode"] = 		{num = 1, suffix = "Idle", 			tpType = 0, idleType = 1, midcastType = 0, precastType = 0, setModes = idleModes},
 		["rangeMode"] = 	{num = 1, suffix = "Ranged", 		tpType = 0, idleType = 0, midcastType = 1, precastType = 1, setModes = rangeModes},
+		["tankMode"] = 		{num = 1, suffix = "Tank", 		tpType = 1, idleType = 0, midcastType = 0, precastType = 0, setModes = tankModes},
 		["darknessMode"]= 	{num = 1, suffix = "Darkness",	 	tpType = 0, idleType = 0, midcastType = 0, precastType = 1,	setModes = darknessModes}}, 
 		{"num", "suffix", "tpType","idleType", "midcastType", "precastType", "setModes"}
 	
@@ -243,6 +248,7 @@
 		["equipIdle"] = 		"idleMode",
 		["equipRange"] = 		"rangeMode",
 		["equipElemental"] = 	"elementalMode",
+		["equipTank"] = 		"tankMode",
 	}
 	
 	customSets = {
@@ -273,7 +279,7 @@
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
-	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoHaste" ,"autoRoll"} --booleans
+	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoHaste" ,"autoRoll", "provoke"} --booleans
 	deploy = false
 	automaneuver = true
 	magicburst = false
@@ -282,12 +288,12 @@
 	petWS = false
 	rest = true
 	autocast = false 
-	firstAuto = true
+	--firstAuto = true
 	autoRoll = false
 	autoItem = false
 	autoWS = false
 	autoHaste = false
-
+	provoke = false
 	
 	
 	
@@ -508,6 +514,10 @@ function status_change(new,old)
         equip(sets.aftercast.TP)
 		if deploy == true then                          --deploys if deploy boolean is true
 			send_command('@input /ja deploy <t>')
+		end
+		if provoke == true then                          --deploys if deploy boolean is true
+			send_command('@wait 2 ;input /ja provoke <t>')
+			send_command('@input /follow <t>')
 		end
     end
 end
@@ -736,6 +746,12 @@ function self_command(command)
 	elseif command == "autoItemUse" then
 		autoItemUse()
 ----------------------------------------------------------------------------------------------custom sets----------------------------------------------------------------------------
+	elseif command == "auto" then 
+		send_command('wait 2 ;input //gs c provoke')
+		send_command('wait 2 ;input //gs c autoWS')
+		send_command('wait 2 ;input //gs c deploy')
+		send_command('wait 2 ;input //gs c autoRoll')
+		
 	elseif customSets[command] then
 		if sets[modeSets[customSets[command]].suffix] then
 				if sets[modeSets[customSets[command]].suffix].Custom ~= nil then

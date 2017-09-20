@@ -10,9 +10,11 @@
 
 wait 5;
 load LuaCore;
+load Config;
 load Sandbox;
 load Timers;
 lua load autocontrol;
+lua load enternity;
 lua load GearSwap;
 lua load latentchecker;
 lua load PetTP;
