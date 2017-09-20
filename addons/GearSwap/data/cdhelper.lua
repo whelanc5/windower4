@@ -751,6 +751,12 @@ function self_command(command)
 		send_command('wait 2 ;input //gs c autoWS')
 		send_command('wait 2 ;input //gs c deploy')
 		send_command('wait 2 ;input //gs c autoRoll')
+	elseif command == "mob" then
+		mobs = windower.ffxi.get_mob_array()
+		add_to_chat(122, player.target.name)
+		add_to_chat(122, player.target.hpp)
+		add_to_chat(122, player.target.id)
+		
 		
 	elseif customSets[command] then
 		if sets[modeSets[customSets[command]].suffix] then
