@@ -114,7 +114,7 @@ function get_sets()
 	sets.Pet.Base = set_combine(sets.base,{ring1="Thurandaut Ring", back = VisuciusPet })	
 	sets.Pet.Default = set_combine(sets.base,{ring1="Thurandaut Ring"})	
 	sets.Pet.DD = set_combine(sets.Pet, sets.base.Pet.DD)
-	sets.Pet.Hybrid = set_combine(sets.Pet,{ body="Pitre Tobe +1", waist ="Hurch'lan Sash", head = "Tali'ah Turban +1"})
+	sets.Pet.Hybrid = set_combine(sets.Pet,{ body="Pitre Tobe +1", head = "Tali'ah Turban +1"})
 	sets.Pet.DT = set_combine(sets.Pet,{neck="Twilight Torque", ring2="Dark Ring"})
 	sets.Pet.Tank = set_combine(sets.Pet.Base,{body = "Pitre Tobe +1",head = "Rao Kabuto", ear1="Handler's Earring +1", ear2="Handler's Earring", feet = "Rao Sune-Ate", legs = "Tali'ah Seraweels", hands = "Rao Kote", waist ="Isa Belt"})  	
 	sets.Pet.Custom = sets.Pet

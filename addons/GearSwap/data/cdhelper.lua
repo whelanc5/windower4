@@ -422,15 +422,15 @@ end
 ---------------------------------------------------------------------Pet aftercast-----------------------------------------------------------------
 --puts current tp/idle set on after a pet cast
 -- if petWS bool is on it turns it off
-function pet_aftercast(spell)   --put tp gear back on after pet
-	if player.status =='Engaged' then
+-- function pet_aftercast(spell)   --put tp gear back on after pet
+	-- if player.status =='Engaged' then
 		
-		equip(sets.aftercast.TP)
-    else
-        equip(sets.aftercast.Idle)
-    end
-	petWS = false
-  end
+		-- equip(sets.aftercast.TP)
+    -- else
+        -- equip(sets.aftercast.Idle)
+    -- end
+	-- petWS = false
+  -- end
 
 
 ---------------------------------------------------------------------aftercast-----------------------------------------------------------------

@@ -103,7 +103,7 @@ function get_sets()
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
 	sets.WS = set_combine(sets.base,{      ammo="Eminent Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
-    neck="Waylayer's Scarf +1", left_ear="Hecate's Earring", left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle",})--base set for weaponskill that isn't named
+    neck="Waylayer's Scarf +1",  left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle", waist = "Kwahu Kachina Belt"})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 
@@ -116,7 +116,7 @@ function get_sets()
 	
 
 	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
-	sets.Ranged = set_combine(sets.base,{ ammo = "Eminent Bullet", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle" })
+	sets.Ranged = set_combine(sets.base,{ ammo = "Eminent Bullet", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", waist = "Kwahu Kachina Belt" })
 	sets.midcast.Ranged = set_combine(sets.Ranged,{})
 	sets.precast.Ranged  = set_combine(sets.Ranged,{ammo = "Eminent Bullet",legs = "Nahtirah Trousers",feet="Meg. Jam. +1"})
 	----------------------------------------------------macro book--------------------------------------------------
