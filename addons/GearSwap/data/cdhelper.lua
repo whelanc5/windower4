@@ -517,7 +517,7 @@ function status_change(new,old)
 		end
 		if provoke == true then                          --deploys if deploy boolean is true
 			send_command('@wait 2 ;input /ja provoke <t>')
-			send_command('@input /follow <t>')
+			--send_command('@input /follow <t>')
 		end
     end
 end
@@ -750,7 +750,7 @@ function self_command(command)
 		send_command('wait 2 ;input //gs c provoke')
 		send_command('wait 2 ;input //gs c autoWS')
 		send_command('wait 2 ;input //gs c deploy')
-		send_command('wait 2 ;input //gs c autoRoll')
+		
 	elseif command == "mob" then
 		mobs = windower.ffxi.get_mob_array()
 		add_to_chat(122, player.target.name)
