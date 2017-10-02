@@ -27,10 +27,15 @@
 		send_command('bind ^f12 gs c tankMode')
 		send_command('bind !f12 gs c customTank')	
 		send_command('bind f12 gs c equipTank')
+	elseif player.main_job == "COR" then
+		send_command('bind ^f12 gs c rangeMode')
+		send_command('bind !f12 gs c customRange')	
+		send_command('bind f12 gs c equipRange')
 	else 
 		send_command('bind !f12 gs c customElemental')
 		send_command('bind ^f12 gs c elementalMode')
 		send_command('bind f12 gs c equipElemental')
+	
 	end
 	
 	if player.name == "Quadav" then

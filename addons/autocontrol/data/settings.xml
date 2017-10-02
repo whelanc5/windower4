@@ -12,7 +12,7 @@
                 <head>valoredge head</head>
                 <slot01>optic fiber ii</slot01>
                 <slot02>optic fiber</slot02>
-                <slot03>auto-repair kit iii</slot03>
+                <slot03>auto-repair kit iv</slot03>
                 <slot04>armor plate iv</slot04>
                 <slot05>mana jammer iv</slot05>
                 <slot06>coiler ii</slot06>
@@ -21,7 +21,7 @@
                 <slot09>attuner</slot09>
                 <slot10>inhibitor ii</slot10>
                 <slot11>speedloader ii</slot11>
-                <slot12>tension spring ii</slot12>
+                <slot12>tension spring iv</slot12>
             </overdrive>
             <rng>
                 <frame>sharpshot frame</frame>
@@ -57,19 +57,19 @@
             </rngexp>
             <tank>
                 <frame>valoredge frame</frame>
-                <head>valoredge head</head>
+                <head>soulsoother head</head>
                 <slot01>strobe ii</slot01>
-                <slot02>attuner</slot02>
-                <slot03>tension spring ii</slot03>
-                <slot04>coiler</slot04>
-                <slot05>turbo charger ii</slot05>
-                <slot06>turbo charger</slot06>
+                <slot02>strobe</slot02>
+                <slot03>resister</slot03>
+                <slot04>barrier module</slot04>
+                <slot05>mana jammer iii</slot05>
+                <slot06>mana jammer iv</slot06>
                 <slot07>armor plate iv</slot07>
                 <slot08>auto-repair kit iv</slot08>
                 <slot09>optic fiber ii</slot09>
                 <slot10>armor plate iii</slot10>
-                <slot11>coiler ii</slot11>
-                <slot12>inhibitor ii</slot12>
+                <slot11>flashbulb</slot11>
+                <slot12>optic fiber</slot12>
             </tank>
         </autosets>
         <bg>

@@ -1,0 +1,18 @@
+sets.exported={
+    main="Hepatizon Sapara",
+    sub="Demersal Degen",
+    range="Hgafircian +2",
+    ammo="Eminent Bullet",
+    head={ name="Herculean Helm", augments={'Accuracy+24 Attack+24','"Triple Atk."+2','Accuracy+6','Attack+10',}},
+    body="Meg. Cuirie +1",
+    hands={ name="Herculean Gloves", augments={'Attack+14','"Triple Atk."+4','Accuracy+15',}},
+    legs="Meg. Chausses +1",
+    feet={ name="Herculean Boots", augments={'Attack+17','"Triple Atk."+4','DEX+7','Accuracy+14',}},
+    neck="Ej Necklace",
+    waist="Hurch'lan Sash",
+    left_ear="Bladeborn Earring",
+    right_ear="Steelflash Earring",
+    left_ring="Meghanada Ring",
+    right_ring="Epona's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+}

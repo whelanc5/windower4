@@ -1,0 +1,18 @@
+sets.exported={
+    main="Hepatizon Sapara",
+    sub="Demersal Degen",
+    range="Hgafircian +2",
+    ammo="Eminent Bullet",
+    head="Pixie Hairpin +1",
+    body={ name="Rawhide Vest", augments={'HP+49','"Subtle Blow"+6','"Triple Atk."+2',}},
+    hands={ name="Herculean Gloves", augments={'"Mag.Atk.Bns."+25',}},
+    legs={ name="Herculean Trousers", augments={'"Mag.Atk.Bns."+24','Weapon skill damage +1%','STR+9',}},
+    feet={ name="Herculean Boots", augments={'"Mag.Atk.Bns."+21','MND+2','Mag. Acc.+8',}},
+    neck="Atzintli Necklace",
+    waist="Kwahu Kachina Belt",
+    left_ear="Hecate's Earring",
+    right_ear="Friomisi Earring",
+    left_ring="Hajduk Ring",
+    right_ring="Garuda Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+}

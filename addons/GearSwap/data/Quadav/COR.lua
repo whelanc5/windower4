@@ -26,13 +26,13 @@ function get_sets()
 	----------------------------------------------------------------------Base sets---------------------------------------------------------------------------------
 	-- i use this to use sets_combine to make other sets.
 	sets.base ={
-    head={ name="Herculean Helm", augments={'"Triple Atk."+3','STR+2','Accuracy+8',}},
+    head= hercHeadTP,
     body="Meg. Cuirie +1",
-    hands={ name="Herculean Gloves", augments={'Attack+14','"Triple Atk."+4','Accuracy+15',}},
+    hands= hercHandsTP,
     legs="Meg. Chausses +1",
-    feet={ name="Herculean Boots", augments={'"Triple Atk."+3','AGI+3','Accuracy+11',}},
+    feet= hercFeetTP,
     neck="Ej Necklace",
-    waist="Windbuffet Belt",
+    waist="Hurch'lan Sash",
 	ear1="Bladeborn Earring",
 	ear2="Steelflash Earring",
     left_ring="Meghanada Ring",
@@ -73,7 +73,7 @@ function get_sets()
 	sets.aftercast.TP = sets.TP -- don't change this
 	sets.TP.Custom = sets.TP -- don't change this
 	sets.TP.Default = sets.TP -- don't change this
-    sets.TP.Acc = set_combine(sets.TP,{waist ="Hurch'lan Sash", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1"})	
+    sets.TP.Acc = set_combine(sets.TP,{ head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1"})	
 	sets.TP.Haste = set_combine(sets.TP,{body = "Rawhide Vest", waist = "Windbuffet Belt"})	
  	
 	
@@ -102,13 +102,13 @@ function get_sets()
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
-	sets.WS = set_combine(sets.base,{      ammo="Eminent Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
-    neck="Waylayer's Scarf +1",  left_ring="Hajduk Ring", right_ring="Hajduk Ring", back="Camulus's Mantle", waist = "Kwahu Kachina Belt"})--base set for weaponskill that isn't named
+	sets.WS = set_combine(sets.base,{ ammo="Eminent Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
+    neck="Waylayer's Scarf +1",  left_ring="Garuda Ring", right_ring="Hajduk Ring", back="Camulus's Mantle", waist = "Kwahu Kachina Belt"})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
 
 	sets.WS.Acc = set_combine(sets.WS,{})
-	sets.WS['Leaden Salute'] = set_combine(sets.WS, {left_ear="Hecate's Earring", right_ear="Friomisi Earring", body = "Rawhide Vest"})
+	sets.WS['Leaden Salute'] = set_combine(sets.WS, {neck = "Atzintli Necklace", head = "Pixie Hairpin +1", left_ear="Hecate's Earring", right_ear="Friomisi Earring", body = "Rawhide Vest", legs = hercLegsMAB, feet = hercFeetMAB, hands = hercHandsMAB})
 	
   
 	----sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }
