@@ -15,7 +15,7 @@ function get_sets()
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
 -- All modes should have a "Default" entry
-	modeSets["tpMode"].setModes = {"Default", "Acc", "Haste", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
+	modeSets["tpMode"].setModes = {"Default", "Acc", "Acc2", "Haste", "Custom"} -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 	modeSets["dtMode"].setModes = {"Default", "Custom"} --sets.DT.Mode
 	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
 	modeSets["idleMode"].setModes = {"Default", "Custom"}
@@ -73,7 +73,8 @@ function get_sets()
 	sets.aftercast.TP = sets.TP -- don't change this
 	sets.TP.Custom = sets.TP -- don't change this
 	sets.TP.Default = sets.TP -- don't change this
-    sets.TP.Acc = set_combine(sets.TP,{ head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1"})	
+    sets.TP.Acc = set_combine(sets.TP,{ head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1"})
+	sets.TP.Acc2 = set_combine(sets.TP,{ head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1", hands="Meg. Gloves +1"})	
 	sets.TP.Haste = set_combine(sets.TP,{body = "Rawhide Vest", waist = "Windbuffet Belt"})	
  	
 	
@@ -108,7 +109,7 @@ function get_sets()
 	sets.WS.Default = sets.WS -- don't change this
 
 	sets.WS.Acc = set_combine(sets.WS,{})
-	sets.WS['Leaden Salute'] = set_combine(sets.WS, {neck = "Atzintli Necklace", head = "Pixie Hairpin +1", left_ear="Hecate's Earring", right_ear="Friomisi Earring", body = "Rawhide Vest", legs = hercLegsMAB, feet = hercFeetMAB, hands = hercHandsMAB})
+	sets.WS['Leaden Salute'] = set_combine(sets.WS, {waist = "Eschan Stone", neck = "Atzintli Necklace", head = "Pixie Hairpin +1", left_ear="Hecate's Earring", right_ear="Friomisi Earring", body = "Rawhide Vest", legs = hercLegsMAB, feet = hercFeetMAB, hands = hercHandsMAB})
 	
   
 	----sets.WS['Shijin Spiral'] = {ring1 = "Rajas Ring", Neck="Light Gorget" }

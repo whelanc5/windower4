@@ -64,9 +64,9 @@ function get_sets()
 	sets.WS['Stringing Pummel'].Acc = sets.WS['Stringing Pummel']
 
 		------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", back="Moonbeam Cape", head = "Naga Somen", hands = "Naga Tekko", waist = "Moonbow Belt"})
-    sets.DT.Default = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring" })
-	sets.DT.Magic  = set_combine(sets.base,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head = "Naga Somen" , hands = "Naga Tekko"})
+	sets.DT = set_combine(sets.base,{  back="Moonbeam Cape",neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head = "Naga Somen", hands = "Naga Tekko", waist = "Moonbow Belt"})
+    sets.DT.Default = sets.DT
+	sets.DT.Magic  = set_combine(sets.DT,{neck="Twilight Torque", ring1="Dark Ring", ring2="Dark Ring", head = "Naga Somen" , hands = "Naga Tekko"})
 	sets.DT.Full = sets.DT
 	sets.DT.Custom = sets.DT
 	-----------------------------------------------Tp---------------------------------------------------------------------------------------
