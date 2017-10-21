@@ -29,7 +29,7 @@ function get_sets()
     head= hercHeadTP,
     body="Meg. Cuirie +1",
     hands= hercHandsTP,
-    legs="Meg. Chausses +1",
+    legs="Meg. Chausses +2",
     feet= hercFeetTP,
     neck="Ej Necklace",
     waist="Hurch'lan Sash",
@@ -79,14 +79,14 @@ function get_sets()
  	
 	
 	----------------------------------------------------------------DT-----------------------------------------------------------------------------------------------
-	sets.DT = set_combine(sets.base, {head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1", hands="Meg. Gloves +1", legs="Meg. Chausses +1", left_ring="Meghanada Ring"})
+	sets.DT = set_combine(sets.base, {head="Meghanada Visor +1",  body="Meg. Cuirie +1",  feet="Meg. Jam. +1", hands="Meg. Gloves +1", left_ring="Meghanada Ring"})
     sets.DT.Default = sets.DT -- don't change this
 	sets.DT.Custom = sets.DT -- don't change this
 	sets.DT.Magic  = set_combine(sets.DT,{})
 	sets.DT.Full = set_combine(sets.DT,{})
 	
 	----------------------------------------------------------------IDLE---------------------------------------------------------------------------------------------
-	sets.Idle = set_combine(sets.base,{head="Meghanada Visor +1",body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", neck="Bathy Choker",feet="Hermes' Sandals"}) -- base set for idle
+	sets.Idle = set_combine(sets.base,{head="Meghanada Visor +1",body="Meg. Cuirie +1",hands="Meg. Gloves +1", neck="Bathy Choker",feet="Hermes' Sandals"}) -- base set for idle
 	sets.aftercast.Idle = sets.Idle -- don't change this
 	sets.Idle.Current = sets.Idle -- don't change this
 	sets.Idle.Default = sets.Idle -- don't change this
@@ -103,7 +103,7 @@ function get_sets()
 
 	----------------------------------------------------------------WS-----------------------------------------------------------------------------------------------
 	
-	sets.WS = set_combine(sets.base,{ ammo="Eminent Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1",legs="Meg. Chausses +1", feet="Meg. Jam. +1",
+	sets.WS = set_combine(sets.base,{ ammo="Eminent Bullet",head="Meghanada Visor +1", body="Meg. Cuirie +1",hands="Meg. Gloves +1", feet="Meg. Jam. +1",
     neck="Waylayer's Scarf +1",  left_ring="Garuda Ring", right_ring="Hajduk Ring", back="Camulus's Mantle", waist = "Kwahu Kachina Belt"})--base set for weaponskill that isn't named
 	sets.precast.WS = sets.WS -- -- don't change this 
 	sets.WS.Default = sets.WS -- don't change this
@@ -117,7 +117,7 @@ function get_sets()
 	
 
 	----------------------------------------------------------------Range----------------------------------------------------------------------------------------------
-	sets.Ranged = set_combine(sets.base,{ ammo = "Eminent Bullet", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",  legs="Meg. Chausses +1",  feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", waist = "Kwahu Kachina Belt" })
+	sets.Ranged = set_combine(sets.base,{ ammo = "Eminent Bullet", head="Meghanada Visor +1",  body="Meg. Cuirie +1",  hands="Meg. Gloves +1",   feet="Meg. Jam. +1", left_ring="Hajduk Ring", right_ring="Hajduk Ring",	 back="Camulus's Mantle", waist = "Kwahu Kachina Belt" })
 	sets.midcast.Ranged = set_combine(sets.Ranged,{})
 	sets.precast.Ranged  = set_combine(sets.Ranged,{ammo = "Eminent Bullet",legs = "Nahtirah Trousers",feet="Meg. Jam. +1"})
 	----------------------------------------------------macro book--------------------------------------------------

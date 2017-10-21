@@ -5,7 +5,7 @@ function get_sets()
 	-- /gs c deploy puts autodeploy on, when you engage it will cast deploy
 	-- /gs c automaneuver turns on automaneuver, when maneuvers wear it recasts them
 	--/ in my init file (windower/scripts/init.txt) f9 is bound to sent /gs c changeTP 
-	
+	currWS = 'Resolution'
 	
 	include('cdhelper.lua')
 
@@ -39,9 +39,9 @@ function get_sets()
 	sets.Blue.Cure = {}
 
 
-	sets.base = {head="Herculean Helm",neck="Lissome Necklace",
+	sets.base = {head="Skormoth Mask",neck="Lissome Necklace",
         ear1="Bladeborn Earring",ear2="Steelflash Earring",body="Rawhide Vest",hands="Herculean Gloves",
-        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Ioskeha Belt",legs="Meg. Chausses +1",
+        ring1="Rajas Ring",ring2="Epona's Ring", back="Ogma's Cape", waist ="Ioskeha Belt",legs="Meg. Chausses +2",
         feet= hercFeetTA}
 	--------------------------------------------------WS-----------------------------------------------------------------------
 	sets.WS = set_combine(sets.base,{body="Meg. Cuirie +1", hands="Meg. Gloves +1",body="Meg. Cuirie +1", legs = hercLegsSTR, ring2 = "Apate Ring", head="Meghanada Visor +1"})

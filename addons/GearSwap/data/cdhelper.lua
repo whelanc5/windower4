@@ -187,7 +187,7 @@
         ["Geomancy"]       		= "Geomancy",
         ["Singing Skill"]       = "Song",
         ["Blue Magic"]    		= "Blue",
-        ["Dark Magic"]     		= "Dark",
+        ["Dark Magic"]     		= "Darkness",
         ["Enhancing Magic"]     = "Enhancing",
         ["Ninjutsu"]       		= "Ninjutsu",
         ["Summoning Magic"]     = "Summoning",
@@ -327,6 +327,10 @@ function buff_change(name, gain)
 	if not gain and autoHaste and  name == "Haste" then
 		add_to_chat(122,name)
 		send_command('send haste 2 ' .. player.name)
+	end
+	if not gain  and  name == "Hasso" then
+		add_to_chat(122,name)
+		send_command(name)
 	end
 end
 --------------------------------------------------------------------autoRange function for automatic range attacks---------------------------------------------------------------
@@ -521,7 +525,7 @@ function status_change(new,old)
 			send_command('@input /ja deploy <t>')
 		end
 		if provoke == true then                          --deploys if deploy boolean is true
-			send_command('@wait 2 ;input /ja provoke <t>')
+			send_command('@wait 2 ;input /ja Flash <t>')
 			--send_command('@input /follow <t>')
 		end
     end
