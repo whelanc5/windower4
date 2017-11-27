@@ -414,7 +414,7 @@ enums[0x033] = {
 -- Sent when accepting, confirming or canceling a trade
 fields.outgoing[0x033] = L{
     {ctype='unsigned int',      label='Type',               fn=e+{0x033}},      -- 04
-    {ctype='data[4]',           label='_unknown1'}                              -- 08
+    {ctype='unsigned int',      label='Trade Count'}                            -- 08   Necessary to set if you are receiving items, comes from incoming packet 0x023
 }
 
 -- Trade offer
@@ -577,14 +577,10 @@ func.outgoing[0x04E][0x10] = L{
 }
 
 -- Auction Interaction
-fields.outgoing[0x04E] = function()
-    local self = func.outgoing[0x04E]
-    local fields = self.base
-
-    return function(data, type)
-        return self.base + (self[type or data:byte(5)] or L{})
-    end
-end()
+fields.outgoing[0x04E] = function(data, type)
+    type = type or data and data:byte(5)
+    return func.outgoing[0x04E].base  + (func.outgoing[0x04E][type] or L{})
+end
 
 -- Equip
 fields.outgoing[0x050] = L{
@@ -3071,7 +3067,11 @@ types.guild_entry = L{
 }
 -- Guild Inv List
 fields.incoming[0x083] = L{
-    {ref=types.guild_entry,     label='Item',               count='*'},         -- 04
+    {ref=types.guild_entry,     label='Item',               count='30'},        -- 04
+    {ctype='unsigned char',     label='Item Count'},                            -- F4
+    {ctype='bit[4]',            label='Order'},                                 -- F5
+    {ctype='bit[4]',            label='_unknown'},                              
+    {ctype='unsigned short',    label='_padding'}                               -- F6
 }
 
 -- Guild Sell Response
@@ -3084,7 +3084,11 @@ fields.incoming[0x084] = L{
 
 -- Guild Sale List
 fields.incoming[0x085] = L{
-    {ref=types.guild_entry,     label='Item',               count='*'},         -- 04
+    {ref=types.guild_entry,     label='Item',               count='30'},        -- 04
+    {ctype='unsigned char',     label='Item Count'},                            -- F4
+    {ctype='bit[4]',            label='Order'},                                 -- F5
+    {ctype='bit[4]',            label='_unknown'},                              
+    {ctype='unsigned short',    label='_padding'}                               -- F6
 }
 -- Guild Open
 -- Sent to update guild status or open the guild menu.
@@ -3492,7 +3496,11 @@ types.roe_quest = L{
 -- Eminence Update
 fields.incoming[0x111] = L{
     {ref=types.roe_quest,       count=30},                                      -- 04
+    {ctype='data[132]',         label='_junk'},                                 -- 7C   All 0s observed. Likely reserved in case they decide to expand allowed objectives.
+    {ctype='bit[12]',           label='Limited Time RoE Quest ID'},             -- 100
+    {ctype='bit[20]',           label='Limited Time RoE Quest Progress'},       -- 101 upper 4
 }
+
 
 -- RoE Quest Log
 fields.incoming[0x112] = L{
