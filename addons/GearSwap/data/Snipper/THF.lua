@@ -14,12 +14,12 @@ function get_sets()
 -- These are the sets that will cycle Modes, just make sure the set matches the name here ex: sets.TP.Name will equip if "Name" is in this list
 -- remove modes by deleting the string, make sure not to leave an extra comma
 -- All modes should have a "Default" entry
-	tpModes = { "Acc", "TH",  "Default", "Custom"} 
-	dtModes = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
-	wsModes = {"Default", "Acc"}  --sets.WS.Mode
-	idleModes = {"Default", "DT", "TH", "Custom"}
-	petModes = {"Default","Tank", "DD", "Hybrid", "Custom"}
-	nukeModes ={"Default"}
+	modeSets["tpMode"].setModes = { "Acc", "TH",  "Default", "Custom"} 
+	modeSets["dtMode"].setModes  = {"Default", "Magic", "Full", "Custom"} --sets.DT.Mode
+	modeSets["wsMode"].setModes = {"Default", "Acc"}  --sets.WS.Mode
+	modeSets["elementalMode"].setModes = {"Default", "DT", "TH", "Custom"}
+	modeSets["idleMode"].setModes = {"Default", "DT", "TH", "Custom"}
+
 	
 	
 	
@@ -61,6 +61,7 @@ function get_sets()
 	sets.precast.Magic.Healing = nil --set to a set if going to be used
 	----------------------------------------------------------------NUKE---------------------------------------------------------------------------------------------
 	--changes sets.midcast.Elemental to this set based on mode
+	sets.Default = {}
 	sets.Nuke = {}
 	sets.Nuke.Default = {} -- don't change this
 	sets.Nuke.Custom = {} -- don't change this

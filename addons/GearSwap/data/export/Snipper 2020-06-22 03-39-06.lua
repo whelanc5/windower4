@@ -1,0 +1,17 @@
+sets.exported={
+    main="Karambit",
+    range="Animator P",
+    ammo="Automat. Oil +3",
+    head="Karagoz Capello +1",
+    body={ name="Pitre Tobe +3", augments={'Enhances "Overdrive" effect',}},
+    hands={ name="Rao Kote", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
+    legs={ name="Taeon Tights", augments={'Accuracy+19 Attack+19','Pet: "Dbl. Atk."+4','STR+5 CHR+5',}},
+    feet={ name="Naga Kyahan", augments={'Pet: HP+70','Pet: Accuracy+19','Pet: Attack+19',}},
+    neck="Lissome Necklace",
+    waist="Klouskap Sash",
+    left_ear="Domes. Earring",
+    right_ear="Burana Earring",
+    left_ring="Thurandaut Ring",
+    right_ring="Varar Ring +1",
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10',}},
+}

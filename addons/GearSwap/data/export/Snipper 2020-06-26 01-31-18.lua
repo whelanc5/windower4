@@ -1,0 +1,17 @@
+sets.exported={
+    main="Karambit",
+    range="Animator P",
+    ammo="Automat. Oil +3",
+    head="Hizamaru Somen +1",
+    body="Hiza. Haramaki +2",
+    hands={ name="Ryuo Tekko", augments={'DEX+10','Accuracy+20','"Dbl.Atk."+3',}},
+    legs="Hiza. Hizayoroi +2",
+    feet="Hiza. Sune-Ate +1",
+    neck="Lissome Necklace",
+    waist="Moonbow Belt",
+    left_ear="Bladeborn Earring",
+    right_ear="Steelflash Earring",
+    left_ring="Niqmaddu Ring",
+    right_ring="Epona's Ring",
+    back={ name="Visucius's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Crit.hit rate+10',}},
+}

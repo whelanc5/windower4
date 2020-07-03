@@ -1,0 +1,18 @@
+sets.exported={
+    main="Kaja Sword",
+    sub="Nusku Shield",
+    range={ name="Holliday", augments={'"Rapid Shot"+4','Rng.Acc.+30','Rng.Atk.+19','DMG:+25',}},
+    ammo="Eminent Bullet",
+    head="Pixie Hairpin +1",
+    body={ name="Rawhide Vest", augments={'HP+49','"Subtle Blow"+6','"Triple Atk."+2',}},
+    hands={ name="Herculean Gloves", augments={'Mag. Acc.+20 "Mag.Atk.Bns."+20','"Fast Cast"+5','MND+7','"Mag.Atk.Bns."+10',}},
+    legs={ name="Herculean Trousers", augments={'Mag. Acc.+15 "Mag.Atk.Bns."+15','"Mag.Atk.Bns."+24','Accuracy+15 Attack+15',}},
+    feet={ name="Herculean Boots", augments={'Mag. Acc.+18 "Mag.Atk.Bns."+18','STR+7','"Mag.Atk.Bns."+13',}},
+    neck="Sanctity Necklace",
+    waist="Eschan Stone",
+    left_ear={ name="Moonshade Earring", augments={'"Mag.Atk.Bns."+4','TP Bonus +250',}},
+    right_ear="Friomisi Earring",
+    left_ring="Garuda Ring",
+    right_ring="Apate Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+}

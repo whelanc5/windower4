@@ -1,0 +1,18 @@
+sets.exported={
+    main="Kaja Sword",
+    sub="Nusku Shield",
+    range={ name="Holliday", augments={'"Mag.Atk.Bns."+20','DEX+4','Rng.Acc.+24','Rng.Atk.+28','DMG:+10',}},
+    ammo="Eminent Bullet",
+    head={ name="Herculean Helm", augments={'Accuracy+24 Attack+24','"Triple Atk."+2','Accuracy+6','Attack+10',}},
+    body="Meg. Cuirie +2",
+    hands="Mummu Wrists +2",
+    legs="Meg. Chausses +2",
+    feet={ name="Herculean Boots", augments={'Attack+17','"Triple Atk."+4','DEX+7','Accuracy+14',}},
+    neck="Ej Necklace",
+    waist="Hurch'lan Sash",
+    left_ear="Bladeborn Earring",
+    right_ear="Steelflash Earring",
+    left_ring="Meghanada Ring",
+    right_ring="Epona's Ring",
+    back={ name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Damage taken-5%',}},
+}

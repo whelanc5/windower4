@@ -1,6 +1,49 @@
 
-	include('augments.lua')
+include('augments.lua')
+--Event Ids
+petWsId =0
+wsId= 0;
+
+
+--vars	
+
+--Fix missing Pet.TP field by getting the packets from the fields lib
+packets = require('packets')
+function update_pet_tp(id,data) 
 	
+	  -- player_tp = packets.parse('incoming', data)["TP"]
+	 --if player_tp ~= nil then
+		
+	--	if autoWS and player_tp > 999 then
+	--	windower.send_command('lua c gearswap c autoWeaponSkill ')
+	--	end+
+	
+	-- end
+    if id == 0x068 or id == 0x067 then
+	 pet_tp = packets.parse('incoming', data)["Pet TP"]
+		if pet_tp ~= nil then	
+			if pet_tp > 999 and pet.status== "Engaged" then
+			windower.send_command('lua c gearswap equip sets.Pet.WS')
+			end
+		
+		end
+	end
+	
+end
+
+currTP =0
+function update_tp(new, old)
+    
+	if new > 999  and player.status == "Engaged"  and player.tp > currTP  then
+		--windower.send_command('lua c gearswap c ' .. currWS)
+		send_command('input / '.. currWS ..' <t>')	
+		add_to_chat(122, "autoWS")
+	end
+	
+end
+
+
+
 	
 	
 	send_command('bind f9 gs c equipTP')
@@ -284,7 +327,7 @@
 ----------------------------------------------------------------------------------------------Booleans----------------------------------------------------------------------------------------------------------------------------------------------
 	--These are booleans 
 	
-	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoHaste" ,"autoRoll", "provoke"} --booleans
+	booleans = S{"magicburst", "deploy", "automaneuver", "rune", "rest", "autoHaste" ,"autoRoll", "provoke",  "swaps"} --booleans
 	deploy = false
 	automaneuver = true
 	magicburst = false
@@ -299,6 +342,7 @@
 	autoWS = false
 	autoHaste = false
 	provoke = false
+	swaps = true
 	
 	
 	
@@ -345,20 +389,15 @@ end
 	end
 	currWS = "Victory Smite"
 	function setAutoWS(wsName)
-		currWS = wsName
+		currWS = wsName		
 		add_to_chat(122,currWS)
 	end
-	function autoWeaponSkill()
-		if player.in_combat and (player.target ~= nil) and player.tp > 999 then
-			send_command('input / '.. currWS ..' <t>')
-		end
-		if (autoWS == true) then
-			send_command('wait 2 ;input //gs c autoWeaponSkill')
-		end
-	end
+	
+	
+
 		
 	function autoItemUse()
-		send_command('input /item "Silt Pouch" <me>')
+		send_command('input /item "Frayed Sack (Fer)" <me>')
 		if (autoItem == true) then
 			send_command('wait 3 ;input //gs c autoItemUse')
 		end
@@ -374,8 +413,10 @@ end
 -- if sets.precast.maneuver is set it will equip that set when any maneuver is used
 -- if sets.precast.Waltz is set, it will equip that set when any maneuver is used
 function precast(spell)	
+	if swaps == false then
+		add_to_chat(122, "swaps disabled")
 	
-	if sets.precast[spell.english] then	
+	elseif sets.precast[spell.english] then	
         equip(sets.precast[spell.english])
 	elseif cures[spell.english] and sets.precast.Cure then
 		equip(sets.precast.Cure)
@@ -421,39 +462,43 @@ function precast(spell)
 -- will equip pet magic sets if they exists
 -- sets.midcast.Pet['Elemental Magic']
 function pet_midcast(spell)
-	if petWeaponskills:contains(spell.english) then   --petWeaponskills equip 
-	-- equip(sets.midcast.Pet.WeaponSkill) 
-	elseif spell.skill == 'Elemental Magic' then
-		equip(sets.midcast.Pet['Elemental Magic'])
+	if petWS then
+		if swaps == false then
+			add_to_chat(122, "swaps disabled")
+		elseif spell.skill == 'Elemental Magic' then
+			equip(sets.midcast.Pet['Elemental Magic'])
+		end
 	end
   
 end
 ---------------------------------------------------------------------Pet aftercast-----------------------------------------------------------------
 --puts current tp/idle set on after a pet cast
--- if petWS bool is on it turns it off
--- function pet_aftercast(spell)   --put tp gear back on after pet
-	-- if player.status =='Engaged' then
-		
-		-- equip(sets.aftercast.TP)
-    -- else
-        -- equip(sets.aftercast.Idle)
-    -- end
-	-- petWS = false
-  -- end
+ --if petWS bool is on it turns it off
 
+function pet_aftercast(spell)
+	if petWS then
+		if swaps == false then
+			add_to_chat(122, "swaps disabled")
+		elseif player.status =='Engaged' then
+			equip(sets.aftercast.TP)
+		else
+			equip(sets.aftercast.Idle)
+		end
+	end
+	
+end
 
 ---------------------------------------------------------------------aftercast-----------------------------------------------------------------
 --puts current tp/idle set on after a  cast
 function aftercast(spell)
-    if player.status =='Engaged' then
+	if swaps == false then
+		add_to_chat(122, "swaps disabled")
+    elseif player.status =='Engaged' then
         equip(sets.aftercast.TP)
     else
         equip(sets.aftercast.Idle)
     end
-	if  spell.type=="WeaponSkill" then
-		petWS = false
-		
-	end
+	
 end
 
 
@@ -473,7 +518,9 @@ end
 -- sets.Blue.
 
 function midcast(spell)
-	if sets.midcast[spell.english] then
+	if swaps == false then
+		add_to_chat(122, "swaps disabled")
+	elseif sets.midcast[spell.english] then
         equip(sets.midcast[spell.english])
 	elseif  spell.action_type == 'Magic' then
 		local currSkill = magicSkills[spell.skill]
@@ -517,7 +564,9 @@ end
 -----------------------------------------------------------status change-------------------------------------------------------------
 
 function status_change(new,old)
-    if T{'Idle','Resting'}:contains(new) then
+	if swaps == false then
+		add_to_chat(122, "swaps disabled")
+    elseif T{'Idle','Resting'}:contains(new) then
         equip(sets.aftercast.Idle)
     elseif new == 'Engaged' then
         equip(sets.aftercast.TP)
@@ -617,45 +666,9 @@ function customSet()
         feet= player.equipment.feet}
 		--add_to_chat(122, set)
 end
-	
 
 function self_command(command)
-	-- if command == "c1" then --equip tp C1 -- f9
-		-- self_command("equipTP") 
-	-- elseif command == "c12" then --changeTP mode c12 - crtl f9
-		-- self_command("tpMode")
-	-- elseif command == "c13" then
-		-- self_command("customTP")
-	-- elseif command == "c14" then
-		-- self_command("customPet")
-	-- elseif command == "c2" then
-		-- self_command("equipDT")
-	-- elseif command == "c22" then
-		-- self_command("dtMode")
-	-- elseif command == "c23" then
-		-- self_command("wsMode")
-	-- --elseif command == "c24" then
-	-- --	self_command("tpMode")
-	-- elseif command == "c3" then
-		-- self_command("equipIdle")
-	-- elseif command == "c32" then
-		-- self_command("idleMode")
-	-- elseif command == "c33" then
-		-- self_command("rangeMode")
-	-- --elseif command == "c34" then
-	-- --	self_command("Pet/Nuke")
-	-- elseif command == "c4" then
-		
-	-- elseif command == "c42" then
-		-- if player.main_job == "PUP" then
-			-- self_command("petMode")
-		-- else
-			-- self_command("elementalMode")
-		-- end
-	-- --elseif command == "c43" then
-	--	self_command("equipTP")
-	--elseif command == "c44" then
-	--	self_command("tpMode")
+
 	--------------------------------------------------------------------------------Modes--------------------------------------------------------------------------------------------------------------
 
 	if modeSets[command] ~= nil then 		
@@ -664,17 +677,6 @@ function self_command(command)
 		else
 		--add_to_chat(122,  modeSets[command].num)
 			modeChange(modeSets[command])
-		end
-	elseif command == "petWS"  then -- type gs c petWS to change to petws gear
-		if petWS == false then
-			if sets.midcast.Pet.WeaponSkill ~= nil then
-				equip(sets.midcast.Pet.WeaponSkill)
-				add_to_chat("PetWS Gear on")
-				petWS = true
-				end
-		else
-			equip(sets.aftercast.TP)
-			petWS = false
 		end
 ---------------------------------------------------------------equip sets ---------------------------------------------------------------------------------------------------------------
 	elseif equipSets[command] ~= nil then
@@ -735,9 +737,22 @@ function self_command(command)
 		if autoWS == false then 
 			autoWS = true
 			add_to_chat(122, command .. " on")
-			send_command('wait 2 ;input //gs c autoWeaponSkill')
+			wsId= windower.register_event('tp change', update_tp)
+			
+			
 		else 
 			autoWS = false
+			wsId = windower.unregister_event(wsId)
+			add_to_chat(122, command .. " off")
+		end
+	elseif command == "petWS" then
+		if petWS == false then 
+			petWS = true
+			petWsId = windower.raw_register_event('incoming chunk', update_pet_tp)
+			add_to_chat(122, command .. " on")			
+		else 
+			petWS = false
+			petWsId = windower.unregister_event(petWsId)
 			add_to_chat(122, command .. " off")
 		end
 	elseif command == "autoWeaponSkill" then
@@ -774,8 +789,9 @@ function self_command(command)
 				end
 			add_to_chat(122, "Custom " .. modeSets[customSets[command]].suffix .." Set")
 		end
-	elseif string.find(command,"setAutoWS") then
-		setAutoWS(string.sub(command,11))
+	elseif string.find(command,"setWS") then
+		setAutoWS(string.sub(command,7))
+		add_to_chat(122, command)
 	end
 end
     

@@ -1,0 +1,17 @@
+sets.exported={
+    main={ name="Ohtas", augments={'Accuracy+70','Pet: Accuracy+70','Pet: Haste+10%',}},
+    range="Animator P",
+    ammo="Automat. Oil +3",
+    head="Tali'ah Turban +1",
+    body={ name="Pitre Tobe +1", augments={'Enhances "Overdrive" effect',}},
+    hands={ name="Rao Kote", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
+    legs="Tali'ah Seraweels",
+    feet={ name="Rao Sune-Ate", augments={'Pet: HP+100','Pet: Accuracy+15','Pet: Damage taken -3%',}},
+    neck="Twilight Torque",
+    waist="Isa Belt",
+    left_ear="Domes. Earring",
+    right_ear="Burana Earring",
+    left_ring="Thurandaut Ring",
+    right_ring="Overbearing Ring",
+    back={ name="Visucius's Mantle", augments={'Pet: Acc.+20 Pet: R.Acc.+20 Pet: Atk.+20 Pet: R.Atk.+20','Accuracy+20 Attack+20','Pet: Haste+10',}},
+}

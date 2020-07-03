@@ -26,13 +26,15 @@
 
 function export_set(options)
     local item_list = T{}
-    local targinv,all_items,xml,all_sets,use_job_in_filename,use_subjob_in_filename,overwrite_existing
+    local targinv,all_items,xml,all_sets,use_job_in_filename,use_subjob_in_filename,overwrite_existing,named_file
     if #options > 0 then
         for _,v in ipairs(options) do
             if S{'inventory','inv','i'}:contains(v:lower()) then
                 targinv = true
             elseif v:lower() == 'all' then
                 all_items = true
+            elseif v:lower() == 'wearable' then
+                wearable = true
             elseif S{'xml'}:contains(v:lower()) then
                 xml = true
             elseif S{'sets','set','s'}:contains(v:lower()) then
@@ -47,13 +49,21 @@ function export_set(options)
                 use_subjob_in_filename = true
             elseif v:lower() == 'overwrite' then
                 overwrite_existing = true
+            elseif S{'filename','file','f'}:contains(v:lower()) then
+                named_file = true
+            else
+                if named_file then
+                    filename = v
+                end
             end
         end
     end
     
     local buildmsg = 'Exporting '
     if all_items then
-        buildmsg = buildmsg..'your all items'
+        buildmsg = buildmsg..'all your items'
+    elseif wearable then
+        buildmsg = buildmsg..'all your items in inventory and wardrobes'
     elseif targinv then
         buildmsg = buildmsg..'your current inventory'
     elseif all_sets then
@@ -61,6 +71,7 @@ function export_set(options)
     else
         buildmsg = buildmsg..'your currently equipped gear'
     end
+
     if xml then
         buildmsg = buildmsg..' as an xml file.'
     else
@@ -71,6 +82,8 @@ function export_set(options)
         buildmsg = buildmsg..' (Naming format: Character_JOB)'
     elseif use_subjob_in_filename then
         buildmsg = buildmsg..' (Naming format: Character_JOB_SUB)'
+    elseif named_file then
+        buildmsg = buildmsg..' (Named: Character_'..filename..')'
     end
     
     if overwrite_existing then
@@ -86,6 +99,10 @@ function export_set(options)
     if all_items then
         for i = 0, #res.bags do
             item_list:extend(get_item_list(items[res.bags[i].english:gsub(' ', ''):lower()]))
+        end
+    elseif wearable then
+        for _, v in pairs(equippable_item_bags) do
+            item_list:extend(get_item_list(items[v.english:gsub(' ', ''):lower()]))
         end
     elseif targinv then
         item_list:extend(get_item_list(items.inventory))
@@ -158,6 +175,8 @@ function export_set(options)
         path = path..'_'..windower.ffxi.get_player().main_job
     elseif use_subjob_in_filename then
         path = path..'_'..windower.ffxi.get_player().main_job..'_'..windower.ffxi.get_player().sub_job
+    elseif named_file then
+        path = path..'_'..filename
     else
         path = path..os.date(' %Y-%m-%d %H-%M-%S')
     end

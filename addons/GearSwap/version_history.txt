@@ -1,4 +1,14 @@
 -------------------------------------------------
+GearSwap 0.935 - Filter enchanted items with duplicate names.
+-------------------------------------------------
+GearSwap 0.934 - Fixed /item command handling.
+-------------------------------------------------
+GearSwap 0.933 - Adjusted how item use packets are chosen. 
+-------------------------------------------------
+GearSwap 0.932 - Fixed bug that prevented gearswap from identifying items by their bag when worn. 
+-------------------------------------------------
+GearSwap 0.931 - Added support to exporting with custom file names. 
+-------------------------------------------------
 GearSwap 0.930 - Fixed a problem with player[bag][item_name].count in the user environment.
 -------------------------------------------------
 GearSwap 0.929 - Adjusted the print_set function to give preference and order to slot name keys.

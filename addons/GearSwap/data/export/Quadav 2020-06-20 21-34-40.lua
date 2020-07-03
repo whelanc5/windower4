@@ -1,0 +1,17 @@
+sets.exported={
+    main="Kaja Sword",
+    range={ name="Holliday", augments={'"Mag.Atk.Bns."+20','DEX+4','Rng.Acc.+24','Rng.Atk.+28','DMG:+10',}},
+    ammo="Eminent Bullet",
+    head="Mummu Bonnet +1",
+    body="Meg. Cuirie +2",
+    hands="Mummu Wrists +2",
+    legs="Mummu Kecks +1",
+    feet="Mummu Gamash. +1",
+    neck="Sanctity Necklace",
+    waist="Kwahu Kachina Belt",
+    left_ear="Friomisi Earring",
+    right_ear="Hecate's Earring",
+    left_ring="Meghanada Ring",
+    right_ring="Epona's Ring",
+    back={ name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Weapon skill damage +10%',}},
+}
